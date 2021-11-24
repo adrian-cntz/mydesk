@@ -1,5 +1,5 @@
 'use strict';
-//const User = require('../models/users_model');
+const dbModel = require('../models/users_model');
 const poolDB = require('../config/db');
 
 
@@ -15,15 +15,19 @@ const getAllUsers = async (req, res, next) => {
     })
 }
 
+const getUser = async (req, res, next) => {
+    //poolDB.findOne
+}
+
 //AGREGAR
 const addUser = async (req, res, next) => {
-   
+   //poolDB.create()
 }
 
 module.exports = {
     addUser, 
-    getAllUsers
-    //getUser,
+    getAllUsers,
+    getUser,
     //updateUser,
     //deleteUser
 }
