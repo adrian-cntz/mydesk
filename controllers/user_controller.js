@@ -16,12 +16,28 @@ const getAllUsers = async (req, res, next) => {
 }
 
 const getUser = async (req, res, next) => {
-    //poolDB.findOne
+    const id = req.params.id;
+    poolDB.query('SELECT * from usuarios WHERE id_usuario = '+ id, (err, rows, fields) =>{
+        if(!err){
+            res.send(rows)
+        }
+        else{
+            console.error(err)
+        }
+    })
 }
 
 //AGREGAR
 const addUser = async (req, res, next) => {
-   //poolDB.create()
+    const data = req.body;
+    /*poolDB.query('INSERT INTO `usuarios`(`id_usuario`, `nombre`, `mail`, `legajo`, `password`, `empresa_id`, `escritorio_id`, `edificio_id`, `es_admin`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]'), (err, rows, fields) =>{
+        if(!err){
+            res.send(rows)
+        }
+        else{
+            console.error(err)
+        }
+    })*/
 }
 
 module.exports = {
