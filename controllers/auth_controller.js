@@ -1,5 +1,5 @@
 'use strict';
-const poolDB = require('../config/db');
+const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
 
 const login = async (req, res) => {
