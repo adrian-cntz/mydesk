@@ -1,6 +1,7 @@
 'use strict';
-const dbModel = require('../database/models/users_model');
-const poolDB = require('../database/config/db');
+const dbModel = require('../models/users_model');
+const poolDB = require('../config/db');
+const bcryptjs = require('bcryptjs');
 
 
 //OBTENER TODOS
@@ -33,16 +34,18 @@ const getUser = async (req, res, next) => {
 //AGREGAR
 const addUser = async (req, res, next) => {
     const sql = 'INSERT INTO usuarios SET ?';
+    let passHaash = await bcryptjs.hash(req.body.password, 4);
     const data = {
         nombre: req.body.nombre,
         mail: req.body.mail,
-        password: req.body.password,
+        password: passHaash,
         legajo: req.body.legajo,
         empresa_id: 1,
         escritorio_id: 1,
         edificio_id: 1,
         es_admin: 0
     };
+
     poolDB.query(sql, data, (err, rows, fields) =>{
         if(!err){
             res.send(rows)
@@ -57,9 +60,9 @@ const addUser = async (req, res, next) => {
 //ACTUALIZAR
 const updateUser = async (req, res, next) => {
     const id = req.params.id;
-    const {nombre, mail, password} = req.params;
+    const {nombre, mail, password} = req.body;
     const sql = `UPDATE usuarios SET nombre= '${nombre}', mail='${mail}', password= '${password}' WHERE id_usuario = ${id}`;
-    poolDB.query(sql, (err, rows, fields) =>{
+    await poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.send("El usuario se actualizo correctamente!");
         }
@@ -72,9 +75,10 @@ const updateUser = async (req, res, next) => {
 //ELIMINAR
 const deleteUser = async (req, res, next) => {
     const id = req.params.id;
-    poolDB.query('DELETE FROM `usuarios` WHERE id_usuario = '+ id, (err, rows, fields) =>{
+    const sql = `DELETE FROM usuarios WHERE id_usuario = ${id}`;
+    await poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            res.send("El usuario se elimino correctamente!");
         }
         else{
             console.error(err)
