@@ -1,6 +1,6 @@
 'use strict';
-const dbModel = require('../models/users_model');
-const poolDB = require('../config/db');
+const dbModel = require('../database/models/users_model');
+const poolDB = require('../database/config/db');
 
 
 //OBTENER TODOS
