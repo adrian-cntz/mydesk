@@ -1,6 +1,7 @@
 'use strict';
 const dbModel = require('../models/users_model');
 const poolDB = require('../config/db');
+const bcryptjs = require('bcryptjs');
 
 
 //OBTENER TODOS
@@ -33,16 +34,18 @@ const getUser = async (req, res, next) => {
 //AGREGAR
 const addUser = async (req, res, next) => {
     const sql = 'INSERT INTO usuarios SET ?';
+    let passHaash = await bcryptjs.hash(req.body.password, 4);
     const data = {
         nombre: req.body.nombre,
         mail: req.body.mail,
-        password: req.body.password,
+        password: passHaash,
         legajo: req.body.legajo,
         empresa_id: 1,
         escritorio_id: 1,
         edificio_id: 1,
         es_admin: 0
     };
+
     poolDB.query(sql, data, (err, rows, fields) =>{
         if(!err){
             res.send(rows)
