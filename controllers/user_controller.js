@@ -1,11 +1,13 @@
 'use strict';
 const dbModel = require('../models/users_model');
 const poolDB = require('../config/db');
+const bcryptjs = require('bcryptjs');
 
 
 //OBTENER TODOS
 const getAllUsers = async (req, res, next) => {
-    poolDB.query('SELECT * from usuarios', (err, rows, fields) =>{
+    const sql = 'SELECT * from usuarios';
+    poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.send(rows)
         }
@@ -15,9 +17,11 @@ const getAllUsers = async (req, res, next) => {
     })
 }
 
+//OBTENER UNO
 const getUser = async (req, res, next) => {
     const id = req.params.id;
-    poolDB.query('SELECT * from usuarios WHERE id_usuario = '+ id, (err, rows, fields) =>{
+    const sql = `SELECT * from usuarios WHERE id_usuario = ${id}`;
+    poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.send(rows)
         }
@@ -29,21 +33,63 @@ const getUser = async (req, res, next) => {
 
 //AGREGAR
 const addUser = async (req, res, next) => {
-    const data = req.body;
-    /*poolDB.query('INSERT INTO `usuarios`(`id_usuario`, `nombre`, `mail`, `legajo`, `password`, `empresa_id`, `escritorio_id`, `edificio_id`, `es_admin`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]'), (err, rows, fields) =>{
+    const sql = 'INSERT INTO usuarios SET ?';
+    let passHaash = await bcryptjs.hash(req.body.password, 4);
+    const data = {
+        nombre: req.body.nombre,
+        mail: req.body.mail,
+        password: passHaash,
+        legajo: req.body.legajo,
+        empresa_id: 1,
+        escritorio_id: 1,
+        edificio_id: 1,
+        es_admin: 0
+    };
+
+    poolDB.query(sql, data, (err, rows, fields) =>{
         if(!err){
             res.send(rows)
         }
         else{
             console.error(err)
         }
-    })*/
+    })
+
+}
+
+//ACTUALIZAR
+const updateUser = async (req, res, next) => {
+    const id = req.params.id;
+    const {nombre, mail, password} = req.body;
+    const sql = `UPDATE usuarios SET nombre= '${nombre}', mail='${mail}', password= '${password}' WHERE id_usuario = ${id}`;
+    await poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            res.send("El usuario se actualizo correctamente!");
+        }
+        else{
+            console.error(err)
+        }
+    })
+}
+
+//ELIMINAR
+const deleteUser = async (req, res, next) => {
+    const id = req.params.id;
+    const sql = `DELETE FROM usuarios WHERE id_usuario = ${id}`;
+    await poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            res.send("El usuario se elimino correctamente!");
+        }
+        else{
+            console.error(err)
+        }
+    })
 }
 
 module.exports = {
     addUser, 
     getAllUsers,
     getUser,
-    //updateUser,
-    //deleteUser
+    updateUser,
+    deleteUser
 }
