@@ -18,7 +18,22 @@
     "jade": "^0.29.0",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
-    "passport": "^0.5.0",
-    "passport-local": "^1.0.0"
-  }
+
+
+    "nodemon": "^2.0.15"
+  },
+  "description": "Cohorte 01 - Grupo 01",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/No-Country/turnos-web-oficinas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/No-Country/turnos-web-oficinas/issues"
+  },
+  "homepage": "https://github.com/No-Country/turnos-web-oficinas#readme"
+
 }

@@ -57,9 +57,9 @@ const addUser = async (req, res, next) => {
 //ACTUALIZAR
 const updateUser = async (req, res, next) => {
     const id = req.params.id;
-    const {nombre, mail, password} = req.params;
+    const {nombre, mail, password} = req.body;
     const sql = `UPDATE usuarios SET nombre= '${nombre}', mail='${mail}', password= '${password}' WHERE id_usuario = ${id}`;
-    poolDB.query(sql, (err, rows, fields) =>{
+    await poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.send("El usuario se actualizo correctamente!");
         }
@@ -72,9 +72,10 @@ const updateUser = async (req, res, next) => {
 //ELIMINAR
 const deleteUser = async (req, res, next) => {
     const id = req.params.id;
-    poolDB.query('DELETE FROM `usuarios` WHERE id_usuario = '+ id, (err, rows, fields) =>{
+    const sql = `DELETE FROM usuarios WHERE id_usuario = ${id}`;
+    await poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            res.send("El usuario se elimino correctamente!");
         }
         else{
             console.error(err)
