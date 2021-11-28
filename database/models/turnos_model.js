@@ -1,16 +1,16 @@
-//const poolDB = require('../config/db');
+const poolDB = require('../config/db');
 
-const { DataTypes, col } = require("sequelize/dist");
+//const { DataTypes, col } = require("sequelize/dist");
 
-//const turnos = function(turno) {
-  //  this.id_turno = turno.id_turno,
-  //  this.fecha = turno.fecha,
-  //  this.estado = turno.estado,
-   // this.usuario_id = turno.usuario_id,
-  //  this.escritorio_id = turno.escritorio_id
-//}
+const turnos = function(turno) {
+    this.id_turno = turno.id_turno,
+    this.fecha = turno.fecha,
+    this.estado = turno.estado,
+    this.usuario_id = turno.usuario_id,
+    this.escritorio_id = turno.escritorio_id
+}
 
-module.exports = (sequelize, dataTypes) => {
+/* module.exports = (sequelize, dataTypes) => {
     const alias = 'Turno'
 
     const cols = {
@@ -50,3 +50,4 @@ module.exports = (sequelize, dataTypes) => {
     }
     return Turno
 }
+*/
