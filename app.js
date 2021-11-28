@@ -4,8 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bcryptjs = require('bcryptjs');
-//const session = require('express-session');
+const session = require('express-session');
 
+//Rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/auth');
@@ -21,13 +22,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-/*
+
 app.use(session({
   secret:'secret',
   resave:true,
   saveUninitialized:true
-}));*/
+}));
 
+//Rutas
 app.use('/', indexRouter);
 app.use('/api', usersRouter.routes);
 app.use('/login', loginRouter.routes);
