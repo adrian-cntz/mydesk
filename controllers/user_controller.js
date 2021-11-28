@@ -1,5 +1,9 @@
 'use strict';
+<<<<<<< HEAD
 //const dbModel = require('../database/models/users_model');
+=======
+const dbModel = require('../database/models/users_model');
+>>>>>>> 29e9198fa7e0428e43cf635eb7ba15349d326824
 const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
 
