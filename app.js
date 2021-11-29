@@ -24,10 +24,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//SESSION
 app.use(session({
-  secret:'secret',
-  resave:true,
-  saveUninitialized:true
+  key: 'cookie_usuario',
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
 }));
 
 //Rutas
@@ -35,7 +37,6 @@ app.use('/', indexRouter);
 app.use('/api', usersRouter.routes);
 app.use('/login', loginRouter.routes);
 app.use('/reserva', reservaRouter.routes);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
