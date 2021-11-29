@@ -1,44 +1,165 @@
-<%# 
-    acá se deberia incluir una funcion para saber que navbar renderizar 
-    en base al valor de "es_admin" correspondiente al usuario logueado
-%> 
-
-<%# Navbar visible por los usuarios administradores %> 
-<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark"> 
-    <div class="container-fluid">
-      <h4 class="navbar-brand c3">Nombre de la empresa</h4>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link c3" aria-current="page" href="/admin/reservas">Reservas</a>
-            <a class="nav-link c3" aria-current="page" href="/admin/usuarios">Usuarios</a>
-            <a class="nav-link c3" aria-current="page" href="/admin/nuevoregistro">Usuarios</a>
-            <a class="nav-link c3" aria-current="page" href="#">Salir</a><!-- este elemento llamaría a una funcion para cerrar sesión -->
-          </li>
-        </ul>
-        </div>
+<%# acá se deberia incluir una funcion para saber que navbar renderizar en base
+al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
+%> <%# Navbar visible por los usuarios administradores %>
+<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark">
+  <div class="container-fluid">
+    <h4 class="navbar-brand c3">Nombre de la empresa</h4>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link c3" aria-current="page" href="/admin/reservas"
+            >Reservas</a
+          >
+          <a class="nav-link c3" aria-current="page" href="/admin/usuarios"
+            >Usuarios</a
+          >
+          <a class="nav-link c3" aria-current="page" href="/admin/nuevoregistro"
+            >Usuarios</a
+          >
+          <a class="nav-link c3" aria-current="page" href="#">Salir</a
+          ><!-- este elemento llamaría a una funcion para cerrar sesión -->
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 <%# navbar visible por los usuarios comunes %>
-<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark"> 
-    <div class="container-fluid">
-      <h4 class="navbar-brand c3">Nombre de la empresa</h4>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark">
+  <div class="container-fluid">
+    <h4 class="navbar-brand c3">Nombre de la empresa</h4>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link c3" aria-current="page" href="/misturnos"
+            >Mis turnos</a
+          >
+          <a class="nav-link c3" aria-current="page" href="/espacios"
+            >Espacios de trabajo</a
+          >
+          <a class="nav-link c3" aria-current="page" href="/miperfil"
+            >Mis datos</a
+          >
+          <a class="nav-link c3" aria-current="page" href="#">Salir</a>
+          <!-- este elemento llamaría a una funcion para cerrar sesión -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<%# NAVBAR OPCION2 %>
+<!--Inicia Nav Desktop-->
+<%#
+<div class="container">
+  <div class="row desktop-navbar">
+    <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
+      <div class="logo-navbar">
+        <h1>Mydesk</h1>
+      </div>
+
+      <div class="collapse navbar-collapse" id="barra">
+        <ul class="navbar-nav text-center ml-auto">
           <li class="nav-item">
-            <a class="nav-link c3" aria-current="page" href="/misturnos">Mis turnos</a>
-            <a class="nav-link c3" aria-current="page" href="/espacios">Espacios de trabajo</a>            
-            <a class="nav-link c3" aria-current="page" href="/miperfil">Mis datos</a>
-            <a class="nav-link c3" aria-current="page" href="#">Salir</a> <!-- este elemento llamaría a una funcion para cerrar sesión -->
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?s=productos">Mis reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?s=contacto">Mi Perfil</a>
           </li>
         </ul>
-        </div>
-    </div>
+      </div>
+    </nav>
+  </div>
+</div>
+<!--Termina Nav Desktop-->
+<!--Inicia Nav Mobile-->
+<nav
+  class="
+    col
+    navbar navbar-expand navbar-light
+    fixed-bottom
+    mb-0
+    border-top
+    botton-navbar
+  "
+>
+  <div class="collapse navbar-collapse" id="barra">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link border-right" href="#"
+          ><svg
+            width="38"
+            height="36"
+            viewBox="0 0 38 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M37.2135 17.7051L19.9481 0.394253C19.8238 0.269276 19.6761 0.170124 19.5136 0.102473C19.351 0.0348221 19.1768 0 19.0008 0C18.8248 0 18.6505 0.0348221 18.488 0.102473C18.3254 0.170124 18.1778 0.269276 18.0535 0.394253L0.788032 17.7051C0.285033 18.2097 0 18.8953 0 19.6103C0 21.0949 1.20301 22.3019 2.68266 22.3019H4.50184V34.6542C4.50184 35.3986 5.10125 36 5.84317 36H16.3181V26.5792H21.0128V36H32.1584C32.9003 36 33.4997 35.3986 33.4997 34.6542V22.3019H35.3189C36.0315 22.3019 36.7147 22.0201 37.2177 21.5112C38.2615 20.4598 38.2615 18.7565 37.2135 17.7051V17.7051Z"
+              fill="#313967"
+            />
+          </svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link border-right" href="#"
+          ><svg
+            width="41"
+            height="32"
+            viewBox="0 0 41 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.87502 0.75H38.125C39.2021 0.75 40.0834 1.63125 40.0834 2.70833C40.0834 3.78542 39.2021 4.66667 38.125 4.66667V26.2083H34.2084V22.2917H26.375V26.2083H22.4584V4.66667H6.79169V26.2083H2.87502V4.66667C1.79794 4.66667 0.916687 3.78542 0.916687 2.70833C0.916687 1.63125 1.79794 0.75 2.87502 0.75ZM28.3334 9.5625V10.5417H32.25V9.5625C32.25 9.01417 31.8192 8.58333 31.2709 8.58333H29.3125C28.7642 8.58333 28.3334 9.01417 28.3334 9.5625ZM28.3334 17.3958V18.375H32.25V17.3958C32.25 16.8475 31.8192 16.4167 31.2709 16.4167H29.3125C28.7642 16.4167 28.3334 16.8475 28.3334 17.3958Z"
+              fill="#313967"
+            />
+          </svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link border-right" href="./bottomUsuarioProfile.html"
+          ><svg
+            width="27"
+            height="28"
+            viewBox="0 0 27 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.75 6.63158C6.75 10.2878 9.7785 13.2632 13.5 13.2632C17.2215 13.2632 20.25 10.2878 20.25 6.63158C20.25 2.97537 17.2215 0 13.5 0C9.7785 0 6.75 2.97537 6.75 6.63158ZM25.5 28H27V26.5263C27 20.8394 22.2885 16.2105 16.5 16.2105H10.5C4.71 16.2105 0 20.8394 0 26.5263V28H25.5Z"
+              fill="#313967"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>
+%>
+<!--Termina Nav Mobile-->
