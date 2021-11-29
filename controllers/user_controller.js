@@ -1,5 +1,5 @@
 'use strict';
-const dbModel = require('../database/models/users_model');
+//const dbModel = require('../database/models/users_model');
 const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
 
@@ -34,7 +34,8 @@ const getUser = async (req, res, next) => {
 //AGREGAR
 const addUser = async (req, res, next) => {
     const sql = 'INSERT INTO usuarios SET ?';
-    let passHaash = await bcryptjs.hash(req.body.password, 4);
+    const pass = `${req.body.legajo}2021`;
+    let passHaash = await bcryptjs.hash(pass, 4);
     const data = {
         nombre: req.body.nombre,
         mail: req.body.mail,

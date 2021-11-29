@@ -37,27 +37,27 @@ const reserva_controller = {
     const id = req.params.id;
     const {nombre, mail, password} = req.body;
     const sql = `UPDATE turnos SET nombre= '${nombre}', mail='${mail}', password= '${password}' WHERE id_usuario = ${id}`;
-    await poolDB.query(sql, (err, rows, fields) =>{
+    /*await poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.send("El usuario se actualizo correctamente!");
         }
         else{
             console.error(err)
         }
-    })
+    })*/
     },
 
     borrarReserva: async (req, res) => {
     const id = req.params.id;
     const sql = `DELETE FROM turnos WHERE id_turno = ${id}`;
-    await poolDB.query(sql, (err, rows, fields) =>{
+    /*await poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.send("La reserva se elimino correctamente!");
         }
         else{
             console.error(err)
         }
-    })
+    })*/
     }
  
 }
