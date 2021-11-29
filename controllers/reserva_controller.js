@@ -33,7 +33,7 @@ const reserva_controller = {
     })
     },
 
-    cambiarReserva: (req, res) => {
+    cambiarReserva: async (req, res) => {
     const id = req.params.id;
     const {nombre, mail, password} = req.body;
     const sql = `UPDATE turnos SET nombre= '${nombre}', mail='${mail}', password= '${password}' WHERE id_usuario = ${id}`;
@@ -47,7 +47,7 @@ const reserva_controller = {
     })
     },
 
-    borrarReserva: (req, res) => {
+    borrarReserva: async (req, res) => {
     const id = req.params.id;
     const sql = `DELETE FROM turnos WHERE id_turno = ${id}`;
     await poolDB.query(sql, (err, rows, fields) =>{
