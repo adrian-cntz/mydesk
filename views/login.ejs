@@ -27,31 +27,34 @@
     </div>
   </div>
   <!--Login Usuario-->
-  <form class="form-user">
-    <h2>Ingresá con tu correo</h2>
-
+  <form class="form-user" method="post" action="?">
+    <h2>Ingresá con tu legajo</h2>
     <div class="form-group">
-      <label for="InputEmail1">Email:</label>
+
+      <label for="legajo">Nº de legajo:</label>
       <input
-        type="email"
+        type="text"
         class="form-control margin-input"
-        id="InputEmail1"
+        id="legajo"
         aria-describedby="emailHelp"
         required
       />
     </div>
     <div class="form-group">
-      <label for="InputPassword1">Contraseña:</label>
+      <label for="password">Contraseña:</label>
       <input
         type="password"
         class="form-control margin-input"
-        id="InputPassword1"
+        id="password"
         required
       />
     </div>
-
-    <a href="./bottomMobileNavbar.html" type="submit" class="button">Enviar</a>
+    <button type="button" class="btn btn-info" type="submit">Ingresar</button>
+<!--    <a href="./bottomMobileNavbar.html" type="submit" class="button">Enviar</a> -->
   </form>
+  <script type="text/javascript" src="/scripts/session-start.js"></script>
 
   <!--Termina Login Usuario-->
 </body>
+
+
