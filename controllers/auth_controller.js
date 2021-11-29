@@ -3,6 +3,10 @@ const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
 
 
+const viewLogin = async (req,res) => {
+    res.render('login');
+}
+
 const login = async (req, res) => {
     const legajo = req.body.legajo;
     const pass = req.body.password;
@@ -29,5 +33,6 @@ const login = async (req, res) => {
 };
 
 module.exports = {
-    login
+    login,
+    viewLogin
 }

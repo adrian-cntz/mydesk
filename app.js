@@ -34,7 +34,8 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/api', usersRouter.routes);
 app.use('/login', loginRouter.routes);
-app.use('/reserva', reservaRouter.routes)
+app.use('/reserva', reservaRouter.routes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
