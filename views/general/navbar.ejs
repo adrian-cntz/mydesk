@@ -1,0 +1,44 @@
+<%# 
+    acá se deberia incluir una funcion para saber que navbar renderizar 
+    en base al valor de "es_admin" correspondiente al usuario logueado
+%> 
+
+<%# Navbar visible por los usuarios administradores %> 
+<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark"> 
+    <div class="container-fluid">
+      <h4 class="navbar-brand c3">Nombre de la empresa</h4>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link c3" aria-current="page" href="/admin/reservas">Reservas</a>
+            <a class="nav-link c3" aria-current="page" href="/admin/usuarios">Usuarios</a>
+            <a class="nav-link c3" aria-current="page" href="/admin/nuevoregistro">Usuarios</a>
+            <a class="nav-link c3" aria-current="page" href="#">Salir</a><!-- este elemento llamaría a una funcion para cerrar sesión -->
+          </li>
+        </ul>
+        </div>
+    </div>
+</nav>
+
+<%# navbar visible por los usuarios comunes %>
+<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark"> 
+    <div class="container-fluid">
+      <h4 class="navbar-brand c3">Nombre de la empresa</h4>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link c3" aria-current="page" href="/misturnos">Mis turnos</a>
+            <a class="nav-link c3" aria-current="page" href="/espacios">Espacios de trabajo</a>            
+            <a class="nav-link c3" aria-current="page" href="/miperfil">Mis datos</a>
+            <a class="nav-link c3" aria-current="page" href="#">Salir</a> <!-- este elemento llamaría a una funcion para cerrar sesión -->
+          </li>
+        </ul>
+        </div>
+    </div>
+</nav>

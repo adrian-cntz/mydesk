@@ -57,9 +57,6 @@ app.use(function(err, req, res, next) {
 });
 
 //rutas de las vistas generales
-app.get('/inicio', function(req, res) {
-  res.render('/general/sections/welcome', { });
-});
 app.get('/acerca', function(req, res) {
   res.render('/general/sections/about', { });
 });
@@ -70,7 +67,7 @@ app.get('/guia', function(req, res) {
   res.render('/general/sections/user-guide', { });
 });
 
-//rutas de las vistas del usuario
+//rutas de las vistas del usuario común
 app.get('/misturnos', function(req, res) {
   res.render('/user/user-reservations', { });
 });
@@ -82,15 +79,14 @@ app.get('/miperfil', function(req, res) {
 });
 
 //rutas de las vistas del usuario administrador
-app.get('/admin/inicio', function(req, res) {
-  res.render('/general/welcome', { });
-});
 app.get('/admin/reservas', function(req, res) {
   res.render('/admin/user-reservations', { });
 });
 app.get('/admin/usuarios', function(req, res) {
   res.render('/admin/users-list', { });
 });
-
+app.get('/admin/nuevoregistro', function(req, res) {
+  res.render('/admin/user-registration', { });
+});
 
 module.exports = app;
