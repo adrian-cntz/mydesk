@@ -39,19 +39,27 @@
  
   z-index: 1;
 }
-.dropdown-menu{
-  border-style: none !important;
-}
-.dropdown-item{
-  background-color: #3a7ca5ff;
-}
-.dropdown-item:hover{
-  background-color: #2f6690ff !important;
-  
-}
+
 .container{
   margin-top: 60px;
 }
+.container.main.bg3{
+  margin-top: 0%;
+}
+
+
 .nav-link{
   font-weight: bold;
+}
+.index-div{
+  
+  margin: 30% auto;
+  min-height: 250px;
+  width: 80%;
+  border-radius: 10px;
+  align-content: center;
+  background-image: url("localhost:3000/images/pexels-maxime-francis-2246476.jpg");
+  background-color: #1d1d1d;
+  padding-left: 35%; /*editar por favor!*/
+  padding-top: 125px;  
 }
