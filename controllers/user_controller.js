@@ -87,10 +87,17 @@ const deleteUser = async (req, res, next) => {
     })
 }
 
+const logout = (req, res) => {
+    res.clearCookie('legajo');
+    req.session.destroy();
+    res.redirect('/')
+}
+
 module.exports = {
     addUser, 
     getAllUsers,
     getUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    logout
 }
