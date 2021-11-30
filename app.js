@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
+const authMiddleware = require('./controllers/auth_controller');
 
 //Rutas
 var indexRouter = require('./routes/index');
@@ -12,6 +13,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/auth');
 var reservaRouter = require('./routes/reserva');
 
+const { application } = require('express');
 var app = express();
 
 // view engine setup
@@ -56,7 +58,7 @@ app.use(function(err, req, res, next) {
     error: err
   });
 });
-
+/*
 //rutas de las vistas generales
 app.get('/acerca', function(req, res) {
   res.render('/general/sections/about', { });
@@ -89,5 +91,6 @@ app.get('/admin/usuarios', function(req, res) {
 app.get('/admin/nuevoregistro', function(req, res) {
   res.render('/admin/user-registration', { });
 });
+*/
 
 module.exports = app;

@@ -3,6 +3,23 @@ const poolDB = require('../database/config/db');
 
 const reserva_controller = {
 
+    viewReserva: async (req,res) => {
+        res.render('./user/workspaces-list');
+    },
+    
+    viewReserva: async (req,res) => {
+        const sql = `SELECT * from turnos WHERE id_usuario = ${id}`;
+        poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            res.send(rows)
+            res.render('./user/workspaces-list');
+        }
+        else{
+            console.error(err)
+        }
+    })
+    },
+
     leerReserva: async (req, res, next) => {
         const sql = 'SELECT * from turnos';
         poolDB.query(sql, (err, rows, fields) =>{
@@ -35,8 +52,8 @@ const reserva_controller = {
 
     cambiarReserva: async (req, res) => {
     const id = req.params.id;
-    const {nombre, mail, password} = req.body;
-    const sql = `UPDATE turnos SET nombre= '${nombre}', mail='${mail}', password= '${password}' WHERE id_usuario = ${id}`;
+    const {fecha, estado} = req.body;
+    const sql = `UPDATE turnos SET fecha = '${fecha}', estado = '${estado}' WHERE id_turno = ${id}`;
     /*await poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.send("El usuario se actualizo correctamente!");

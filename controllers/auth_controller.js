@@ -22,10 +22,11 @@ const login = async (req, res) => {
                 const id = rows[0].id_usuario;
                 if(!await bcryptjs.compare(pass, p)){
                 res.send('Usuario o contraseña incorrecta');
-                res.send(req.session.userLogged);
+                
                 }else{
-                    
-                    res.send(`Bienvenido ${id}`);
+                    req.session.userLogged = legajo;
+                    res.cookie('legajo', legajo, {maxAge: 1000 * 3600})
+                    res.render('./user/workspaces-list');
                 }
             }
         })
@@ -34,13 +35,12 @@ const login = async (req, res) => {
     }
 };
 
-function authMiddleware(req, res, next) {
-    if(!req.session.userLogged) {
-        return res.redirect('/login');
+const authMiddleware = async (req, res, next) =>{
+	if(!req.session.userLogged) {
+        res.render('login');
     }
     next();
 }
-
 
 module.exports = {
     login,
