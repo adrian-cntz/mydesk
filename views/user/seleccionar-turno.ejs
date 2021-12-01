@@ -1,11 +1,12 @@
-<%# muestra el listado de reservas al usuario administrador %> 
 <%- include ('./general/header'); %>
 <body>
     <% include ('./general/navbar'); %> 
     <script src="../scripts/date-picker.js"></script>
     <div class="container">
-        <h2 class="text-center">Listado de reservas</h2>
+        <h2 class="text-center">Solicitar turno</h2>
         <form action="?" method="post">	
+            <label for="cat" class="form-label">Tipo de espacio: </label>
+            <input type="text" id="cat" class="form-control" disabled>
             <label for="date" class="form-label">Seleccione una fecha: </label>
             <input type="date" id="date" class="form-control">
             <br>    
@@ -13,9 +14,10 @@
         </form>
         <br>
         <form action= "" method = "post">
-            <h3 class="text-start" id="dateOutput"></h3>
-            <!-- aca se va a mostrar la lista de las reservas del día elegido -->
-            
-        </form>           
+            <h3 id="dateOutput" class="text-start"></h3>            
+            <script src="../scripts/get-available"></script> 
+            <!-- aca se va a mostrar la lista de turnos disponibles -->    
+        </form>
+           
     </div>
 </body>
