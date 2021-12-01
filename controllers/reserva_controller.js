@@ -2,6 +2,10 @@
 //const dbModel = require('../database/models/users_model');
 const poolDB = require('../database/config/db');
 
+const viewReserva = async (req, res, next) => {
+    res.render("./user/seleccionar-turno");
+}
+
 
 //OBTENER TODOS
 const getAllReservas = async (req, res, next) => {
@@ -82,9 +86,10 @@ const deleteReserva = async (req, res, next) => {
 }
 
 module.exports = {
-    addReserva, 
+    viewReserva, 
     getAllReservas,
     getReserva,
+    addReserva,
     updateReserva,
     deleteReserva
 }

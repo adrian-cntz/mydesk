@@ -17,7 +17,7 @@ router.get('/user/:id', authMiddleware, getUser);
 router.post('/user', validations, addUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
-router.get('/logout', logout)
+router.get('/logout', logout);
 router.get('/miperfil', miPerfil);
 
 module.exports = {
