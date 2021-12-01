@@ -1,22 +1,25 @@
 const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
-const {authMiddleware} = require('../controllers/auth_controller');
+//const {authMiddleware} = require('../controllers/auth_controller');
 
-const reserva_controller = require("../controllers/reserva_controller");
+const {addReserva, 
+      getAllReservas,
+      getReserva,
+      updateReserva,
+      deleteReserva}= require("../controllers/reserva_controller");
 
-router.get('', authMiddleware, reserva_controller.viewReserva);
-//router.get('/user/:id', reserva_controller.viewMisReserva)
+//router.get('', authMiddleware, reserva_controller.viewReserva);
 
-router.get("", reserva_controller.viewReserva);
+router.get("", getAllReservas);
 
-router.get("/leer", reserva_controller.leerReserva);
+router.get("/:id", getReserva);
 
-router.post("/nueva", reserva_controller.agregarReserva);
+router.post("/nueva", addReserva);
 
-router.put("/editar", reserva_controller.cambiarReserva);
+router.put("/editar/:id", updateReserva);
 
-router.delete("/borrar", reserva_controller.borrarReserva);
+router.delete("/borrar/:id", deleteReserva);
 
 module.exports = {
   routes: router,

@@ -11,7 +11,7 @@ const authMiddleware = require('./controllers/auth_controller');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/auth');
-//var reservaRouter = require('./routes/reserva');
+var reservaRouter = require('./routes/reserva');
 
 const { application } = require('express');
 var app = express();
@@ -38,7 +38,7 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/api', usersRouter.routes);
 app.use('/login', loginRouter.routes);
-//app.use('/reserva', reservaRouter.routes);
+app.use('/reserva', reservaRouter.routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
