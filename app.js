@@ -11,6 +11,7 @@ const authMiddleware = require('./controllers/auth_controller');
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware')
 var app = express();
 
+
 //Rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,6 +20,15 @@ var reservaRouter = require('./routes/reserva');
 
 const { application } = require('express');
 app.use(session({secret:'secret', resave:false, saveUninitialized:false}));
+
+//SESSION
+app.use(session({
+  key: 'cookie_usuario',
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+}));
+
 app.use(cookies());
 app.use(userLoggedMiddleware);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,6 +51,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
 
 //Rutas
 app.use('/', indexRouter);
