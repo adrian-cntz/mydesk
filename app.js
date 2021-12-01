@@ -1,30 +1,21 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+const methodOverride = require('method-override');
+
+const cookies = require('cookie-parser');
 var logger = require('morgan');
-const bcryptjs = require('bcryptjs');
 const session = require('express-session');
-const authMiddleware = require('./controllers/auth_controller');
+
+const userLoggedMiddleware = require('./middleware/userLoggedMiddleware')
+var app = express();
+
 
 //Rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/auth');
 var reservaRouter = require('./routes/reserva');
-
-const { application } = require('express');
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 //SESSION
 app.use(session({
@@ -33,6 +24,24 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+app.use(cookies());
+app.use(userLoggedMiddleware);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(logger('dev'));
+app.use(methodOverride('_method'));
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.set('view engine', 'ejs');
+
+
 
 //Rutas
 app.use('/', indexRouter);
