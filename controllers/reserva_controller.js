@@ -4,7 +4,7 @@ const poolDB = require('../database/config/db');
 
 const viewReserva = async (req, res, next) => {
     res.render("./user/seleccionar-turno");
-},
+};
 
 
 //OBTENER TODOS
@@ -18,7 +18,7 @@ const getAllReservas = async (req, res, next) => {
             console.error(err)
         }
     })
-},
+};
 
 //OBTENER UNO
 const getReserva = async (req, res, next) => {
@@ -32,7 +32,7 @@ const getReserva = async (req, res, next) => {
             console.error(err)
         }
     })
-},
+};
 
 //AGREGAR
 const addReserva = async (req, res, next) => {
@@ -54,7 +54,7 @@ const addReserva = async (req, res, next) => {
         }
     })
 
-},
+};
 
 //ACTUALIZAR
 const updateReserva = async (req, res, next) => {
@@ -69,7 +69,7 @@ const updateReserva = async (req, res, next) => {
             console.error(err)
         }
     })
-},
+};
 
 //ELIMINAR
 const deleteReserva = async (req, res, next) => {
