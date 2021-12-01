@@ -86,7 +86,7 @@ const deleteUser = async (req, res, next) => {
         }
     })
 }
-
+//CERRAR SESIÓN
 const logout = (req, res) => {
     res.clearCookie('legajo');
     req.session.destroy();

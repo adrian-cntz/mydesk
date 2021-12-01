@@ -15,6 +15,7 @@
     "express": "~4.16.1",
     "express-mysql-session": "^2.1.7",
     "express-session": "^1.17.2",
+    "express-validator": "^6.13.0",
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
     "method-override": "^3.0.0",
