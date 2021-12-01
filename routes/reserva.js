@@ -12,13 +12,9 @@ const {addReserva,
 //router.get('', authMiddleware, reserva_controller.viewReserva);
 
 router.get("", getAllReservas);
-
 router.get("/:id", getReserva);
-
 router.post("/nueva", addReserva);
-
 router.put("/editar/:id", updateReserva);
-
 router.delete("/borrar/:id", deleteReserva);
 
 module.exports = {
