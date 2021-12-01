@@ -23,7 +23,10 @@ const login = async (req, res) => {
                 if(!await bcryptjs.compare(pass, p)){
                 res.send('Usuario o contraseña incorrecta');
                 }else{
-                res.send('Bienvenido!');
+                    req.session.userLogged = legajo;
+                    res.cookie('legajo', legajo, {maxAge: 1000 * 3600})
+                    res.render('./user/workspaces-list');
+
                 }
             }
         })
