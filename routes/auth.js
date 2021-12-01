@@ -4,7 +4,6 @@ const router = express.Router();
 const guestMiddleware = require('../middleware/guestMiddleware');
 
 router.get('/', guestMiddleware, viewLogin);
-
 router.post('/auth', login);
 
 module.exports = {

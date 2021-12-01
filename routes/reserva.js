@@ -10,13 +10,9 @@ const { viewReserva, addReserva,
 router.get("/ver", viewReserva);
 
 router.get("", getAllReservas);
-
 router.get("/:id", getReserva);
-
 router.post("/nueva", addReserva);
-
 router.put("/editar/:id", updateReserva);
-
 router.delete("/borrar/:id", deleteReserva);
 
 module.exports = {

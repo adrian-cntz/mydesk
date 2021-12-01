@@ -4,7 +4,8 @@ const {addUser,
        getUser,
        updateUser,
        deleteUser,
-       logout
+       logout,
+       miPerfil
       } = require('../controllers/user_controller');
 const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware');
@@ -16,8 +17,8 @@ router.get('/user/:id', authMiddleware, getUser);
 router.post('/user', validations, addUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
-
-router.get('/logout', logout)
+router.get('/logout', logout);
+router.get('/miperfil', miPerfil);
 
 module.exports = {
     routes: router
