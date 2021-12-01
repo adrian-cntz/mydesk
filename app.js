@@ -6,8 +6,10 @@ const methodOverride = require('method-override');
 const cookies = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
+
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware')
 var app = express();
+
 
 //Rutas
 var indexRouter = require('./routes/index');
@@ -15,11 +17,18 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/auth');
 var reservaRouter = require('./routes/reserva');
 
-app.use(session({secret:'secret', resave:false, saveUninitialized:false}));
+//SESSION
+app.use(session({
+  key: 'cookie_usuario',
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+}));
 app.use(cookies());
 app.use(userLoggedMiddleware);
 
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,12 +42,12 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 
 
+
 //Rutas
 app.use('/', indexRouter);
 app.use('/api', usersRouter.routes);
 app.use('/login', loginRouter.routes);
 app.use('/reserva', reservaRouter.routes);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,7 +67,7 @@ app.use(function(err, req, res, next) {
     error: err
   });
 });
-
+/*
 //rutas de las vistas generales
 app.get('/acerca', function(req, res) {
   res.render('/general/sections/about', { });
@@ -91,5 +100,6 @@ app.get('/admin/usuarios', function(req, res) {
 app.get('/admin/nuevoregistro', function(req, res) {
   res.render('/admin/user-registration', { });
 });
+*/
 
 module.exports = app;
