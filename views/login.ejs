@@ -28,13 +28,16 @@
     </div>
   </div>
   <!--Login Usuario-->
-  <form class="form-user" method="POST" action="/login/auth">
+
+  <form action="/login/auth" method="POST" class="form-user">
+
     <h2>Ingresá con tu legajo</h2>
     <div class="form-group">
       <label for="legajo">Nº de legajo:</label>
       <input name="legajo"
         type="text"
         class="form-control margin-input"
+        name="legajo"
         id="legajo"
         aria-describedby="emailHelp"
         required
@@ -45,10 +48,12 @@
       <input name="password"
         type="password"
         class="form-control margin-input"
+        name="password"
         id="password"
         required
       />
     </div>
+
     <button class="button" type="submit">Ingresar</button>
     <!--    <a href="./bottomMobileNavbar.html" type="submit" class="button">Enviar</a> -->
   </form>
