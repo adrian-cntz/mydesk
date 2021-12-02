@@ -1,13 +1,6 @@
 //Este script se incluye en seleccionar-turno.ejs
 //Genera una lista con espacios disponibles para reservar en una determinada fecha
-
-document.addEventListener("DOMContentLoaded", function () {
-  //recibir tipo de espacio por GET y setearlo en el valor del input "cat"
-  var cat = $_GET("tipo");
-  document.getElementById("tipo").setAttribute("value", cat);
-  //guardar fecha en variable dateInput
-  var dateInput = date.value();
-});
+var dateInput = date.value();
 //actualizar fecha seleccionada en variable dateInput
 date.addEventListener("change", function () {
   var dateInput = this.value;
