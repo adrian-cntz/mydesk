@@ -1,21 +1,22 @@
-<%# muestra el listado de reservas al usuario administrador %> 
-<%- include ('./general/header'); %>
+<%# muestra el listado de reservas al usuario administrador %> <%- include
+('./general/header'); %>
 <body>
-    <% include ('./general/navbar'); %> 
-    <script src="../scripts/date-picker.js"></script>
-    <div class="container">
-        <h2 class="text-center">Listado de reservas</h2>
-        <form action="?" method="post">	
-            <label for="date" class="form-label">Seleccione una fecha: </label>
-            <input type="date" id="date" class="form-control">
-            <br>    
-            <button class = "btn btn-secondary" id ="updateList" type="submit">Actualizar lista</button>                
-        </form>
-        <br>
-        <form action= "" method = "post">
-            <h3 class="text-start" id="dateOutput"></h3>
-            <!-- aca se va a mostrar la lista de las reservas del día elegido -->
-            
-        </form>           
-    </div>
+  <% include ('./general/navbar'); %>
+  <script src="../scripts/date-picker.js"></script>
+  <div class="container">
+    <h2 class="text-center">Listado de reservas</h2>
+    <form action="/reserva/reservas/:date" method="get">
+      <label for="date" class="form-label">Seleccione una fecha: </label>
+      <input type="date" id="date" class="form-control" />
+      <br />
+      <button class="btn btn-secondary" id="updateList" type="submit">
+        Actualizar lista
+      </button>
+    </form>
+    <br />
+    <form action="" method="post">
+      <h3 class="text-start" id="dateOutput"></h3>
+      <!-- aca se va a mostrar la lista de las reservas del día elegido -->
+    </form>
+  </div>
 </body>
