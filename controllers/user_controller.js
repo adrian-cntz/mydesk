@@ -86,11 +86,16 @@ const deleteUser = async (req, res, next) => {
         }
     })
 }
+
 //CERRAR SESIÓN
 const logout = (req, res) => {
     res.clearCookie('legajo');
     req.session.destroy();
     res.redirect('/')
+}
+
+const miPerfil = (req,res) => {
+    res.render('./user/mi-perfil')
 }
 
 module.exports = {
@@ -99,5 +104,6 @@ module.exports = {
     getUser,
     updateUser,
     deleteUser,
-    logout
+    logout,
+    miPerfil
 }
