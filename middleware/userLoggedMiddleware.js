@@ -7,7 +7,7 @@ const poolDB = require('../database/config/db');
 	let sessionUser = null
 	res.locals.isLogged = false;
 
-	let legajoInCookie = req.cookies.user; 
+	let legajoInCookie = req.cookies.legajo; 
 	let legajoUser = null;
 
 	if(sessionUserId){
