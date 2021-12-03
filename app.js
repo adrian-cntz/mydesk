@@ -95,6 +95,9 @@ app.get('/guia', function(req, res) {
 app.get('/misturnos', function(req, res) {
   res.render('/user/user-reservations', { });
 });
+app.get('/solicitar',function (req,res){
+  res.render('/user/seleccionar-turno',{});
+})
 app.get('/espacios', function(req, res) {
   res.render('/user/workspaces-list', { });
 });
@@ -113,5 +116,4 @@ app.get('/admin/nuevoregistro', function(req, res) {
   res.render('/admin/user-registration', { });
 });
 */
-
 module.exports = app;

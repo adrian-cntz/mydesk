@@ -2,11 +2,13 @@
 <body>
     <% include ('../general/navbar'); %> 
     <script src="../scripts/date-picker.js"></script>
+    <script src="../scripts/get-type.js"></script>    
     <div class="container">
         <h2 class="text-center">Solicitar turno</h2>
         <form action="/reserva/nueva" method="POST">	
-            <label for="cat" class="form-label">Tipo de espacio: </label>
-            <input type="text" id="cat" class="form-control" disabled>
+            <label class="form-control" id="strTipo"></label>
+            <br>
+            <input type="hidden" id= "tipo">
             <label for="date" class="form-label">Seleccione una fecha: </label>
             <input type="date" id="date" value="fecha" class="form-control">
             <br>    
@@ -15,9 +17,19 @@
         <br>
         <form action= "" method = "post">
             <h3 id="dateOutput" class="text-start"></h3>            
-            <script src="../scripts/get-available"></script> 
-            <!-- aca se va a mostrar la lista de turnos disponibles -->    
-        </form>
-           
+            <script src="../scripts/get-available.js"></script> 
+            <!-- aca se va a mostrar la lista de turnos disponibles -->  
+            <table class="table table-hover" id="lista-espacios">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Piso</th>
+                    <th scope="col"></th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>  
+        </form>           
     </div>
 </body>
