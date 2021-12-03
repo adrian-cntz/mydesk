@@ -26,7 +26,7 @@ const login = async (req, res) => {
                 }else{
                     req.session.userLogged = legajo;
                     res.cookie('legajo', legajo, {maxAge: 1000 * 3600})
-                    res.render('./user/workspaces-list');
+                    res.render('./user/workspaces-list',{rows});
                 }
             }
         })

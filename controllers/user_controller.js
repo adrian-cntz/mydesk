@@ -95,7 +95,20 @@ const logout = (req, res) => {
 }
 
 const miPerfil = (req,res) => {
-    res.render('./user/mi-perfil')
+    console.log(req.cookies.legajo)
+    const legajo = req.cookies.legajo;
+
+    const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
+    poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            //res.send(rows)
+            console.log(rows)
+            res.render('./user/mi-perfil', {rows})
+        }
+        else{
+            console.error(err)
+        }
+    })
 }
 
 module.exports = {

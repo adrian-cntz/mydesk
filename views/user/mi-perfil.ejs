@@ -24,7 +24,7 @@ espacio de trabajo %>
             fill="#313967"
           />
         </svg>
-        <p>ADMIN</p>
+        <p><%=rows[0].nombre%></p>
       </div>
       <div
         class="col-12"
@@ -32,13 +32,10 @@ espacio de trabajo %>
       >
         <!--Correo electronico-->
 
-<<<<<<< HEAD
       <!--Cerrar sesion-->
       <a href="/api/logout" style="text-decoration: none">
         <div class="container">
-=======
         <div class="container" style="border-bottom: solid 1px gray">
->>>>>>> 7d3ee95c087cef865174454258128cc4022411d0
           <div class="row">
             <div class="col-2">
               <svg
@@ -65,7 +62,7 @@ espacio de trabajo %>
             </div>
             <div class="col-10" style="text-decoration: none">
               <p>Correo electrónico</p>
-              <p>juan@gmail.com</p>
+              <p><%=rows[0].mail%></p>
             </div>
           </div>
         </div>
