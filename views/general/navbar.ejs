@@ -13,26 +13,20 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
       <div class="collapse navbar-collapse" id="barra">
         <ul class="navbar-nav text-center ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?s=productos">Mis reservas</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
+            <a class="nav-link" href="/api/users/crear">Crear usuario</a>
           </li>
-          <% if(locals.isLogged.es_admin == 1){ %>
-            <%= console.log("test") %> 
-            <li class="nav-item">
-              <a class="nav-link" href="/reserva/reservas">Reservas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/api/users/crear">Crear usuario</a>
-            </li>
-          <% } %>
         </ul>
       </div>
     </nav>

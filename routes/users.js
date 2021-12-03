@@ -2,6 +2,7 @@ const express = require('express');
 const {addUser, 
        getAllUsers, 
        getUser,
+       registro,
        updateUser,
        deleteUser,
        logout,
@@ -14,7 +15,8 @@ const validations = require('../middleware/validateRegisterMiddleware');
 
 router.get('/users', getAllUsers);
 router.get('/user/:id', authMiddleware, getUser);
-router.post('/user', validations, addUser);
+router.get('/user/crear', authMiddleware, registro)
+router.post('/user/crear', validations, addUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
 router.get('/logout', logout);

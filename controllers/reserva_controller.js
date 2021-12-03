@@ -3,9 +3,18 @@
 const poolDB = require('../database/config/db');
 
 const viewReserva = async (req, res, next) => {
+    const legajo = req.cookies.legajo;
     const tipo = req.params.tipo;
-    res.render("./user/seleccionar-turno");
-
+    const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
+    poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            //res.send(rows)
+            res.render("./user/seleccionar-turno", {tipo, rows});
+        }
+        else{
+            console.error(err)
+        }
+    })
 };
 
 

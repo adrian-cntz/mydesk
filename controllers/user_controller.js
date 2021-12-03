@@ -30,6 +30,9 @@ const getUser = async (req, res, next) => {
         }
     })
 }
+const registro = async (req, res) => {
+    res.render('user-registration');
+}
 
 //AGREGAR
 const addUser = async (req, res, next) => {
@@ -115,6 +118,7 @@ module.exports = {
     addUser, 
     getAllUsers,
     getUser,
+    registro,
     updateUser,
     deleteUser,
     logout,
