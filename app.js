@@ -17,6 +17,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/auth');
 var reservaRouter = require('./routes/reserva');
+var puestoRouter = require('./routes/puestos');
 
 const { application } = require('express');
 app.use(session({secret:'secret', resave:false, saveUninitialized:false}));
@@ -56,6 +57,7 @@ app.use(session({
 //Rutas
 app.use('/', indexRouter);
 app.use('/api', usersRouter.routes);
+app.use('/puesto', puestoRouter.routes);
 app.use('/login', loginRouter.routes);
 app.use('/reserva', reservaRouter.routes);
 
