@@ -31,7 +31,7 @@ const getUser = async (req, res, next) => {
     })
 }
 const registro = async (req, res) => {
-    res.render('user-registration');
+    res.render('./admin/user-registration');
 }
 
 //AGREGAR
@@ -47,7 +47,7 @@ const addUser = async (req, res, next) => {
         empresa_id: 1,
         escritorio_id: 1,
         edificio_id: 1,
-        es_admin: 0
+        es_admin: req.body.inlineRadioOptions
     };
 
     poolDB.query(sql, data, (err, rows, fields) =>{

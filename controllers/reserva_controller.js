@@ -80,11 +80,11 @@ const addReserva = async (req, res, next) => {
                 fecha: req.body.fecha,
                 estado: 1
             };
+            console.log(req.body.fecha)
             poolDB.query(sql, data, (err, rows, fields) =>{
                 if(!err){
 //Actualiza estado del puesto
                     const sqlUpdatePuesto = `UPDATE puestos SET estado = 1 WHERE id_puesto = ${id_puesto}`;
-                    console.log(sqlUpdatePuesto);
                     poolDB.query(sqlUpdatePuesto, (err, rows, fields) =>{
                         if(!err){
                             res.send(`Se reservo el puesto ${id_puesto}`)
