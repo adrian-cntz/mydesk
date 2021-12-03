@@ -5,7 +5,9 @@ const poolDB = require('../database/config/db');
 const viewReserva = async (req, res, next) => {
     const tipo = req.params.tipo;
     res.render("./user/seleccionar-turno");
-}
+
+};
+
 
 
 //OBTENER TODOS
@@ -19,6 +21,7 @@ const getAllReservas = async (req, res, next) => {
             console.error(err)
         }
     })
+
 }
 
 //OBTENER POR FECHA
@@ -34,7 +37,6 @@ const getReservasFecha = async (req, res, next) => {
         }
     })
 }
-
 //OBTENER UNO
 const getReserva = async (req, res, next) => {
     const id = req.params.id;
@@ -47,7 +49,9 @@ const getReserva = async (req, res, next) => {
             console.error(err)
         }
     })
+
 }
+
 
 //AGREGAR
 const addReserva = async (req, res, next) => {
@@ -92,8 +96,9 @@ const addReserva = async (req, res, next) => {
             console.error(err)
         }
     })
-    
+   
 }
+
 
 //ACTUALIZAR
 const updateReserva = async (req, res, next) => {
@@ -108,7 +113,9 @@ const updateReserva = async (req, res, next) => {
             console.error(err)
         }
     })
-}
+
+
+};
 
 //ELIMINAR
 const deleteReserva = async (req, res, next) => {
