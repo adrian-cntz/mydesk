@@ -114,5 +114,4 @@ app.get('/admin/nuevoregistro', function(req, res) {
   res.render('/admin/user-registration', { });
 });
 */
-
 module.exports = app;
