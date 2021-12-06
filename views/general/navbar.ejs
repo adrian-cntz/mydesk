@@ -2,7 +2,7 @@
 al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 %> <%# Nueva NAVBAR %>
 <!--Inicia Nav Desktop-->
-
+<header>
 <div class="container">
   <div class="row desktop-navbar">
     <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
@@ -15,14 +15,16 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           <li class="nav-item">
             <a class="nav-link" href="/home">Home</a>
           </li>
+          <% if (locals.isLogged) { %>
           <li class="nav-item">
-            <% const id = locals.userLogged[0].id_usuario %>
             <a class="nav-link" href="/reserva/id">Mis reservas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
           </li>
+          <% } %>
          <% if(locals.userLogged[0].es_admin == 1){ %>
+
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
           </li>
@@ -50,7 +52,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
   <div class="collapse navbar-collapse" id="barra">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link border-right" href="#"
+        <a class="nav-link border-right" href="/home"
           ><svg
             width="38"
             height="36"
@@ -66,7 +68,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link border-right" href="#"
+        <a class="nav-link border-right" href="/home"
           ><svg
             width="41"
             height="32"
@@ -175,3 +177,4 @@ navbar visible por los usuarios comunes
   </div>
 </nav>
 %>
+</header>

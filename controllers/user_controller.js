@@ -2,6 +2,7 @@
 //const dbModel = require('../database/models/users_model');
 const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 
 //OBTENER TODOS
@@ -37,6 +38,14 @@ const registro = async (req, res) => {
 
 //AGREGAR
 const addUser = async (req, res, next) => {
+    const resultValidation = validationResult(req);
+        
+        if (resultValidation.errors.length > 0) {
+            return res.render('./admin/user-registration', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
     const sql = 'INSERT INTO usuarios SET ?';
     const pass = `${req.body.legajo}2021`;
     let passHaash = await bcryptjs.hash(pass, 4);
@@ -48,12 +57,12 @@ const addUser = async (req, res, next) => {
         empresa_id: 1,
         escritorio_id: 1,
         edificio_id: 1,
-        es_admin: req.body.inlineRadioOptions
+        es_admin: 0
     };
 
     poolDB.query(sql, data, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            res.redirect('/login')
         }
         else{
             console.error(err)
