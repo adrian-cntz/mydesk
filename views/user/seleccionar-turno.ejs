@@ -1,4 +1,5 @@
-<%- include ('../general/header'); %>
+<%- include ('../general/header') %>
+<%- include ('../general/navbar') %> 
 <body>
     <% include ('../general/navbar'); %> 
     <script src="./scripts/date-picker.js"></script>
@@ -8,8 +9,7 @@
         <form action="/reserva/nueva" method="POST">
             <input type="text" name="tipo" value=<%=tipo%>>
             <input type="text" name="usuario_id" value=<%=rows[0].id_usuario%>>
-            <br>
-            
+            <br>            
             <label for="date" class="form-label">Seleccione una fecha: </label>
             <input type="date" name="fecha" class="form-control">
             <br>    
