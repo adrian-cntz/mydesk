@@ -31,7 +31,7 @@ const getUser = async (req, res, next) => {
     })
 }
 const registro = async (req, res) => {
-    res.render('user-registration');
+    res.render('./admin/user-registration');
 }
 
 //AGREGAR

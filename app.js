@@ -1,15 +1,12 @@
 var createError = require('http-errors');
-var express = require('express');
+const express = require('express');
 var path = require('path');
 const methodOverride = require('method-override');
-
 const cookies = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
-const authMiddleware = require('./controllers/auth_controller');
-
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware')
-var app = express();
+const app = express();
 
 
 //Rutas
@@ -19,17 +16,9 @@ var loginRouter = require('./routes/auth');
 var reservaRouter = require('./routes/reserva');
 var puestoRouter = require('./routes/puestos');
 
-const { application } = require('express');
-app.use(session({secret:'secret', resave:false, saveUninitialized:false}));
 
 //SESSION
-app.use(session({
-  key: 'cookie_usuario',
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: false
-}));
-
+app.use(session({key: 'cookie_usuario', secret: 'secret', resave: false, saveUninitialized: false}));
 app.use(cookies());
 app.use(userLoggedMiddleware);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -39,19 +28,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
 app.set('view engine', 'ejs');
 
-//SESSION
-app.use(session({
-  key: 'cookie_usuario',
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: false
-}));
 
 
 //Rutas
@@ -116,4 +96,5 @@ app.get('/admin/nuevoregistro', function(req, res) {
   res.render('/admin/user-registration', { });
 });
 */
-module.exports = app;
+
+module.exports = app

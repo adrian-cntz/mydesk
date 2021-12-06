@@ -21,14 +21,12 @@ const poolDB = require('../database/config/db');
 	if(sessionUser){
 		// si encontro el usuario, hago que las variables de locals contengan todos los datos del usuario para poder renderizarlos en el header
 		res.locals.isLogged = sessionUser;
-		res.locals.userLogged = sessionUser.dataValues;
-		console.log(res.locals.isLogged[0].es_admin)
+		res.locals.userLogged = sessionUser;
+		console.log(res.locals.userLogged[0].es_admin)
 	} else if(legajoUser){
 		// si encontro el usuario, hago que las variables de locals contengan todos los datos del usuario para poder renderizarlos en el header
-		res.locals.isLogged = legajoUser.dataValues;
-		res.locals.userLogged = legajoUser.dataValues;
-		console.log("legajoUser")
-
+		res.locals.isLogged = legajoUser;
+		res.locals.userLogged = legajoUser;
 	}
 
 	next();
