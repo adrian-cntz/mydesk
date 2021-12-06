@@ -17,13 +17,14 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           </li>
           <% if (locals.isLogged) { %>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?s=productos">Mis reservas</a>
+            <a class="nav-link" href="/reserva/id">Mis reservas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
           </li>
           <% } %>
          <% if(locals.userLogged[0].es_admin == 1){ %>
+
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
           </li>
@@ -51,7 +52,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
   <div class="collapse navbar-collapse" id="barra">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link border-right" href="#"
+        <a class="nav-link border-right" href="/home"
           ><svg
             width="38"
             height="36"
@@ -67,7 +68,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link border-right" href="#"
+        <a class="nav-link border-right" href="/home"
           ><svg
             width="41"
             height="32"

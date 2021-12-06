@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const {addUser, 
@@ -25,5 +26,5 @@ router.get('/logout', logout);
 router.get('/miperfil',  miPerfil);
 
 module.exports = {
-    routes: router
-}
+  routes: router,
+};
