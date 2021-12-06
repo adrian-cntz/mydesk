@@ -87,11 +87,29 @@ const addReserva = async (req, res, next) => {
                     const sqlUpdatePuesto = `UPDATE puestos SET estado = 1 WHERE id_puesto = ${id_puesto}`;
                     poolDB.query(sqlUpdatePuesto, (err, rows, fields) =>{
                         if(!err){
-                            res.send(`Se reservo el puesto ${id_puesto}`)
+                            //res.send(`Se reservo el puesto ${id_puesto}`)
+                            res.render('./user/res-turno',{
+                                alert:"alert-success",                                
+                                message:"El turno fue reservado con éxito",
+                                error:"",
+                                //codigo:,
+                                date:`Fecha: ${req.body.fecha}`,
+                                escritorio:`Escritorio (ID): ${id_puesto}`,
+                                //piso:""
+                            })
                         }
                         else{
-                        res.send(err)
+                        //res.send(err)                        
                             console.error(err)
+                            res.render('./user/res-turno',{
+                                alert:"alert-danger",
+                                message:"Hubo un error al reservar el turno",
+                                error:err,
+                                //codigo:"",
+                                date:"",
+                                escritorio:"",
+                                //piso:""
+                            })                             
                         }
                     })
                 }
