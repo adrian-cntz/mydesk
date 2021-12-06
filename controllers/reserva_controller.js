@@ -24,7 +24,8 @@ const getAllReservas = async (req, res, next) => {
     const sql = 'SELECT * from turnos';
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            //res.send(rows)
+            res.render("./admin/reservations-list", {rows})
         }
         else{
             console.error(err)
@@ -48,11 +49,12 @@ const getReservasFecha = async (req, res, next) => {
 }
 //OBTENER UNO
 const getReserva = async (req, res, next) => {
+    console.log(req.params.id)
     const id = req.params.id;
     const sql = `SELECT * from turnos WHERE usuario_id = ${id}`;
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            res.render("./user/mis-turnos", {rows})
         }
         else{
             console.error(err)
@@ -88,12 +90,32 @@ const addReserva = async (req, res, next) => {
                     const sqlUpdatePuesto = `UPDATE puestos SET estado = 1 WHERE id_puesto = ${id_puesto}`;
                     poolDB.query(sqlUpdatePuesto, (err, rows, fields) =>{
                         if(!err){
-                            res.send(`Se reservo el puesto ${id_puesto}`)
+                            //res.send(`Se reservo el puesto ${id_puesto}`)
+                            res.render('./user/res-turno',{
+                                alert:"alert-success",                                
+                                message:"El turno fue reservado con éxito",
+                                error:"",
+                                //codigo:,
+                                date:`Fecha: ${req.body.fecha}`,
+                                escritorio:`Escritorio (ID): ${id_puesto}`,
+                                //piso:""
+                            })
                         }
                         else{
-                        res.send(err)
+                        //res.send(err)                        
                             console.error(err)
-                            res.send(`No hay puestos disponibles para esa fecha`)
+
+                            //res.send(`No hay puestos disponibles para esa fecha`)
+
+                            res.render('./user/res-turno',{
+                                alert:"alert-danger",
+                                message:"Hubo un error al reservar el turno",
+                                error:err,
+                                //codigo:"",
+                                date:"",
+                                escritorio:"",
+                                //piso:""
+                            })                             
                         }
                     })
                 }
