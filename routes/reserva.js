@@ -9,7 +9,7 @@ const { viewReserva, addReserva,
 
 router.get("/ver/:tipo", viewReserva);
 router.get("", getAllReservas);
-router.get("/Reservas", getAllReservas);
+router.get("/reservas", getAllReservas);
 router.get("/date", getReservasFecha);
 router.get("/:id", getReserva);
 router.post("/nueva", addReserva);

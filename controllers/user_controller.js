@@ -31,6 +31,7 @@ const getUser = async (req, res, next) => {
         }
     })
 }
+
 const registro = async (req, res) => {
     res.render('./admin/user-registration');
 }
@@ -113,8 +114,6 @@ const miPerfil = (req,res) => {
     const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            //res.send(rows)
-            console.log(rows)
             res.render('./user/mi-perfil', {rows})
         }
         else{

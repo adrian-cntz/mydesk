@@ -23,7 +23,8 @@ router.post('/user/crear', validations, addUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
 router.get('/logout', logout);
-router.get('/miperfil',  miPerfil);
+router.get('/miperfil', miPerfil);
+
 
 module.exports = {
   routes: router,
