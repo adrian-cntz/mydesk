@@ -3,9 +3,18 @@
 const poolDB = require('../database/config/db');
 
 const viewReserva = async (req, res, next) => {
+    const legajo = req.cookies.legajo;
     const tipo = req.params.tipo;
-    res.render("./user/seleccionar-turno");
-
+    const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
+    poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            //res.send(rows)
+            res.render("./user/seleccionar-turno", {tipo, rows});
+        }
+        else{
+            console.error(err)
+        }
+    })
 };
 
 
@@ -71,11 +80,11 @@ const addReserva = async (req, res, next) => {
                 fecha: req.body.fecha,
                 estado: 1
             };
+            console.log(req.body.fecha)
             poolDB.query(sql, data, (err, rows, fields) =>{
                 if(!err){
 //Actualiza estado del puesto
                     const sqlUpdatePuesto = `UPDATE puestos SET estado = 1 WHERE id_puesto = ${id_puesto}`;
-                    console.log(sqlUpdatePuesto);
                     poolDB.query(sqlUpdatePuesto, (err, rows, fields) =>{
                         if(!err){
                             res.send(`Se reservo el puesto ${id_puesto}`)

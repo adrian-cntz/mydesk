@@ -15,8 +15,8 @@ const validations = require('../middleware/validateRegisterMiddleware');
 
 router.get('/users', getAllUsers);
 router.get('/user/:id', authMiddleware, getUser);
-router.get('/user/crear', authMiddleware, registro)
-router.post('/user/crear', validations, addUser);
+router.get('/crear', registro)
+router.post('/user/crear', addUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
 router.get('/logout', logout);

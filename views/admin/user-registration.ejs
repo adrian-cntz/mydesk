@@ -1,10 +1,10 @@
 <%# en esta seccion el administrador podra crear nuevos usuarios %> 
-<%- include ('./general/header'); %>
+<%- include ('../general/header'); %>
 <body>
-    <% include ('./general/navbar'); %> 
+    <% include ('../general/navbar'); %> 
     <div class="container">
         <h2 class="text-center">Usuario nuevo</h2>
-        <form method="POST" action="?" id="form-create" enctype="multipart/form-data">
+        <form method="POST" action="/api/user/crear" id="form-create">
           <div class="form-group">  
             <label for="nombre">Nombre y apellido</label>
             <input type="text" class="form-control" id="nombre" name="nombre">            
@@ -14,17 +14,17 @@
             <input type="text" class="form-control" id="legajo" name="legajo">          
           </div> 
           <div class="form-group">  
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="email@ejemplo.com">          
+            <label for="mail">Email</label>
+            <input type="email" class="form-control" id="mail" name="mail" placeholder="email@ejemplo.com">          
           </div> 
           <div class="form-group">  
             <label>¿Es administrador?  </label>  
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="false" checked>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0" checked>
                 <label class="form-check-label" for="inlineRadio1" checked>NO</label>
               </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="true">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1">
                 <label class="form-check-label" for="inlineRadio2">SI</label>
             </div>
           </div>
