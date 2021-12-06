@@ -66,6 +66,7 @@ const getReserva = async (req, res, next) => {
 const addReserva = async (req, res, next) => {
     //Puestos vacios
     const tipo = req.body.tipo;
+    console.log(req.body.fecha);
     const sqlPuesto = `SELECT * FROM puestos WHERE tipo = ${tipo} AND estado = 0`;
     const sql = 'INSERT INTO turnos SET ?';    
     
@@ -80,10 +81,10 @@ const addReserva = async (req, res, next) => {
                 fecha: req.body.fecha,
                 estado: 1
             };
-            console.log(req.body.fecha)
             poolDB.query(sql, data, (err, rows, fields) =>{
                 if(!err){
 //Actualiza estado del puesto
+            //const turno = rows[0].turno_id;
                     const sqlUpdatePuesto = `UPDATE puestos SET estado = 1 WHERE id_puesto = ${id_puesto}`;
                     poolDB.query(sqlUpdatePuesto, (err, rows, fields) =>{
                         if(!err){
@@ -92,6 +93,7 @@ const addReserva = async (req, res, next) => {
                         else{
                         res.send(err)
                             console.error(err)
+                            res.send(`No hay puestos disponibles para esa fecha`)
                         }
                     })
                 }
