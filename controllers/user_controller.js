@@ -30,6 +30,9 @@ const getUser = async (req, res, next) => {
         }
     })
 }
+const registro = async (req, res) => {
+    res.render('./admin/user-registration');
+}
 
 //AGREGAR
 const addUser = async (req, res, next) => {
@@ -44,7 +47,7 @@ const addUser = async (req, res, next) => {
         empresa_id: 1,
         escritorio_id: 1,
         edificio_id: 1,
-        es_admin: 0
+        es_admin: req.body.inlineRadioOptions
     };
 
     poolDB.query(sql, data, (err, rows, fields) =>{
@@ -95,13 +98,27 @@ const logout = (req, res) => {
 }
 
 const miPerfil = (req,res) => {
-    res.render('./user/mi-perfil')
+    console.log(req.cookies.legajo)
+    const legajo = req.cookies.legajo;
+
+    const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
+    poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            //res.send(rows)
+            console.log(rows)
+            res.render('./user/mi-perfil', {rows})
+        }
+        else{
+            console.error(err)
+        }
+    })
 }
 
 module.exports = {
     addUser, 
     getAllUsers,
     getUser,
+    registro,
     updateUser,
     deleteUser,
     logout,

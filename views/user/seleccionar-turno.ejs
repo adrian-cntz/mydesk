@@ -1,24 +1,26 @@
-<%- include ('../general/header'); %>
+<%- include ('../general/header') %>
+<%- include ('../general/navbar') %> 
 <body>
-    <% include ('../general/navbar'); %> 
+    
     <script src="../scripts/date-picker.js"></script>
-    <script src="../scripts/get-type.js"></script>    
+    <!--<script src="../scripts/get-type.js"></script>-->
     <div class="container">
         <h2 class="text-center">Solicitar turno</h2>
-        <form action="/reserva/nueva" method="POST">	
-            <label class="form-control" id="strTipo"></label>
+        <form action="/reserva/nueva" method="POST">
+            <input type="text" name="tipo" value=<%=tipo%>>
+            <input type="text" name="usuario_id" value=<%=rows[0].id_usuario%>>
             <br>
-            <input type="hidden" id= "tipo">
+            
             <label for="date" class="form-label">Seleccione una fecha: </label>
-            <input type="date" id="date" value="fecha" class="form-control">
+            <input type="date" name="date" value="fecha" class="form-control">
             <br>    
-            <button class = "btn btn-secondary" id ="updateList" type="submit">Actualizar lista</button>                
+            <button class = "btn btn-secondary" id ="updateList" type="submit">Reservar</button>                
         </form>
         <br>
-        <form action= "" method = "post">
+        <!--<form action= "" method = "post">
             <h3 id="dateOutput" class="text-start"></h3>            
             <script src="../scripts/get-available.js"></script> 
-            <!-- aca se va a mostrar la lista de turnos disponibles -->  
+            aca se va a mostrar la lista de turnos disponibles
             <table class="table table-hover" id="lista-espacios">
                 <thead>
                   <tr>
@@ -30,6 +32,6 @@
                 <tbody>
                 </tbody>
               </table>  
-        </form>           
+        </form>   -->          
     </div>
 </body>

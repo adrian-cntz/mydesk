@@ -1,12 +1,14 @@
 <%# formulario de solicitud de turno - accesible al seleccionar un tipo de
 espacio de trabajo %>
+<%- include ('../general/header') %> <%- include
+('../general/navbar'); %>
 <!--Inicia Profile-->
 <%- include ('../general/header'); %> <%- include ('../general/navbar'); %>
 <body style="background-color: white; margin-bottom: 2em; margin-top: -3em">
   <div class="container" style="max-width: 300px; padding: 0">
     <div class="row">
       <div class="col-12 text-center tu-puesto">
-        <h1>Mi Cuenta</h1>
+        <h1>Mi Perfil</h1>
       </div>
       <div class="col-12 text-center">
         <svg
@@ -25,7 +27,7 @@ espacio de trabajo %>
             fill="#313967"
           />
         </svg>
-        <p style="font-weight: 750; padding: 1em">ADMIN</p>
+        <p><%=rows[0].nombre%></p>
       </div>
       <div
         class="col-12"
@@ -173,6 +175,7 @@ espacio de trabajo %>
                 />
               </svg>
             </div>
+
             <div
               style="
                 padding: 0;
@@ -186,6 +189,10 @@ espacio de trabajo %>
               <p style="font-weight: 750; padding: 0; margin: 0">
                 Cerrar sesión
               </p>
+
+            <div class="col-10" style="text-decoration: none">
+              <p>Correo electrónico</p>
+              <p><%=rows[0].mail%></p>
             </div>
           </div></a
         >
