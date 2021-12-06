@@ -1,6 +1,7 @@
 'use strict';
 const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
+var userLogged = require('../middleware/userLoggedMiddleware');
 
 const viewLogin = async (req,res) => {
     res.render('login');

@@ -21,14 +21,14 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
           </li>
-
+         <% if(locals.userLogged[0].es_admin == 1){ %>
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/api/crear">Crear usuario</a>
           </li>
-          
+          <% } %>
         </ul>
       </div>
     </nav>
