@@ -1,9 +1,7 @@
-<%# formulario de solicitud de turno - accesible al seleccionar un tipo de
-espacio de trabajo %>
-<%- include ('../general/header') %> <%- include
-('../general/navbar'); %>
+
 <!--Inicia Profile-->
-<%- include ('../general/header'); %> <%- include ('../general/navbar'); %>
+<%- include ('../general/header') %>
+ <%- include ('../general/navbar') %>
 <body style="background-color: white; margin-bottom: 2em; margin-top: -3em">
   <div class="container" style="max-width: 300px; padding: 0">
     <div class="row">
@@ -80,7 +78,7 @@ espacio de trabajo %>
           </div>
           <div style="padding: 0; margin: 0; flex: 3">
             <p style="font-weight: 750; padding: 0; margin: 0">Email:</p>
-            <p style="padding: 0; margin: 0; color: gray">juan@gmail.com</p>
+            <p style="padding: 0; margin: 0; color: gray"><%=rows[0].mail%></p>
           </div>
         </div>
         <!--cambiar contraseña-->
@@ -186,19 +184,16 @@ espacio de trabajo %>
                 justify-content: center;
               "
             >
-              <p style="font-weight: 750; padding: 0; margin: 0">
+              <p style="font-weight: 750; padding: 0; margin: 0; flex: 3">
                 Cerrar sesión
               </p>
-
-            <div class="col-10" style="text-decoration: none">
-              <p>Correo electrónico</p>
-              <p><%=rows[0].mail%></p>
-            </div>
           </div></a
         >
       </div>
     </div>
   </div>
+  <%- include('../general/footer') %>
 </body>
 
 <!--Termina Profile-->
+</html>

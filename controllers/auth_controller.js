@@ -18,12 +18,20 @@ const login = async (req, res) => {
         poolDB.query(sql, async (err, rows) => {
             
             if(rows.length == 0){
-                res.send('Usuario o contraseña incorrecta');
+                res.render('login', {
+                    errors: {
+                        legajo: {
+                           msg: 'Las credenciales son incorrectas'}}
+                })
             }else{
                 const p = rows[0].password;
                 const id = rows[0].id_usuario;
                 if(!await bcryptjs.compare(pass, p)){
-                res.send('Usuario o contraseña incorrecta');
+                res.render('login', {
+                    errors: {
+                        legajo: {
+                           msg: 'Las credenciales son incorrectas'}}
+                })
                 
                 }else{
                     req.session.userLogged = legajo;
@@ -33,7 +41,11 @@ const login = async (req, res) => {
             }
         })
     }else{
-        res.send('Usuario o contraseña incorrecta');
+        res.render('login', {
+            errors: {
+                legajo: {
+                   msg: 'Las credenciales son incorrectas'}}
+        })
     }
 };
 
