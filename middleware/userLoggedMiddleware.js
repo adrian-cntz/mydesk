@@ -7,7 +7,7 @@ const poolDB = require('../database/config/db');
 	let sessionUser = null
 	res.locals.isLogged = false;
 
-	let legajoInCookie = req.cookies.user; 
+	let legajoInCookie = req.cookies.legajo; 
 	let legajoUser = null;
 
 	if(sessionUserId){
@@ -15,17 +15,18 @@ const poolDB = require('../database/config/db');
 		sessionUser = await poolDB.query(`SELECT * FROM usuarios WHERE legajo = ${sessionUserId}`        ) 
 	} else if (legajoInCookie){
 		//si hay un usuario en session (solo tengo el id) traigo de la db todos los otros datos y los almaceno en cookieUser
-		legajoUser = await poolDB.query(`SELECT * FROM usuarios WHERE legajo = ${sessionUserId}`        ) 
+		legajoUser = await poolDB.query(`SELECT * FROM usuarios WHERE legajo = ${legajoInCookie}`        ) 
 	} 
 
 	if(sessionUser){
 		// si encontro el usuario, hago que las variables de locals contengan todos los datos del usuario para poder renderizarlos en el header
-		res.locals.isLogged = sessionUser.dataValues;
-		res.locals.userLogged = sessionUser.dataValues;  
+		res.locals.isLogged = sessionUser;
+		res.locals.userLogged = sessionUser;
+		console.log(res.locals.userLogged[0].es_admin)
 	} else if(legajoUser){
 		// si encontro el usuario, hago que las variables de locals contengan todos los datos del usuario para poder renderizarlos en el header
-		res.locals.isLogged = legajoUser.dataValues;
-		res.locals.userLogged = legajoUser.dataValues;  
+		res.locals.isLogged = legajoUser;
+		res.locals.userLogged = legajoUser;
 	}
 
 	next();

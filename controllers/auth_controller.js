@@ -1,6 +1,7 @@
 'use strict';
 const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
+var userLogged = require('../middleware/userLoggedMiddleware');
 
 const viewLogin = async (req,res) => {
     res.render('login');
@@ -13,6 +14,7 @@ const login = async (req, res) => {
 
     if(legajo && pass){
         const sql = `SELECT * FROM usuarios WHERE legajo = ${legajo}`;
+        
         poolDB.query(sql, async (err, rows) => {
             
             if(rows.length == 0){
@@ -26,7 +28,7 @@ const login = async (req, res) => {
                 }else{
                     req.session.userLogged = legajo;
                     res.cookie('legajo', legajo, {maxAge: 1000 * 3600})
-                    res.render('./user/workspaces-list');
+                    res.redirect('/home');
                 }
             }
         })
@@ -35,15 +37,7 @@ const login = async (req, res) => {
     }
 };
 
-const authMiddleware = async (req, res, next) =>{
-	if(!req.session.userLogged) {
-        res.render('login');
-    }
-    next();
-}
-
 module.exports = {
     login,
     viewLogin,
-    authMiddleware
 }

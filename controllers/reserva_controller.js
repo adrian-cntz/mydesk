@@ -3,8 +3,18 @@
 const poolDB = require('../database/config/db');
 
 const viewReserva = async (req, res, next) => {
-    res.render("./user/seleccionar-turno");
-
+    const legajo = req.cookies.legajo;
+    const tipo = req.params.tipo;
+    const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
+    poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            //res.send(rows)
+            res.render("./user/seleccionar-turno", {tipo, rows});
+        }
+        else{
+            console.error(err)
+        }
+    })
 };
 
 
@@ -23,7 +33,19 @@ const getAllReservas = async (req, res, next) => {
 
 }
 
-
+//OBTENER POR FECHA
+const getReservasFecha = async (req, res, next) => {
+    const date = req.body.date;
+    const sql = `SELECT * from turnos WHERE fecha = "${date}"`;
+    poolDB.query(sql, (err, rows, fields) =>{
+        if(!err){
+            res.send(rows)
+        }
+        else{
+            console.error(err)
+        }
+    })
+}
 //OBTENER UNO
 const getReserva = async (req, res, next) => {
     const id = req.params.id;
@@ -42,26 +64,49 @@ const getReserva = async (req, res, next) => {
 
 //AGREGAR
 const addReserva = async (req, res, next) => {
-    const sql = 'INSERT INTO turnos SET ?';
-    const data = {
-        usuario_id: req.body.usuario_id,
-        escritorio_id: req.body.escritorio_id,
-        fecha: req.body.fecha,
-        estado: req.body.estado
-    };
-
-    poolDB.query(sql, data, (err, rows, fields) =>{
+    //Puestos vacios
+    const tipo = req.body.tipo;
+    const sqlPuesto = `SELECT * FROM puestos WHERE tipo = ${tipo} AND estado = 0`;
+    const sql = 'INSERT INTO turnos SET ?';    
+    
+    poolDB.query(sqlPuesto, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            //res.send(rows[0])
+            const id_puesto = rows[0].id_puesto;
+//Reserva con 1er puesto vacio
+            const data = {
+                usuario_id: req.body.usuario_id,
+                escritorio_id: id_puesto,
+                fecha: req.body.fecha,
+                estado: 1
+            };
+            console.log(req.body.fecha)
+            poolDB.query(sql, data, (err, rows, fields) =>{
+                if(!err){
+//Actualiza estado del puesto
+                    const sqlUpdatePuesto = `UPDATE puestos SET estado = 1 WHERE id_puesto = ${id_puesto}`;
+                    poolDB.query(sqlUpdatePuesto, (err, rows, fields) =>{
+                        if(!err){
+                            res.send(`Se reservo el puesto ${id_puesto}`)
+                        }
+                        else{
+                        res.send(err)
+                            console.error(err)
+                        }
+                    })
+                }
+                else{
+                res.send(err)
+                    console.error(err)
+                }
+            })
         }
         else{
-          res.send(err)
             console.error(err)
         }
     })
-
-
-};
+   
+}
 
 
 //ACTUALIZAR
@@ -101,5 +146,6 @@ module.exports = {
     getReserva,
     addReserva,
     updateReserva,
-    deleteReserva
+    deleteReserva,
+    getReservasFecha
 }
