@@ -42,6 +42,11 @@
         aria-describedby="emailHelp"
         required
       />
+      <% if (locals.errors && errors.legajo) { %>
+        <div class = "text-danger">
+        <%=  errors.legajo.msg %>
+        </div>
+        <% } %>
     </div>
     <div class="form-group">
       <label for="password">Contraseña:</label>
@@ -59,5 +64,6 @@
   </form>
   <script type="text/javascript" src="/scripts/session-start.js"></script>
 
+  <%- include('./general/footer') %>
   <!--Termina Login Usuario-->
 </body>
