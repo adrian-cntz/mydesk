@@ -14,6 +14,7 @@ const login = async (req, res) => {
 
     if(legajo && pass){
         const sql = `SELECT * FROM usuarios WHERE legajo = ${legajo}`;
+        
         poolDB.query(sql, async (err, rows) => {
             
             if(rows.length == 0){
@@ -27,7 +28,7 @@ const login = async (req, res) => {
                 }else{
                     req.session.userLogged = legajo;
                     res.cookie('legajo', legajo, {maxAge: 1000 * 3600})
-                    res.render('./user/workspaces-list');
+                    res.redirect('/home');
                 }
             }
         })

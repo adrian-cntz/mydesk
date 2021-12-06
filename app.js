@@ -35,7 +35,7 @@ app.set('view engine', 'ejs');
 
 
 //Rutas
-app.use('/', indexRouter);
+app.use('/', indexRouter.routes);
 app.use('/api', usersRouter.routes);
 app.use('/puesto', puestoRouter.routes);
 app.use('/login', loginRouter.routes);
