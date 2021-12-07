@@ -17,8 +17,6 @@ const viewReserva = async (req, res, next) => {
     })
 };
 
-
-
 //OBTENER TODOS
 const getAllReservas = async (req, res, next) => {
     const sql = 'SELECT * from turnos';
@@ -47,6 +45,7 @@ const getReservasFecha = async (req, res, next) => {
         }
     })
 }
+
 //OBTENER UNO
 const getReserva = async (req, res, next) => {
     console.log(req.params.id)
@@ -61,77 +60,7 @@ const getReserva = async (req, res, next) => {
         }
     })
 
-}
-
-
-//AGREGAR
-const addReserva = async (req, res, next) => {
-    //Puestos vacios
-    const tipo = req.body.tipo;
-    console.log(req.body.fecha);
-    const sqlPuesto = `SELECT * FROM puestos WHERE tipo = ${tipo} AND estado = 0`;
-    const sql = 'INSERT INTO turnos SET ?';    
-    
-    poolDB.query(sqlPuesto, (err, rows, fields) =>{
-        if(!err){
-            //res.send(rows[0])
-            const id_puesto = rows[0].id_puesto;
-//Reserva con 1er puesto vacio
-            const data = {
-                usuario_id: req.body.usuario_id,
-                escritorio_id: id_puesto,
-                fecha: req.body.fecha,
-                estado: 1
-            };
-            poolDB.query(sql, data, (err, rows, fields) =>{
-                if(!err){
-//Actualiza estado del puesto
-            //const turno = rows[0].turno_id;
-                    const sqlUpdatePuesto = `UPDATE puestos SET estado = 1 WHERE id_puesto = ${id_puesto}`;
-                    poolDB.query(sqlUpdatePuesto, (err, rows, fields) =>{
-                        if(!err){
-                            //res.send(`Se reservo el puesto ${id_puesto}`)
-                            res.render('./user/res-turno',{
-                                alert:"alert-success",                                
-                                message:"El turno fue reservado con éxito",
-                                error:"",
-                                //codigo:,
-                                date:`Fecha: ${req.body.fecha}`,
-                                escritorio:`Escritorio (ID): ${id_puesto}`,
-                                //piso:""
-                            })
-                        }
-                        else{
-                        //res.send(err)                        
-                            console.error(err)
-
-                            //res.send(`No hay puestos disponibles para esa fecha`)
-
-                            res.render('./user/res-turno',{
-                                alert:"alert-danger",
-                                message:"Hubo un error al reservar el turno",
-                                error:err,
-                                //codigo:"",
-                                date:"",
-                                escritorio:"",
-                                //piso:""
-                            })                             
-                        }
-                    })
-                }
-                else{
-                res.send(err)
-                    console.error(err)
-                }
-            })
-        }
-        else{
-            console.error(err)
-        }
-    })
-   
-}
-
+};
 
 //ACTUALIZAR
 const updateReserva = async (req, res, next) => {
@@ -162,6 +91,70 @@ const deleteReserva = async (req, res, next) => {
             console.error(err)
         }
     })
+};
+
+//AGREGAR
+const addReserva = async (req, res, next) => {
+    const tipo = req.body.tipo;
+    const fecha = req.body.fecha;
+    const user = req.body.usuario_id;
+    var puestos = 0;
+    const sqlValidaUser = `SELECT * FROM turnos WHERE fecha = "${fecha}" AND usuario_id = ${user}`;
+    const sqlFecha = `SELECT * FROM turnos WHERE fecha = "${fecha}" AND tipo = ${tipo}`;
+    const sqlTurno = 'INSERT INTO turnos SET ?';
+
+    switch(tipo) {
+        case 1:
+            puestos = 40;
+            break;
+        case 2:
+            puestos = 30;
+            break;
+        case 3:
+            puestos = 10;
+            break;
+      }
+    //Valida User
+    poolDB.query(sqlValidaUser, (err, rows, fields) =>{
+        if(rows.length == 0){
+        //Valida fecha
+            poolDB.query(sqlFecha, (err, rows, fields) =>{
+                console.log(rows.length)
+                if(rows.length < puestos){
+                    const data = {
+                        usuario_id: user,
+                        escritorio_id: (rows.length+1),
+                        fecha: fecha,
+                        tipo: tipo
+                    };
+        //Reserva con 1er puesto vacio
+                    poolDB.query(sqlTurno, data, (err, rows, fields) =>{
+                        if(!err){
+                            //res.send(`Se reservo el puesto ${id_puesto}`)
+                            res.render('./user/res-turno',{
+                                alert:"alert-success",                                
+                                message:"El turno fue reservado con éxito!",
+                                error:"",
+                                //codigo:,
+                                date:`Fecha: ${req.body.fecha}`,
+                                escritorio:`Escritorio: ${id_puesto}`,
+                                //piso:""
+                            //res.send(`Puesto ${data.escritorio_id} reservado para la fecha ${fecha}`)
+                        }else{
+        
+                        }
+                    })
+                }else{
+                    res.render('./user/res-turno',{})
+                    //res.send(`Puesto no disponible para la fecha ${fecha}`)
+                }
+            })
+
+        }else{
+            res.render('./user/res-turno',{})
+            //res.send(`Ya tenes reservado el puesto ${rows[0].escritorio_id} para la fecha ${fecha}`)
+        }
+    })    
 }
 
 module.exports = {
