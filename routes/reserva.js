@@ -5,7 +5,7 @@ const { viewReserva, addReserva,
       getReserva,
       updateReserva,
       deleteReserva,
-      getReservasFecha}= require("../controllers/reserva_controller");
+      getReservasFecha,}= require("../controllers/reserva_controller");
 
 router.get("/ver/:tipo", viewReserva);
 router.get("", getAllReservas);
