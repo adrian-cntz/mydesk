@@ -1,5 +1,8 @@
+<%- include ('../general/header') %> 
+<%- include('../general/navbar') %>
+
 <%# ruta: reserva/user%>
-<h1>MIS RESERVAS</h1>
+<h1>Mis Reservas</h1>
 
     <table class="table table-hover" id="lista-turnos">
         <thead>
@@ -11,7 +14,7 @@
             <% for(var i=0; i<rows.length; i++) {%>
                 <tr>
                 <td scope="col"><%= rows[i].id_turno %></td>
-                <td scope="col"><%= rows[i].fecha %></td>
+                <td scope="col" type="date"><%= rows[i].fecha %></td>
                 <td scope="col"><%= rows[i].escritorio_id %></td>
                 </tr>
             <% } %>
@@ -19,3 +22,6 @@
         <tbody>
         </tbody>
       </table>
+
+
+      <%- include('../general/footer') %>
