@@ -122,6 +122,32 @@ const miPerfil = (req,res) => {
     })
 }
 
+const editarPassword = async (req, res) => {
+    const id = await req.params.id;
+    return res.render('editar-pass', {id})
+}
+
+const checkEditarPassword = async (req, res) => {
+    let id = await req.params.id;
+
+    let contrasenaInput = req.body.password
+    let contrasenaBdd = password.passHaash
+
+    if (bcryptjs.compareSync(contrasenaInput, contrasenaBdd) == true){
+
+        db.Cliente.update({
+            contrasena: bcryptjs.hashSync(req.body.nuevaContrasena, 10)       
+        }, {where:{
+            id:req.params.id
+            }
+        })
+        .then(function(){res.redirect('/api/miperfil/' + req.params.id)})}
+  //  })
+
+   // .then(function(){res.redirect('/api/miperfil/' + req.params.id)})
+
+}
+
 module.exports = {
     addUser, 
     getAllUsers,
@@ -130,5 +156,7 @@ module.exports = {
     updateUser,
     deleteUser,
     logout,
-    miPerfil
+    miPerfil,
+    editarPassword,
+    checkEditarPassword
 }

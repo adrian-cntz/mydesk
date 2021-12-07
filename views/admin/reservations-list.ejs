@@ -1,7 +1,7 @@
-<%# muestra el listado de reservas al usuario administrador %> <%- include
-('../general/header'); %>
+<%- include('../general/header') %>
 <body>
-  <% include ('../general/navbar'); %>
+    <%- include ('../general/navbar') %>
+  <main>
   <script src="../scripts/date-picker.js"></script>
   
   <div class="container">
@@ -35,4 +35,9 @@
       </table>
     </form>
   </div>
-</body>
+
+</main>
+<%- include('../general/footer') %>
+
+</body>    
+</html>

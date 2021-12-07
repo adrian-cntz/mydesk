@@ -8,7 +8,9 @@ const {addUser,
        updateUser,
        deleteUser,
        logout,
-       miPerfil
+       miPerfil,
+       editarPassword,
+       checkEditarPassword
       } = require('../controllers/user_controller');
 
 const authMiddleware = require('../middleware/authMiddleware');
@@ -23,7 +25,9 @@ router.post('/user/crear', validations, addUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
 router.get('/logout', logout);
-router.get('/miperfil', miPerfil);
+router.get('/miperfil',  miPerfil);
+router.get('/miperfil/password/:id', editarPassword);
+router.put('/miperfil/password/:id', checkEditarPassword);
 
 
 module.exports = {
