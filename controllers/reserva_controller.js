@@ -102,16 +102,18 @@ const addReserva = async (req, res, next) => {
     const sqlValidaUser = `SELECT * FROM turnos WHERE fecha = "${fecha}" AND usuario_id = ${user}`;
     const sqlFecha = `SELECT * FROM turnos WHERE fecha = "${fecha}" AND tipo = ${tipo}`;
     const sqlTurno = 'INSERT INTO turnos SET ?';
-
     switch(tipo) {
-        case 1:
+        case "1":
             puestos = 40;
+            console.log("caso1 "+puestos)
             break;
-        case 2:
+        case "2":
             puestos = 30;
+            console.log("caso2 "+puestos)
             break;
-        case 3:
+        case "3":
             puestos = 10;
+            console.log("caso3 "+puestos)
             break;
       }
     //Valida User
@@ -119,7 +121,7 @@ const addReserva = async (req, res, next) => {
         if(rows.length == 0){
         //Valida fecha
             poolDB.query(sqlFecha, (err, rows, fields) =>{
-                console.log(rows.length)
+                console.log(puestos)
                 if(rows.length < puestos){
                     const data = {
                         usuario_id: user,
@@ -130,31 +132,47 @@ const addReserva = async (req, res, next) => {
         //Reserva con 1er puesto vacio
                     poolDB.query(sqlTurno, data, (err, rows, fields) =>{
                         if(!err){
-                            //res.send(`Se reservo el puesto ${id_puesto}`)
                             res.render('./user/res-turno',{
                                 alert:"alert-success",                                
                                 message:"El turno fue reservado con éxito!",
                                 error:"",
-                                //codigo:,
                                 date:`Fecha: ${req.body.fecha}`,
-                                escritorio:`Escritorio: ${id_puesto}`,
-                                //piso:""
+                                escritorio:`Escritorio: ${data.escritorio_id}`,
+                            })
                             //res.send(`Puesto ${data.escritorio_id} reservado para la fecha ${fecha}`)
                         }else{
-        
+                            res.render('./user/res-turno',{
+                                alert:"alert-danger",
+                                message:"Hubo un error al reservar el turno",
+                                error:err,
+                                date:"",
+                                escritorio:"",
+                            })
                         }
                     })
                 }else{
-                    res.render('./user/res-turno',{})
+                    res.render('./user/res-turno',{
+                        alert:"alert-danger",
+                        message:`Puesto no disponible para la fecha ${fecha}`,
+                        error:err,
+                        date:"",
+                        escritorio:"",
+                    })
                     //res.send(`Puesto no disponible para la fecha ${fecha}`)
                 }
             })
 
         }else{
-            res.render('./user/res-turno',{})
+            res.render('./user/res-turno',{
+                alert:"alert-danger",
+                message:`Ya tenes reservado un puesto para la fecha ${fecha}`,
+                error:err,
+                date:"",
+                escritorio:"",
+            })
             //res.send(`Ya tenes reservado el puesto ${rows[0].escritorio_id} para la fecha ${fecha}`)
         }
-    })    
+    })
 }
 
 module.exports = {
