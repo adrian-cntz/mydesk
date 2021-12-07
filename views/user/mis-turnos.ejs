@@ -1,5 +1,21 @@
 <%# ruta: reserva/user%>
 <h1>MIS RESERVAS</h1>
 
-<h3><%= rows[0].id_turno %></h3>
-<h3><%= rows[1].id_turno %></h3>
+    <table class="table table-hover" id="lista-turnos">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Puesto</th>
+          </tr>
+            <% for(var i=0; i<rows.length; i++) {%>
+                <tr>
+                <td scope="col"><%= rows[i].id_turno %></td>
+                <td scope="col"><%= rows[i].fecha %></td>
+                <td scope="col"><%= rows[i].escritorio_id %></td>
+                </tr>
+            <% } %>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>

@@ -75,8 +75,6 @@ const updateReserva = async (req, res, next) => {
             console.error(err)
         }
     })
-
-
 };
 
 //ELIMINAR
@@ -105,15 +103,12 @@ const addReserva = async (req, res, next) => {
     switch(tipo) {
         case "1":
             puestos = 40;
-            console.log("caso1 "+puestos)
             break;
         case "2":
             puestos = 30;
-            console.log("caso2 "+puestos)
             break;
         case "3":
             puestos = 10;
-            console.log("caso3 "+puestos)
             break;
       }
     //Valida User
@@ -121,7 +116,6 @@ const addReserva = async (req, res, next) => {
         if(rows.length == 0){
         //Valida fecha
             poolDB.query(sqlFecha, (err, rows, fields) =>{
-                console.log(puestos)
                 if(rows.length < puestos){
                     const data = {
                         usuario_id: user,
@@ -138,6 +132,7 @@ const addReserva = async (req, res, next) => {
                                 error:"",
                                 date:`Fecha: ${req.body.fecha}`,
                                 escritorio:`Escritorio: ${data.escritorio_id}`,
+                                id: user,
                             })
                             //res.send(`Puesto ${data.escritorio_id} reservado para la fecha ${fecha}`)
                         }else{
@@ -147,6 +142,7 @@ const addReserva = async (req, res, next) => {
                                 error:err,
                                 date:"",
                                 escritorio:"",
+                                id: user,
                             })
                         }
                     })
@@ -157,6 +153,7 @@ const addReserva = async (req, res, next) => {
                         error:err,
                         date:"",
                         escritorio:"",
+                        id: user,
                     })
                     //res.send(`Puesto no disponible para la fecha ${fecha}`)
                 }
@@ -169,6 +166,7 @@ const addReserva = async (req, res, next) => {
                 error:err,
                 date:"",
                 escritorio:"",
+                id: user,
             })
             //res.send(`Ya tenes reservado el puesto ${rows[0].escritorio_id} para la fecha ${fecha}`)
         }
