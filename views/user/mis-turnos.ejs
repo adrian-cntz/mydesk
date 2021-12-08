@@ -1,3 +1,4 @@
+
 <%- include ('../general/header') %>
       <%- include ('../general/navbar') %>
 <body>
@@ -15,7 +16,7 @@
             <% for(var i=0; i<rows.length; i++) {%>
                 <tr>
                 <td scope="col"><%= rows[i].id_turno %></td>
-                <td scope="col"><%= rows[i].fecha %></td>
+                <td scope="col" type="date"><%= rows[i].fecha %></td>
                 <td scope="col"><%= rows[i].escritorio_id %></td>
                 </tr>
             <% } %>
