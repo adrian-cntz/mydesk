@@ -3,7 +3,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 %> <%# Nueva NAVBAR %>
 <!--Inicia Nav Desktop-->
 <header>
-<div class="container">
+<div>
   <div class="row desktop-navbar">
     <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
       <div class="logo-navbar">
@@ -21,7 +21,11 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
           </li>
-          <% if(locals.userLogged[0].es_admin == 1){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contacto</a>
+          </li>
+         <% if(locals.userLogged[0].es_admin == 1){ %>
+>>>>>>> 73a7c8215049dc93764cdaa4d69923b630300282
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
           </li>

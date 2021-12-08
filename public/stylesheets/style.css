@@ -14,10 +14,23 @@ h2 {
   font-family: "Nunito Sans", sans-serif;
   font-weight: bold;
   color: #313967;
+  font-weight: 300;
+}
+.container {
+  background-color: gainsboro;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-bottom: 3rem;
+  height: max-content;
+  margin-top: 5rem;
+  border-radius: 5px;
 }
 
 .nav-link {
   font-weight: bold;
+}
+.text-center {
+  padding-top: 1rem;
 }
 
 /******************Termina Clases Adrian***********/
@@ -31,6 +44,7 @@ h2 {
 }
 .card-reserva {
   color: #313967;
+  margin-top: 2rem;
 }
 .card-reserva p {
   color: gray;
@@ -43,6 +57,7 @@ h2 {
 }
 .div-hola h2 {
   font-weight: bold;
+  padding-top: 1rem;
 }
 
 .button {
@@ -144,6 +159,7 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   }
   .div-hola h2 {
     font-size: 30px;
+    padding-top: 1rem;
   }
 }
 /*TABLET*/

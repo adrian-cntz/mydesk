@@ -1,4 +1,3 @@
-
 <%- include ('../general/header') %>
 <%- include ('../general/navbar') %>
 <body>
@@ -7,10 +6,11 @@
 <%# ruta: reserva/user%>
       <h2 class="text-center fs-1">Mis reservas</h2>
       <br>
-      <table class="table" id="lista-turnos">
-          <thead class="table-light table-hover">
-            <tr class="table-dark">
-              <th scope="col">Id</th>
+
+      <table class="table table-hover" id="lista-turnos">
+          <thead>
+            <tr>
+              <th scope="col">Turno</th>
               <th scope="col">Fecha</th>
               <th scope="col">Puesto</th>
             </tr>
@@ -26,7 +26,9 @@
           </tbody>
       </table>
     </main>
-    <%- include('../general/footer') %>
+    
   </div>
+  <div style="margin-top: 35%;"></div>
+  <%- include('../general/footer') %>
 </body>    
 </html>
