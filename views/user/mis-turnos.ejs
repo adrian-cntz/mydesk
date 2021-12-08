@@ -1,8 +1,10 @@
-<%- include ('../general/header') %> 
-<%- include('../general/navbar') %>
 
+<%- include ('../general/header') %>
+      <%- include ('../general/navbar') %>
+<body>
+  <main>
 <%# ruta: reserva/user%>
-<h1>Mis Reservas</h1>
+      <h1>MIS RESERVAS</h1>
 
     <table class="table table-hover" id="lista-turnos">
         <thead>
@@ -23,5 +25,8 @@
         </tbody>
       </table>
 
+    </main>
+    <%- include('../general/footer') %>
 
-      <%- include('../general/footer') %>
+</body>    
+</html>
