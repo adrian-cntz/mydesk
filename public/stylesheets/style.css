@@ -1,19 +1,20 @@
 /******************Comienza Clases Adrian***********/
-
-.bg2 {
-  /* elemento seleccionado del navbar */
-  background-color: #3a7ca5ff !important;
-}
-.bg4 {
-  /* footer */
-  background-color: #16425bff !important;
+h1.indexTitle{
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: white !important; 
 }
 h1 {
   font-family: "Nunito Sans", sans-serif;
-  font-weight: 400;
+  font-weight: bold;  
+  color: #313967;
 }
 h2 {
   font-family: "Nunito Sans", sans-serif;
+
+  font-weight: bold;
+  color: #313967;
   font-weight: 300;
 }
 .container {
@@ -25,13 +26,13 @@ h2 {
   margin-top: 5rem;
   border-radius: 5px;
 }
+
 .nav-link {
   font-weight: bold;
 }
 .text-center {
   padding-top: 1rem;
 }
-
 
 /******************Termina Clases Adrian***********/
 /******************Comianza Clases Bryan***********/
@@ -79,7 +80,6 @@ h2 {
   padding: 0;
   background: white;
 }
-
 .navbar-nav {
   width: 100%;
   background: none;
@@ -93,41 +93,30 @@ h2 {
   background-color: none;
   text-align: center;
 }
-
 /* Le damos un tamaño a las img de los botones y 
 les aplicamos transparencia para poner como activa solo la vista actualmente en foco de navegación con opacidad 1. */
-
 img[src*=".svg"] {
   height: 1.25em;
   opacity: 0.5;
 }
-
 /* Inicialmente, ponemos como activa la img del primer botón (la sección uno) con opacidad 1. */
-
 nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   opacity: 1;
 }
-
 /* Con cualquier page en target (los containers que tienen aplicado el attr data-role page que corresponden a cada vista de la app), pasamos a todas las img a opacidad .5 (para desmarcar la que estuviera activa ya que no sabemos cuál era). Por eso ubicamos el nav por debajo de todo el resto para poder seleccionarlo con el operador de hermanos (~). */
-
 [data-role="page"]:target ~ nav .nav-item img[src*=".svg"] {
   opacity: 0.5;
 }
-
 /* Y luego evaluamos qué page está en target para marcar la img del botón correspondiente como activa con opacidad 1. */
-
 #uno:target ~ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   opacity: 1;
 }
-
 #dos:target ~ nav .nav-item:nth-of-type(2) img[src*=".svg"] {
   opacity: 1;
 }
-
 #tres:target ~ nav .nav-item:nth-of-type(3) img[src*=".svg"] {
   opacity: 1;
 }
-
 #cuatro:target ~ nav .nav-item:nth-of-type(4) img[src*=".svg"] {
   opacity: 1;
 }
@@ -143,7 +132,6 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 .desktop-navbar {
   display: none;
 }
-
 /*--------------------------Termina HOME--------------------------------*/
 
 /**************************media querys****************************/
@@ -188,7 +176,6 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   .desktop-navbar {
     display: none;
   }
-
   /*********Termina home**************/
 }
 /*ESCRITORIO*/
@@ -214,7 +201,6 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
     width: auto;
   }
 }
-
 /******************Termina Clases Bryan***********/
 
 /* fondo index */
@@ -225,10 +211,19 @@ body.index{
 body{
   background-repeat: no-repeat;
   background-color: black;
-  background-size:cover;
+  background-size: inherit;
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background-image: url("http://localhost:3000/images/body-bg.jpg");
+}
+.container {
+  background-color: gainsboro;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 15px;
+  padding-bottom: 10px;  
+  height: 100%; 
 }

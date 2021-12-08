@@ -1,14 +1,16 @@
 <%- include ('../general/header') %>
-      <%- include ('../general/navbar') %>
+<%- include ('../general/navbar') %>
 <body>
   <div class="container">
     <main>
 <%# ruta: reserva/user%>
-      <h3 class="text-center">Mis reservas</h3>
+      <h2 class="text-center fs-1">Mis reservas</h2>
       <br>
-      <table class="table table-hover" id="lista-turnos">
-          <thead>
-            <tr>
+      <table class="table" id="lista-turnos">
+          <thead class="table-light table-hover">
+            <tr class="table-dark">
+
+  
               <th scope="col">Turno</th>
               <th scope="col">Fecha</th>
               <th scope="col">Puesto</th>
