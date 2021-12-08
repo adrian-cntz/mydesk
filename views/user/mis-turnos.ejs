@@ -1,32 +1,32 @@
 
 <%- include ('../general/header') %>
-      <%- include ('../general/navbar') %>
+<%- include ('../general/navbar') %>
 <body>
-  <main>
+  <div class="container">
+    <main>
 <%# ruta: reserva/user%>
-      <h1>MIS RESERVAS</h1>
-
-    <table class="table table-hover" id="lista-turnos">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Puesto</th>
-          </tr>
-            <% for(var i=0; i<rows.length; i++) {%>
-                <tr>
-                <td scope="col"><%= rows[i].id_turno %></td>
-                <td scope="col" type="date"><%= rows[i].fecha %></td>
-                <td scope="col"><%= rows[i].escritorio_id %></td>
-                </tr>
-            <% } %>
-        </thead>
-        <tbody>
-        </tbody>
+      <h2 class="text-center fs-1">Mis reservas</h2>
+      <br>
+      <table class="table" id="lista-turnos">
+          <thead class="table-light table-hover">
+            <tr class="table-dark">
+              <th scope="col">Id</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Puesto</th>
+            </tr>
+              <% for(var i=0; i<rows.length; i++) {%>
+                  <tr>
+                  <td scope="col"><%= rows[i].id_turno %></td>
+                  <td scope="col"><%= rows[i].fecha %></td>
+                  <td scope="col"><%= rows[i].escritorio_id %></td>
+                  </tr>
+              <% } %>
+          </thead>
+          <tbody>
+          </tbody>
       </table>
-
     </main>
     <%- include('../general/footer') %>
-
+  </div>
 </body>    
 </html>

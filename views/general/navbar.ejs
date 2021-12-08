@@ -7,7 +7,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
   <div class="row desktop-navbar">
     <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
       <div class="logo-navbar">
-        <h1>Mydesk</h1>
+        <h1>MyDesk</h1>
       </div>
 
       <div class="collapse navbar-collapse" id="barra">
@@ -21,7 +21,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
           </li>
-         <% if(locals.userLogged[0].es_admin == 1){ %>
+          <% if(locals.userLogged[0].es_admin == 1){ %>
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
           </li>
@@ -99,79 +99,4 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
     </ul>
   </div>
 </nav>
-
-<!--Termina Nav Mobile-->
-
-<%# Navbar Old%> <%# Navbar visible por los usuarios administradores
-
-<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark">
-  <div class="container-fluid">
-    <h4 class="navbar-brand c3">Nombre de la empresa</h4>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link c3" aria-current="page" href="/admin/reservas"
-            >Reservas</a
-          >
-          <a class="nav-link c3" aria-current="page" href="/admin/usuarios"
-            >Usuarios</a
-          >
-          <a class="nav-link c3" aria-current="page" href="/admin/nuevoregistro"
-            >Usuarios</a
-          >
-          <a class="nav-link c3" aria-current="page" href="#">Salir</a
-          ><!-- este elemento llamaría a una funcion para cerrar sesión -->
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-navbar visible por los usuarios comunes
-
-<nav class="navbar fixed-top navbar-expand-lg bg2 navbar-dark">
-  <div class="container-fluid">
-    <h4 class="navbar-brand c3">Nombre de la empresa</h4>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link c3" aria-current="page" href="/misturnos"
-            >Mis turnos</a
-          >
-          <a class="nav-link c3" aria-current="page" href="/espacios"
-            >Espacios de trabajo</a
-          >
-          <a class="nav-link c3" aria-current="page" href="/miperfil"
-            >Mis datos</a
-          >
-          <a class="nav-link c3" aria-current="page" href="#">Salir</a>
-          <!-- este elemento llamaría a una funcion para cerrar sesión -->
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-%>
 </header>
