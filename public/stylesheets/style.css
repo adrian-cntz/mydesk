@@ -1,66 +1,34 @@
 /******************Comienza Clases Adrian***********/
 
-/* colores de texto */
-.c1 {
-  color: #2f6690ff !important;
-}
-.c2 {
-  color: #3a7ca5ff !important;
-}
-.c3 {
-  color: #d9dcd6ff !important;
-}
-.c4 {
-  color: #16425bff !important;
-}
-.c5 {
-  color: #81c3d7 !important;
-}
-/* colores de fondo */
-.bg1 {
-  /* navbar */
-  background-color: #2f6690ff !important;
-}
 .bg2 {
   /* elemento seleccionado del navbar */
   background-color: #3a7ca5ff !important;
-}
-.bg3 {
-  /*color de fondo*/
-  background-color: #d9dcd6ff !important;
 }
 .bg4 {
   /* footer */
   background-color: #16425bff !important;
 }
-.bg5 {
-  background-color: #1d1d1d !important;
+h1 {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
 }
-.collapse {
-  z-index: 1;
+h2 {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
 }
-
 .container {
-  margin-top: 60px;
+  background-color: gainsboro;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: max-content;
+  margin-bottom: 0%;
 }
-.container.main.bg3 {
-  margin-top: 0%;
-}
-
 .nav-link {
   font-weight: bold;
 }
-.index-div {
-  margin: 30% auto;
-  min-height: 250px;
-  width: 80%;
-  border-radius: 10px;
-  align-content: center;
-  background-image: url("localhost:3000/images/pexels-maxime-francis-2246476.jpg");
-  background-color: #1d1d1d;
-  padding-left: 35%; /*editar por favor!*/
-  padding-top: 125px;
-}
+
 
 /******************Termina Clases Adrian***********/
 /******************Comianza Clases Bryan***********/
@@ -121,7 +89,8 @@
   text-align: center;
 }
 
-/* Le damos un tamaño a las img de los botones y les aplicamos transparencia para poner como activa solo la vista actualmente en foco de navegación con opacidad 1. */
+/* Le damos un tamaño a las img de los botones y 
+les aplicamos transparencia para poner como activa solo la vista actualmente en foco de navegación con opacidad 1. */
 
 img[src*=".svg"] {
   height: 1.25em;
@@ -160,6 +129,15 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 /*---------------------------TERMINA NAV BAR---------------------------------*/
 
 /*---------------------------Inicia HOME--------------------------------*/
+#home {
+  color: white;
+  padding: 0;
+  margin: 0;
+  padding-top: 40vh;
+}
+.desktop-navbar {
+  display: none;
+}
 
 /*--------------------------Termina HOME--------------------------------*/
 
@@ -169,19 +147,6 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   * {
     line-height: 20px;
   }
-  /**********Inicia home**************/
-  #home {
-    background-image: url("../images/home-mobile.png");
-
-    height: 100vh;
-    width: 100vw;
-    color: white;
-    padding: 0;
-    margin: 0;
-    padding-top: 40vh;
-  }
-
-  /*********Termina home**************/
   .desktop-navbar {
     display: none;
   }
@@ -207,14 +172,12 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 /*TABLET*/
 @media screen and (min-width: 769px) {
   /**********Inicia home**************/
-  #home {
-    background-image: url("../images/home-tablet.png");
-    height: 100vh;
-    width: 100vw;
+  #home {    
     color: white;
+    position: absolute;
     padding: 0;
     margin: 0;
-    padding-top: 40vh;
+    padding-top: 50%;
   }
   .desktop-navbar {
     display: none;
@@ -247,3 +210,19 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 }
 
 /******************Termina Clases Bryan***********/
+
+/* fondo index */
+body.index{
+  background-image: url("../images/home-tablet.png")!important;
+}
+/* fondo general */
+body{
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size:cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("http://localhost:3000/images/body-bg.jpg");
+}

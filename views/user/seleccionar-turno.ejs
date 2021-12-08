@@ -1,8 +1,10 @@
 <%- include ('../general/header') %>
 <%- include ('../general/navbar') %> 
-<body>
-    <script src="./scripts/date-picker.js"></script>
-    <!--<script src="../scripts/get-type.js"></script>-->
+<body class="bg-b">
+<!--
+    <script src="../../scripts/date-picker.js"></script>
+    <script src="../scripts/get-type.js"></script>
+-->
     <div class="container">
         <h2 class="text-center">Solicitar turno</h2>
         <form action="/reserva/nueva" method="POST">
@@ -15,8 +17,7 @@
             <button class = "btn btn-secondary" id ="updateList" type="submit">Reservar</button>                
         </form>
         <br>       
-    </div>
-   
+    </div>    
     <%- include('../general/footer') %>
 </body>
 </html>
