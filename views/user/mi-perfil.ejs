@@ -3,9 +3,9 @@
 <%- include ('../general/navbar') %>
 <body style="background-color: white; margin-bottom: 2em; margin-top: -3em">
   <div class="container" style="max-width: 300px; padding: 0">
-    <div class="row">
+    <div class="row" style="margin-top: 8rem;">
       <div class="col-12 text-center tu-puesto">
-        <h1>Mi Perfil</h1>
+        <h1 style="padding-top: 1rem;">Mi Perfil</h1>
       </div>
       <div class="col-12 text-center">
         <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +19,7 @@
         <p>
           <%=rows[0].nombre%>
         </p>
-        <p style="font-weight: 750; padding: 1em">ADMIN</p>
+        
       </div>
       <div class="col-12" style="
                     border: solid 1px gray;
@@ -93,7 +93,7 @@
         </div>
       </div>
     </div>
+    <div style="margin-top: 15%;"></div>
   <%- include('../general/footer') %>
   </body>
-<!--Termina Profile-->
 </html>
