@@ -25,7 +25,6 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
             <a class="nav-link" href="/contact">Contacto</a>
           </li>
          <% if(locals.userLogged[0].es_admin == 1){ %>
->>>>>>> 73a7c8215049dc93764cdaa4d69923b630300282
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
           </li>
@@ -66,10 +65,11 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
               fill="#313967"
             />
           </svg>
+          <h5>Inicio</h5>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link border-right" href="/home"
+        <a class="nav-link border-right" href="/reserva/<%= locals.userLogged[0].id_usuario %>"
           ><svg
             width="41"
             height="32"
@@ -82,6 +82,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
               fill="#313967"
             />
           </svg>
+          <h5>Mis reservas</h5>
         </a>
       </li>
       <li class="nav-item">
@@ -98,8 +99,46 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
               fill="#313967"
             />
           </svg>
+          <h5>Mi Perfil</h5>
         </a>
       </li>
+      <% if(locals.userLogged[0].es_admin == 1){ %>
+      <li class="nav-item">
+        <a class="nav-link border-right" href="/reserva/reservas"
+          ><svg
+            width="27"
+            height="28"
+            viewBox="0 0 27 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.75 6.63158C6.75 10.2878 9.7785 13.2632 13.5 13.2632C17.2215 13.2632 20.25 10.2878 20.25 6.63158C20.25 2.97537 17.2215 0 13.5 0C9.7785 0 6.75 2.97537 6.75 6.63158ZM25.5 28H27V26.5263C27 20.8394 22.2885 16.2105 16.5 16.2105H10.5C4.71 16.2105 0 20.8394 0 26.5263V28H25.5Z"
+              fill="#313967"
+            />
+          </svg>
+          <h5>Reservas</h5>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link border-right" href="/api/crear"
+          ><svg
+            width="27"
+            height="28"
+            viewBox="0 0 27 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.75 6.63158C6.75 10.2878 9.7785 13.2632 13.5 13.2632C17.2215 13.2632 20.25 10.2878 20.25 6.63158C20.25 2.97537 17.2215 0 13.5 0C9.7785 0 6.75 2.97537 6.75 6.63158ZM25.5 28H27V26.5263C27 20.8394 22.2885 16.2105 16.5 16.2105H10.5C4.71 16.2105 0 20.8394 0 26.5263V28H25.5Z"
+              fill="#313967"
+            />
+          </svg>
+          <h5>Crear Usuario</h5>
+        </a>
+      </li>
+      <% } %>
+
     </ul>
   </div>
 </nav>
