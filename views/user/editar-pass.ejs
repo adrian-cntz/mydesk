@@ -2,11 +2,12 @@
 <%- include('../general/navbar') %>
 <body>
     <main>
-    <form action="/miperfil/password/<%=user.id%>?_method=PUT" method="POST" class="formulario-prod">
+        <div class="container">
+    <form action="/miperfil/password/cambiar/<%=id%>?_method=PUT" method="POST">
         
-    <h1 class="titulo-formulario">EDICIÓN DE CONTRASEÑA</h1>
+    <h2 class="text-center">EDICIÓN DE CONTRASEÑA</h2>
 
-    <div class="control-formulario">
+    <div class="form-group">
         <label>Actual contraseña:</label>
         <input type="password" name="password" class="form-control margin-input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
         <% if (locals.errors && errors.password) { %>
@@ -16,9 +17,9 @@
         <% } %>
     </div>
  
-    <div class="control-formulario">
+    <div class="form-group">
         <label>Nueva contraseña:</label>
-        <input type="password" name="nuevaContrasena" class="usuario <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
+        <input type="password" name="nuevaContrasena" class="form-control margin-input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Nueva Contraseña">
         <% if (locals.errors && errors.password) { %>
             <div class="text-danger">
             <%= errors.password.msg %>
@@ -26,12 +27,12 @@
         <% } %>
     </div>
 
-    <button type="submit" class="formulario-boton">Modificar contraseña</button>
+    <button type="submit" class="btn btn-secondary">Modificar contraseña</button>
     
 </form>
 <script type="text/javascript" src="/scripts/session-start.js"></script>
-
-  <%- include('./general/footer') %>
+</div>
+  <%- include('../general/footer') %>
 
 </main>
 </body>
