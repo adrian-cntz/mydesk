@@ -1,22 +1,21 @@
-//obtener el tipo de escritorio desde la url (get)
+//Mostrar al usuario el tipo de espacio seleccionado en la vista anterior
+
 document.addEventListener("DOMContentLoaded", function () {
-    //obtener la url completa
-    var url = window.location.search;
-    //Creamos la instancia
-    var urlParams = new URLSearchParams(url);
-    //Accedemos a los valores
-    var tipo = urlParams.get('tipo');   
-    
+    //Guardamos la url
+    var url = window.location.href;
+    //Obtener el último caracter de la url
+    var tipo = url.slice(-1);
+    //Asignar el tipo de escritorio a la variable strTipo
     if (tipo == 1){
         strTipo = "Escritorio individual"
     }else if (tipo == 2){
         strTipo = "Escritorio grupal"
-    }else{
+    }else if (tipo == 3){
+        strTipo = "Sala de reuniones"
+    }
+    else{
         strTipo = "Error! No definido"
-    } 
-    //input oculto con el valor a enviar
-    document.getElementById('tipo').setAttribute('value', tipo);
-    //label que muestra el tipo seleccionado al usuario
-    document.getElementById('strTipo').innerHTML='Tipo de espacio: ' + strTipo;
-  
+    }
+    //Mostrar strTipo en el label strTipo
+    document.getElementById('strTipo').innerHTML='Tipo de espacio: ' + strTipo;  
 })
