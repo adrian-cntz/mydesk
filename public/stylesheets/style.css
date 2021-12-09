@@ -21,10 +21,9 @@ h2 {
   background-color: gainsboro;
   padding-left: 8rem;
   padding-right: 8rem;
-  padding-bottom: 3rem;
-  height: max-content;
   margin-top: 5rem;
   border-radius: 5px;
+  padding-bottom: 3rem;
 }
 
 .nav-link {
@@ -209,7 +208,6 @@ body.index{
 }
 /* fondo general */
 body{
-  background-repeat: no-repeat;
   background-color: black;
   background-size: inherit;
   width: 100%;
@@ -218,12 +216,4 @@ body{
   top: 0;
   left: 0;
   background-image: url("http://localhost:3000/images/body-bg.jpg");
-}
-.container {
-  background-color: gainsboro;
-  padding-left: 8rem;
-  padding-right: 8rem;
-  padding-top: 15px;
-  padding-bottom: 10px;  
-  height: 100%; 
 }

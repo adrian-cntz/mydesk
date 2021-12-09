@@ -27,7 +27,7 @@ router.delete('/user/:id', deleteUser);
 router.get('/logout', logout);
 router.get('/miperfil',  miPerfil);
 router.get('/miperfil/password/:id', editarPassword);
-router.put('/miperfil/password/:id', checkEditarPassword);
+router.put('/miperfil/password/cambiar/:id', checkEditarPassword);
 
 
 module.exports = {
