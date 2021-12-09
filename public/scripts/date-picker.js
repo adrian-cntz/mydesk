@@ -1,3 +1,5 @@
+//Cargar fecha actual en el input date y limitar el rango de selección
+
 document.addEventListener("DOMContentLoaded", function () {
   //guardar elemento fecha en una variable
   var date = document.getElementById("date");
