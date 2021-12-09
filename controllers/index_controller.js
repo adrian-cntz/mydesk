@@ -45,9 +45,12 @@ const home = async (req,res) => {
         }
     })
 }
-
+const contact = (req, res) => {
+    res.render('contact')
+}
 
 
 module.exports = {
-    home
+    home,
+    contact
 }
