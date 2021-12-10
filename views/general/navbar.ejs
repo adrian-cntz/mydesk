@@ -12,21 +12,22 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 
       <div class="collapse navbar-collapse" id="barra">
         <ul class="navbar-nav text-center ml-auto">
-          
+          <% if(locals.userLogged[0].es_admin == 0){ %>
           <li class="nav-item">
             <a class="nav-link" href="/home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/reserva/<%= locals.userLogged[0].id_usuario %>">Mis reservas</a>
           </li>
+          <% } %>
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
           </li>
-    
+          <% if(locals.userLogged[0].es_admin == 0){ %>
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contacto</a>
           </li>
-          
+          <% } %>
          <% if(locals.userLogged[0].es_admin == 1){ %>
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
@@ -54,7 +55,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 >
   <div class="collapse navbar-collapse" id="barra">
     <ul class="navbar-nav">
-      
+      <% if(locals.userLogged[0].es_admin == 0){ %>
       <li class="nav-item">
         <a class="nav-link border-right" href="/home"
           ><svg
@@ -89,24 +90,17 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           <h5>Mis reservas</h5>
         </a>
       </li>
-      
       <li class="nav-item">
-        <a class="nav-link border-right" href="/api/miperfil"
-          ><svg
-            width="27"
-            height="28"
-            viewBox="0 0 27 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6.75 6.63158C6.75 10.2878 9.7785 13.2632 13.5 13.2632C17.2215 13.2632 20.25 10.2878 20.25 6.63158C20.25 2.97537 17.2215 0 13.5 0C9.7785 0 6.75 2.97537 6.75 6.63158ZM25.5 28H27V26.5263C27 20.8394 22.2885 16.2105 16.5 16.2105H10.5C4.71 16.2105 0 20.8394 0 26.5263V28H25.5Z"
-              fill="#313967"
-            />
-          </svg>
-          <h5>Mi Perfil</h5>
+        <a class="nav-link border-right" href="/contact"
+          ><svg width="33" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.875 7.5V6L24.75 9L20.625 6V7.5L24.75 10.5L28.875 7.5ZM30.25 0H2.75C2.02065 0 1.32118 0.31607 0.805456 0.87868C0.289731 1.44129 0 2.20435 0 3L0 24C0 24.7956 0.289731 25.5587 0.805456 26.1213C1.32118 26.6839 2.02065 27 2.75 27H30.25C30.9793 27 31.6788 26.6839 32.1945 26.1213C32.7103 25.5587 33 24.7956 33 24V3C33 2.20435 32.7103 1.44129 32.1945 0.87868C31.6788 0.31607 30.9793 0 30.25 0ZM11 4.5C12.094 4.5 13.1432 4.97411 13.9168 5.81802C14.6904 6.66193 15.125 7.80653 15.125 9C15.125 10.1935 14.6904 11.3381 13.9168 12.182C13.1432 13.0259 12.094 13.5 11 13.5C9.90598 13.5 8.85677 13.0259 8.08318 12.182C7.3096 11.3381 6.875 10.1935 6.875 9C6.875 7.80653 7.3096 6.66193 8.08318 5.81802C8.85677 4.97411 9.90598 4.5 11 4.5V4.5ZM19.25 22.5H2.75V21C2.75 18 8.25 16.35 11 16.35C13.75 16.35 19.25 18 19.25 21V22.5ZM30.25 13.5H19.25V4.5H30.25" fill="#2C366A"/>
+            </svg>
+            
+          <h5>Contacto</h5>
         </a>
       </li>
+      <% } %>
+      
       <% if(locals.userLogged[0].es_admin == 1){ %>
       <li class="nav-item">
         <a class="nav-link border-right" href="/reserva/reservas"
@@ -126,6 +120,24 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
         </a>
       </li>
       <% } %>
+
+      <li class="nav-item">
+        <a class="nav-link border-right" href="/api/miperfil"
+          ><svg
+            width="27"
+            height="28"
+            viewBox="0 0 27 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.75 6.63158C6.75 10.2878 9.7785 13.2632 13.5 13.2632C17.2215 13.2632 20.25 10.2878 20.25 6.63158C20.25 2.97537 17.2215 0 13.5 0C9.7785 0 6.75 2.97537 6.75 6.63158ZM25.5 28H27V26.5263C27 20.8394 22.2885 16.2105 16.5 16.2105H10.5C4.71 16.2105 0 20.8394 0 26.5263V28H25.5Z"
+              fill="#313967"
+            />
+          </svg>
+          <h5>Mi Perfil</h5>
+        </a>
+      </li>
 
     </ul>
   </div>
