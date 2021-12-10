@@ -10,7 +10,7 @@ const getAllUsers = async (req, res, next) => {
     const sql = 'SELECT * from usuarios';
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            res.render('./admin/users-list', {rows})
         }
         else{
             console.error(err)
@@ -62,7 +62,7 @@ const addUser = async (req, res, next) => {
 
     poolDB.query(sql, data, (err, rows, fields) =>{
         if(!err){
-            res.redirect('/login')
+            res.redirect('/api/users')
         }
         else{
             res.render('error')
