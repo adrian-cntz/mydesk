@@ -164,21 +164,6 @@ const checkEditarPassword = async (req, res) => {
     }else{
         res.send("Contraseña Actual vacia")
     }
-
-/*
-    if (bcryptjs.compareSync(contrasenaInput, contrasenaBdd) == true){
-        const sql = `UPDATE usuarios SET password= '${password}' WHERE id_usuario = ${id}`;
-
-       const password = bcryptjs.hashSync(req.body.nuevaContrasena, 10)       
-        await poolDB.query(sql, password, (err, rows, fields) =>{
-            if(!err){
-                res.send("La contraseña se actualizo correctamente!");
-            }
-            else{
-                console.error(err)
-            }
-        })
-        }*/
 }
 
 module.exports = {
