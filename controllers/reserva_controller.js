@@ -81,12 +81,12 @@ const updateReserva = async (req, res, next) => {
 const deleteReserva = async (req, res, next) => {
     const id = req.params.id;
     const sql = `DELETE FROM turnos WHERE id_turno = ${id}`;
-    await poolDB.query(sql, (err, rows, fields) =>{
-        if(!err){
+    poolDB.query(sql, (err, rows, fields) => {
+        if (!err) {
             res.send("Lar reserva se elimino correctamente!");
         }
-        else{
-            console.error(err)
+        else {
+            console.error(err);
         }
     })
 };
@@ -113,15 +113,37 @@ const addReserva = async (req, res, next) => {
       }
     //Valida User
     poolDB.query(sqlValidaUser, (err, rows, fields) =>{
+        const escritorio = (rows.length+1);
+        var p;
         if(rows.length == 0){
         //Valida fecha
             poolDB.query(sqlFecha, (err, rows, fields) =>{
                 if(rows.length < puestos){
+                    switch(tipo) {
+                        case "1":
+                            if(escritorio <=20){
+                                p = 1;
+                            }else{
+                                p = 2;
+                            };
+                            break;
+                        case "2":
+                            if(escritorio <=15){
+                                p = 3;
+                            }else{
+                                p = 4;
+                            };
+                            break;
+                        case "3":
+                            p = 5;
+                            break;
+                      }
                     const data = {
                         usuario_id: user,
-                        escritorio_id: (rows.length+1),
+                        escritorio_id: escritorio,
                         fecha: fecha,
-                        tipo: tipo
+                        tipo: tipo,
+                        piso: p
                     };
         //Reserva con 1er puesto vacio
                     poolDB.query(sqlTurno, data, (err, rows, fields) =>{
@@ -132,7 +154,7 @@ const addReserva = async (req, res, next) => {
                                 error:"",
                                 date:`Fecha: ${req.body.fecha}`,
                                 escritorio:`Escritorio: ${data.escritorio_id}`,
-                                id: user,
+                                id: user
                             })
                             //res.send(`Puesto ${data.escritorio_id} reservado para la fecha ${fecha}`)
                         }else{
@@ -142,7 +164,7 @@ const addReserva = async (req, res, next) => {
                                 error:err,
                                 date:"",
                                 escritorio:"",
-                                id: user,
+                                id: user
                             })
                         }
                     })
@@ -153,7 +175,7 @@ const addReserva = async (req, res, next) => {
                         error:err,
                         date:"",
                         escritorio:"",
-                        id: user,
+                        id: user
                     })
                     //res.send(`Puesto no disponible para la fecha ${fecha}`)
                 }
@@ -166,7 +188,7 @@ const addReserva = async (req, res, next) => {
                 error:err,
                 date:"",
                 escritorio:"",
-                id: user,
+                id: user
             })
             //res.send(`Ya tenes reservado el puesto ${rows[0].escritorio_id} para la fecha ${fecha}`)
         }
