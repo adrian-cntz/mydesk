@@ -5,7 +5,8 @@ const methodOverride = require('method-override');
 const cookies = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
-const userLoggedMiddleware = require('./middleware/userLoggedMiddleware')
+const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
+var flash = require('connect-flash')
 const app = express();
 
 
@@ -19,6 +20,7 @@ var puestoRouter = require('./routes/puestos');
 
 //SESSION
 app.use(session({key: 'cookie_usuario', secret: 'secret', resave: false, saveUninitialized: false}));
+app.use(flash());
 app.use(cookies());
 app.use(userLoggedMiddleware);
 app.use(express.static(path.join(__dirname, 'public')));

@@ -114,7 +114,8 @@ const miPerfil = (req,res) => {
     const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.render('./user/mi-perfil', {rows})
+            const message = "";
+            res.render('./user/mi-perfil', {rows, message})
         }
         else{
             console.error(err)
@@ -124,15 +125,47 @@ const miPerfil = (req,res) => {
 
 const editarPassword = async (req, res) => {
     const id = await req.params.id;
-    return res.render('./user/editar-pass', {id})
+    res.render('./user/editar-pass', {id})
 }
 
 const checkEditarPassword = async (req, res) => {
     let id = await req.params.id;
 
-    let contrasenaInput = req.body.password
-    let contrasenaBdd = password.passHaash
+    let oldP = req.body.oldPassword
+    let newP = req.body.newPassword
+    let passHash = await bcryptjs.hash(newP, 4);
+    const sqlUser = `SELECT * FROM usuarios WHERE id_usuario = ${id}`
+    const sql = `UPDATE usuarios SET password= '${passHash}' WHERE id_usuario = ${id}`;
 
+    if(oldP.length > 0){
+        poolDB.query(sqlUser, async (err, rows) => {
+            if(!err){
+                if(await bcryptjs.compare(oldP, rows[0].password)){
+                    if(newP.length > 0){
+                        poolDB.query(sql, async (err, rows) => {
+                            if(!err){
+                                console.log("Se cambio la contraseña corectamente!")
+                                res.redirect('/api/miperfil')
+                            }else{
+                                console.error(err)
+                            }
+                        })
+                    }else{
+                        res.send("contraseña vacia")                       
+                    }
+                }else{
+                    res.send("la contraseña actual no coincide")                        
+                }
+            }
+            else{
+                console.error(err)
+            }
+        })
+    }else{
+        res.send("Contraseña Actual vacia")
+    }
+
+/*
     if (bcryptjs.compareSync(contrasenaInput, contrasenaBdd) == true){
         const sql = `UPDATE usuarios SET password= '${password}' WHERE id_usuario = ${id}`;
 
@@ -145,7 +178,7 @@ const checkEditarPassword = async (req, res) => {
                 console.error(err)
             }
         })
-        }
+        }*/
 }
 
 module.exports = {
