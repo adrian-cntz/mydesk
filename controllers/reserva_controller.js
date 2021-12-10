@@ -81,12 +81,12 @@ const updateReserva = async (req, res, next) => {
 const deleteReserva = async (req, res, next) => {
     const id = req.params.id;
     const sql = `DELETE FROM turnos WHERE id_turno = ${id}`;
-    await poolDB.query(sql, (err, rows, fields) =>{
-        if(!err){
+    poolDB.query(sql, (err, rows, fields) => {
+        if (!err) {
             res.send("Lar reserva se elimino correctamente!");
         }
-        else{
-            console.error(err)
+        else {
+            console.error(err);
         }
     })
 };
@@ -113,35 +113,37 @@ const addReserva = async (req, res, next) => {
       }
     //Valida User
     poolDB.query(sqlValidaUser, (err, rows, fields) =>{
+        const escritorio = (rows.length+1);
+        var p;
         if(rows.length == 0){
         //Valida fecha
             poolDB.query(sqlFecha, (err, rows, fields) =>{
-                
                 if(rows.length < puestos){
-                    var p = 0, pisoD = 0;
-                    switch(p) {
-                        case 1:
-                            pisoD = 1;
+                    switch(tipo) {
+                        case "1":
+                            if(escritorio <=20){
+                                p = 1;
+                            }else{
+                                p = 2;
+                            };
                             break;
-                        case 2:
-                            pisoD = 2;
+                        case "2":
+                            if(escritorio <=15){
+                                p = 3;
+                            }else{
+                                p = 4;
+                            };
                             break;
-                        case 3:
-                            pisoD = 3;
-                            break;
-                        case 4:
-                            pisoD = 4;
-                            break;
-                        case 5:
-                            pisoD = 5;
+                        case "3":
+                            p = 5;
                             break;
                       }
                     const data = {
                         usuario_id: user,
-                        escritorio_id: (rows.length+1),
+                        escritorio_id: escritorio,
                         fecha: fecha,
                         tipo: tipo,
-                        piso: pisoD
+                        piso: p
                     };
         //Reserva con 1er puesto vacio
                     poolDB.query(sqlTurno, data, (err, rows, fields) =>{
