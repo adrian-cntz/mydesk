@@ -20,6 +20,7 @@
               <th scope="col">Puesto</th>
               <th scope="col">Piso</th>
               <th scope="col">Tipo de puesto</th>
+              <th scope="col"> </th>
             </tr>
               <% for(var i=0; i<rows.length; i++) {%>
                 <%var tipo = rows[i].escritorio_id, tpuesto = "";const f = rows[i].fecha; var options = { year: 'numeric', month: 'long', day: 'numeric' } %>
@@ -31,6 +32,7 @@
                   <td scope="col"><%= rows[i].escritorio_id %></td>
                   <td scope="col"><%= rows[i].piso %></td>
                   <td scope="col"><%= tpuesto %></td>
+                  <td scope="col"><button style="color:#FF0000; background-color:#000000"> X </button></td>
                   </tr>
               <% } %>
           </thead>
