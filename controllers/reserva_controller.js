@@ -20,10 +20,18 @@ const viewReserva = async (req, res, next) => {
 //OBTENER TODOS
 const getAllReservas = async (req, res, next) => {
     const sql = 'SELECT * from turnos';
+    const sqlUsers = 'SELECT * from usuarios'
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            //res.send(rows)
-            res.render("./admin/reservations-list", {rows})
+            poolDB.query(sqlUsers, (err, rowsU, fields) =>{
+                if(!err){
+                    //res.send(rows)
+                    res.render("./admin/reservations-list", {rows, rowsU})
+                }
+                else{
+                    console.error(err)
+                }
+            })
         }
         else{
             console.error(err)
