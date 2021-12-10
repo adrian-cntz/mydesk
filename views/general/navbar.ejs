@@ -12,22 +12,21 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 
       <div class="collapse navbar-collapse" id="barra">
         <ul class="navbar-nav text-center ml-auto">
-          <% if(locals.userLogged[0].es_admin == 0){ %>
+          
           <li class="nav-item">
             <a class="nav-link" href="/home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/reserva/<%= locals.userLogged[0].id_usuario %>">Mis reservas</a>
           </li>
-          <% } %>
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi Perfil</a>
           </li>
-          <% if(locals.userLogged[0].es_admin == 0){ %>
+    
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contacto</a>
           </li>
-          <% } %>
+          
          <% if(locals.userLogged[0].es_admin == 1){ %>
           <li class="nav-item">
             <a class="nav-link" href="/reserva/reservas">Reservas</a>
@@ -55,7 +54,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 >
   <div class="collapse navbar-collapse" id="barra">
     <ul class="navbar-nav">
-      <% if(locals.userLogged[0].es_admin == 0){ %>
+      
       <li class="nav-item">
         <a class="nav-link border-right" href="/home"
           ><svg
@@ -90,6 +89,7 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           <h5>Mis reservas</h5>
         </a>
       </li>
+<<<<<<< HEAD
       <li class="nav-item">
         <a class="nav-link border-right" href="/contact"
           ><svg width="33" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,6 +99,9 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
         </a>
       </li>
       <% } %>
+=======
+      
+>>>>>>> f8168d60e3ae2b50b823a375507b910ed3682475
       <li class="nav-item">
         <a class="nav-link border-right" href="/api/miperfil"
           ><svg
