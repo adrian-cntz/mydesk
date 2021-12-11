@@ -19,7 +19,9 @@ const viewReserva = async (req, res, next) => {
 
 //OBTENER TODOS
 const getAllReservas = async (req, res, next) => {
-    const sql = 'SELECT * from turnos';
+    const f = new Date();
+    const nFecha = (f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate());
+    const sql = `SELECT * from turnos WHERE fecha BETWEEN '${nFecha}' and '4016-06-30' ORDER BY fecha ASC`;
     const sqlUsers = 'SELECT * from usuarios'
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
@@ -57,8 +59,11 @@ const getReservasFecha = async (req, res, next) => {
 //OBTENER UNO
 const getReserva = async (req, res, next) => {
     //console.log(req.params.id)
+    const f = new Date();
+    const nFecha = (f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate());
+    //console.log(nFecha)
     const id = req.params.id;
-    const sql = `SELECT * from turnos WHERE usuario_id = ${id}`;
+    const sql = `SELECT * from turnos WHERE usuario_id = ${id} AND fecha BETWEEN '${nFecha}' and '4016-06-30' ORDER BY fecha ASC`;
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
             res.render("./user/mis-turnos", {rows, id})
