@@ -49,7 +49,7 @@ label{
   font-weight: 500;
 }
 .container {
-  background-color: rgba(255, 255, 255, 0.63);
+  background-color: rgba(255, 255, 255, 0.65);
   padding-left: 25px;
   padding-right: 25px;
   margin-top: 5rem;
@@ -162,7 +162,7 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 }
 /* Con cualquier page en target (los containers que tienen aplicado el attr data-role page que corresponden a cada vista de la app), pasamos a todas las img a opacidad .5 (para desmarcar la que estuviera activa ya que no sabemos cuál era). Por eso ubicamos el nav por debajo de todo el resto para poder seleccionarlo con el operador de hermanos (~). */
 [data-role="page"]:target ~ nav .nav-item img[src*=".svg"] {
-  opacity: 0.5;
+  opacity: 0.65;
 }
 /* Y luego evaluamos qué page está en target para marcar la img del botón correspondiente como activa con opacidad 1. */
 #uno:target ~ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
@@ -218,6 +218,14 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   .div-hola h2 {
     font-size: 30px;
     padding-top: 1rem;
+  }
+  .table-hover {
+    min-width: 550px;
+  }
+  .container {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 650px;
   }
 }
 /*TABLET*/

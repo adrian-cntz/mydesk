@@ -38,7 +38,7 @@ const login = async (req, res) => {
                     req.session.userLogged = legajo;
                     res.cookie('legajo', legajo, {maxAge: 1000 * 3600})
                     console.log(rows[0])
-                    if(perfil = 0){
+                    if(perfil == 0){
                         res.redirect('/home');
                     }else{
                         res.redirect('/reserva/reservas');
