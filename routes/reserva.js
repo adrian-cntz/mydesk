@@ -14,7 +14,7 @@ router.get("/date", getReservasFecha);
 router.get("/:id", getReserva);
 router.post("/nueva", addReserva);
 router.put("/editar/:id", updateReserva);
-router.delete("/borrar/:id", deleteReserva);
+router.get("/borrar/:id/:rId", deleteReserva);
 
 module.exports = {
   routes: router,
