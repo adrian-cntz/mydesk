@@ -22,7 +22,7 @@
       <!-- aca se va a mostrar la lista de las reservas del día elegido -->
       <table class="table table-hover" id="lista-turnos">
         <thead>
-          <tr>
+          <tr class="encabezado">
             <th scope="col">Turno</th>
             <th scope="col">Fecha</th>
             <th scope="col">Tipo de puesto</th>
@@ -32,22 +32,22 @@
             <th scope="col">Piso</th>
         <!--<th scope="col">Confirmar asistencia</th>-->     
         <!--<th scope="col">Cancelar turno</th>-->    
-      </tr>
       
+      <tr class="overflow">
       <% for(var i=0; i<rows.length; i++) {%>
         <%var tipo = rows[i].escritorio_id, id = rows[i].usuario_id, tpuesto = "";const f = rows[i].fecha; var options = { year: 'numeric', month: 'long', day: 'numeric' };%>
           <%switch(rows[i].tipo) {case 1:tpuesto = "Escritorio individual";break;case 2:tpuesto = "Mesa grupal";break;case 3:tpuesto = "Sala de reuniones";break;} %>
-          <tr class="text-center">
+        </tr>
           <% function buscar(usuario) {return usuario.id_usuario === id} %> 
           <% let newRowU = rowsU.find(usuario => buscar(usuario)) %>
           <% const nuevaf = f.toLocaleDateString("es-ES", options);%>
-          <td scope="col"><%= rows[i].id_turno %></td>
-          <td scope="col"><%= nuevaf %></td>
-          <td scope="col"><%= tpuesto %></td>
-          <td scope="col"><%= newRowU.nombre %></td>
-          <td scope="col"><%= newRowU.legajo %></td>
-          <td scope="col"><%= rows[i].escritorio_id %></td>
-          <td scope="col"><%= rows[i].piso %></td>          
+          <td style="min-width: 70px;" scope="col"><%= rows[i].id_turno %></td>
+          <td style="min-width: 200px;" scope="col"><%= nuevaf %></td>
+          <td style="min-width: 170px;" scope="col"><%= tpuesto %></td>
+          <td style="min-width: 170px;" scope="col"><%= newRowU.nombre %></td>
+          <td style="min-width: 100px;" scope="col"><%= newRowU.legajo %></td>
+          <td style="min-width: 70px;" scope="col"><%= rows[i].escritorio_id %></td>
+          <td style="min-width: 70px;" scope="col"><%= rows[i].piso %></td>          
           </tr>
       <% } %>
         </thead>

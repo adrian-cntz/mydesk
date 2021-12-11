@@ -3,7 +3,7 @@
 <%- include ('../general/navbar') %>
 <body style="background-color: white; margin-bottom: 2em; margin-top: -3em">
   <div class="container">
-    <div class="row" style="margin-top: 8rem;">
+    <div class="row" style="margin-top: 2rem;">
       <div class="col-12 text-center tu-puesto">
         <h1 style="padding-top: 1rem;">Mi Perfil</h1>
       </div>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <!--cambiar contraseña-->
-        <a class="onHover" href="/api/miperfil/password/id%>"  
+        <a class="onHover" href="/api/miperfil/password/<%=rows[0].id_usuario%>"  
           style="text-decoration: none; margin: 0; color: black">
           <div style="display: flex;border-bottom: solid 1px gray;padding: 1em 0;">
             <div style="flex: 1;display: flex;justify-content: center;align-items: center;">

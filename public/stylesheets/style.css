@@ -49,7 +49,7 @@ label{
   font-weight: 500;
 }
 .container {
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.7);
   padding-left: 25px;
   padding-right: 25px;
   margin-top: 5rem;
@@ -223,9 +223,20 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
     min-width: 550px;
   }
   .container {
-    overflow-x: auto;
-    overflow-y: auto;
+    overflow: auto;
     max-height: 650px;
+  }
+  table th, td{
+    
+    padding: 0.25em 0.5em 0.25em 1em;
+    text-indent: -0.5em;
+    text-align: center;
+  }
+  .encabezado {
+    outline: 1px solid rgba(71, 71, 71, 0.3);
+    top: 0;
+    position: sticky;
+    background-color: #adb9fd;
   }
 }
 /*TABLET*/
