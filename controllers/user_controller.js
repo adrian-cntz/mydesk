@@ -112,10 +112,10 @@ const miPerfil = (req,res) => {
     const legajo = req.cookies.legajo;
 
     const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
+    const msg = ''
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            const message = "";
-            res.render('./user/mi-perfil', {rows, message})
+            res.render('./user/mi-perfil', {rows})
         }
         else{
             console.error(err)
@@ -151,10 +151,12 @@ const checkEditarPassword = async (req, res) => {
                             }
                         })
                     }else{
-                        res.send("contraseña vacia")                       
+                        console.log("contraseña vacia")
+                        res.redirect(`/api/miperfil/password/${id}`)                 
                     }
                 }else{
-                    res.send("la contraseña actual no coincide")                        
+                    console.log("la contraseña actual no coincide")
+                    res.redirect(`/api/miperfil/password/${id}`)                     
                 }
             }
             else{
