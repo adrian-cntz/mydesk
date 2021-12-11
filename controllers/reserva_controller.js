@@ -56,12 +56,12 @@ const getReservasFecha = async (req, res, next) => {
 
 //OBTENER UNO
 const getReserva = async (req, res, next) => {
-    console.log(req.params.id)
+    //console.log(req.params.id)
     const id = req.params.id;
     const sql = `SELECT * from turnos WHERE usuario_id = ${id}`;
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.render("./user/mis-turnos", {rows})
+            res.render("./user/mis-turnos", {rows, id})
         }
         else{
             console.error(err)
@@ -88,10 +88,12 @@ const updateReserva = async (req, res, next) => {
 //ELIMINAR
 const deleteReserva = async (req, res, next) => {
     const id = req.params.id;
-    const sql = `DELETE FROM turnos WHERE id_turno = ${id}`;
+    const rId = req.params.rId;
+    const sql = `DELETE FROM turnos WHERE id_turno = ${rId}`;
     poolDB.query(sql, (err, rows, fields) => {
         if (!err) {
-            res.send("Lar reserva se elimino correctamente!");
+            console.log("Lar reserva se elimino correctamente!");
+            res.redirect(`/reserva/${id}`)
         }
         else {
             console.error(err);
