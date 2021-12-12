@@ -1,4 +1,5 @@
-var x = document.getElementById("borrar");
+var x = document.getElementById("turno");
+var id = document.getElementById("usuario");
 
 x.addEventListener('click', (e) => mensaje);
 
@@ -11,10 +12,10 @@ function mensaje() {
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.value) {
-      window.location.href = `/reserva/borrar/usuario_id/id_turno`;
+      window.location.href = `/reserva/borrar/${id.textContent}/${x.textContent}`;
       Swal.fire('Borrado confirmado',
               '',
               'success')
-                 } 
+                 }
                })            
 }

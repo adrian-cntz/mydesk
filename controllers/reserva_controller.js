@@ -128,11 +128,13 @@ const addReserva = async (req, res, next) => {
       }
     //Valida User
     poolDB.query(sqlValidaUser, (err, rows, fields) =>{
-        const escritorio = (rows.length+1);
+        
+        
         var p;
         if(rows.length == 0){
         //Valida fecha
             poolDB.query(sqlFecha, (err, rows, fields) =>{
+                const escritorio = (rows.length+1);
                 if(rows.length < puestos){
                     switch(tipo) {
                         case "1":
