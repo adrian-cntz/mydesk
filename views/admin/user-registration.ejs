@@ -8,7 +8,7 @@
             <label>Nombre y apellido:</label>
             <input type="text" class="form-control margin-input <%= locals.errors && errors.nombre? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.nombre : null %>" name="nombre">     
             <% if (locals.errors && errors.nombre) { %>
-              <div class="text-danger">
+              <div class="alerta">
               <%= errors.nombre.msg %>
               </div>
           <% } %>       
@@ -17,7 +17,7 @@
             <label for="legajo">Nº de Legajo:</label>
             <input type="text" class="form-control margin-input <%= locals.errors && errors.legajo? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.legajo : null %>" name="legajo">    
             <% if (locals.errors && errors.legajo) { %>
-              <div class="text-danger">
+              <div class="alerta">
               <%= errors.legajo.msg %>
               </div>
           <% } %>      
@@ -26,7 +26,7 @@
             <label for="email">Correo electrónico:</label>
             <input type="email" class="form-control margin-input <%= locals.errors && errors.mail? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.mail : null %>" name="mail" placeholder="email@ejemplo.com">    
             <% if (locals.errors && errors.mail) { %>
-              <div class="text-danger">
+              <div class="alerta">
               <%= errors.mail.msg %>
               </div>
           <% } %>      

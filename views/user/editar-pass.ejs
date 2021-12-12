@@ -11,7 +11,7 @@
             <label>Actual contraseña:</label>
             <input type="password" name="oldPassword" class="form-control margin-input" placeholder="Contraseña">
             <% if (locals.errors && errors.oldPassword) { %>
-                <div class="text-danger">
+                <div class="alerta">
                 <%= errors.oldPassword.msg %>
                 </div>
             <% } %>
@@ -20,9 +20,16 @@
         <div class="form-group">
             <label>Nueva contraseña:</label>
             <input type="password" name="newPassword" class="form-control margin-input" placeholder="Nueva Contraseña">
-            <% if (locals.errors && errors.oldPassword) { %>
-                <div class="text-danger">
-                <%= errors.oldPassword.msg %>
+            <% if (locals.errors && errors.newPassword) { %>
+                <div class="alerta">
+                <%= errors.newPassword.msg %>
+                </div>
+            <% } %>
+            <% if (locals.ok && ok.newPassword) { %>
+                <div style="color: rgb(10, 105, 46);
+                font-weight: bold;
+                font-size: large;">
+                <%= ok.newPassword.msg %>
                 </div>
             <% } %>
         </div>

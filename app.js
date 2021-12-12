@@ -6,7 +6,6 @@ const cookies = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
-var flash = require('connect-flash')
 const app = express();
 
 
@@ -20,11 +19,9 @@ var puestoRouter = require('./routes/puestos');
 
 //SESSION
 app.use(session({key: 'cookie_usuario', secret: 'secret', resave: false, saveUninitialized: false}));
-app.use(flash());
 app.use(cookies());
 app.use(userLoggedMiddleware);
 app.use(express.static(path.join(__dirname, 'public')));
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
@@ -61,42 +58,5 @@ app.use(function(err, req, res, next) {
     error: err
   });
 });
-/*
-//rutas de las vistas generales
-app.get('/acerca', function(req, res) {
-  res.render('/general/sections/about', { });
-});
-app.get('/contacto', function(req, res) {
-  res.render('/general/sections/contact', { });
-});
-app.get('/guia', function(req, res) {
-  res.render('/general/sections/user-guide', { });
-});
-
-//rutas de las vistas del usuario común
-app.get('/misturnos', function(req, res) {
-  res.render('/user/user-reservations', { });
-});
-app.get('/solicitar',function (req,res){
-  res.render('/user/seleccionar-turno',{});
-})
-app.get('/espacios', function(req, res) {
-  res.render('/user/workspaces-list', { });
-});
-app.get('/miperfil', function(req, res) {
-  res.render('/user/user-profile', { });
-});
-
-//rutas de las vistas del usuario administrador
-app.get('/admin/reservas', function(req, res) {
-  res.render('/admin/user-reservations', { });
-});
-app.get('/admin/usuarios', function(req, res) {
-  res.render('/admin/users-list', { });
-});
-app.get('/admin/nuevoregistro', function(req, res) {
-  res.render('/admin/user-registration', { });
-});
-*/
 
 module.exports = app

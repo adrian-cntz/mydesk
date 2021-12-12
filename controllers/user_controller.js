@@ -142,22 +142,39 @@ const checkEditarPassword = async (req, res) => {
             if(!err){
                 if(await bcryptjs.compare(oldP, rows[0].password)){
                     if(newP.length > 0){
-                        poolDB.query(sql, async (err, rows) => {
+                        poolDB.query(sql, async (err, rowsU) => {
                             if(!err){
                                 console.log("Se cambio la contraseña corectamente!")
-                                res.redirect('/api/miperfil')
+                                res.render('./user/editar-pass', {id,
+                                    ok: {
+                                        newPassword: {
+                                            msg: "¡La contraseña se cambio corectamente!"
+                                        }
+                                    }
+                                })
                             }else{
                                 console.error(err)
                             }
                         })
                     }else{
                         console.log("contraseña vacia")
-                        res.redirect(`/api/miperfil/password/${id}`)                 
+                        res.render('./user/editar-pass', {id,
+                        errors: {
+                            newPassword: {
+                                msg: "La contraseña nueva está vacía"
+                            }
+                        }
+                    })                 
                     }
                 }else{
                     console.log("la contraseña actual no coincide")
-                    console.log("contraseña vacia")
-                        res.redirect(`/api/miperfil/password/${id}`)
+                    res.render('./user/editar-pass', {id,
+                        errors: {
+                            oldPassword: {
+                                msg: "La contraseña actual no coincide"
+                            }
+                        }
+                    })                     
                 }
             }
             else{
@@ -165,7 +182,13 @@ const checkEditarPassword = async (req, res) => {
             }
         })
     }else{
-        res.send("Contraseña Actual vacia")
+        res.render('./user/editar-pass', {id,
+            errors: {
+                oldPassword: {
+                    msg: "La contraseña actual está vacía"
+                }
+            }
+        })
     }
 }
 
