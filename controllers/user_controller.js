@@ -65,7 +65,7 @@ const addUser = async (req, res, next) => {
             res.redirect('/login')
         }
         else{
-            console.error(err)
+            res.render('error')
         }
     })
 
@@ -124,7 +124,7 @@ const miPerfil = (req,res) => {
 
 const editarPassword = async (req, res) => {
     const id = await req.params.id;
-    return res.render('editar-pass', {id})
+    return res.render('./user/editar-pass', {id})
 }
 
 const checkEditarPassword = async (req, res) => {
@@ -134,18 +134,18 @@ const checkEditarPassword = async (req, res) => {
     let contrasenaBdd = password.passHaash
 
     if (bcryptjs.compareSync(contrasenaInput, contrasenaBdd) == true){
+        const sql = `UPDATE usuarios SET password= '${password}' WHERE id_usuario = ${id}`;
 
-        db.Cliente.update({
-            contrasena: bcryptjs.hashSync(req.body.nuevaContrasena, 10)       
-        }, {where:{
-            id:req.params.id
+       const password = bcryptjs.hashSync(req.body.nuevaContrasena, 10)       
+        await poolDB.query(sql, password, (err, rows, fields) =>{
+            if(!err){
+                res.send("La contraseña se actualizo correctamente!");
+            }
+            else{
+                console.error(err)
             }
         })
-        .then(function(){res.redirect('/api/miperfil/' + req.params.id)})}
-  //  })
-
-   // .then(function(){res.redirect('/api/miperfil/' + req.params.id)})
-
+        }
 }
 
 module.exports = {

@@ -1,4 +1,28 @@
 /******************Comienza Clases Adrian***********/
+body.index{
+  background-image: url("../images/home-tablet.png")!important;
+  background-color: black;
+  /*background-size: inherit;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;*/
+}
+/* fondo general */
+body{
+  background-color: black;
+  background-size: inherit;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("http://localhost:3000/images/body-bg.jpg");
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* fondo index */
 h1.indexTitle{
   font-family: "Nunito Sans", sans-serif;
   font-weight: bold;
@@ -12,26 +36,59 @@ h1 {
 }
 h2 {
   font-family: "Nunito Sans", sans-serif;
-
+  font-weight: bolder;
+  color: #313967;  
+}
+h3{
+  font-family: "Nunito Sans", sans-serif;
   font-weight: bold;
-  color: #313967;
-  font-weight: 300;
+}
+label{
+  font-family: "Nunito Sans", sans-serif;
+  font-size: large;
+  font-weight: 500;
 }
 .container {
-  background-color: gainsboro;
-  padding-left: 8rem;
-  padding-right: 8rem;
-  padding-bottom: 3rem;
-  height: max-content;
+  background-color: rgba(255, 255, 255, 0.63);
+  padding-left: 25px;
+  padding-right: 25px;
   margin-top: 5rem;
   border-radius: 5px;
+  padding-bottom: 3rem;  
+  max-width: 1200px;
 }
-
 .nav-link {
   font-weight: bold;
 }
 .text-center {
   padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+tr:hover td{
+  background-color:#d6eaf8 !important;
+}
+.onHover:hover{
+  background-color:#d6eaf8 ;
+}
+#lista-turnos{
+  cursor:pointer;
+}
+.bg-white{
+  background-color: whitesmoke;
+}
+.padingprod{
+  background-color: lightgrey;
+  border-radius: 5px;
+  min-height: 250px;
+  max-width: 400px;
+}
+.img1{
+  max-width: 130px;
+  height: 250px !important; 
+  object-fit: cover !important;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
 }
 
 /******************Termina Clases Adrian***********/
@@ -48,7 +105,7 @@ h2 {
   margin-top: 2rem;
 }
 .card-reserva p {
-  color: gray;
+  color: black;
 }
 .puesto-disponible {
   font-weight: bold;
@@ -204,34 +261,4 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
 /******************Termina Clases Bryan***********/
 
 /* fondo index */
-body.index{
-  background-image: url("../images/home-tablet.png")!important;
-  background-repeat: no-repeat;
-  background-color: black;
-  background-size: inherit;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-/* fondo general */
-body{
-  background-repeat: no-repeat;
-  background-color: black;
-  background-size: inherit;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url("http://localhost:3000/images/body-bg.jpg");
-}
-.container {
-  background-color: gainsboro;
-  padding-left: 8rem;
-  padding-right: 8rem;
-  padding-top: 15px;
-  padding-bottom: 10px;  
-  height: 100%; 
-}
+
