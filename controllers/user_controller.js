@@ -156,7 +156,8 @@ const checkEditarPassword = async (req, res) => {
                     }
                 }else{
                     console.log("la contraseña actual no coincide")
-                    res.redirect(`/api/miperfil/password/${id}`)                     
+                    console.log("contraseña vacia")
+                        res.redirect(`/api/miperfil/password/${id}`)
                 }
             }
             else{
