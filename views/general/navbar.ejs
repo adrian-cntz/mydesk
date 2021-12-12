@@ -1,6 +1,3 @@
-<%# acá se deberia incluir una funcion para saber que navbar renderizar en base
-al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
-%> <%# Nueva NAVBAR %>
 <!--Inicia Nav Desktop-->
 <header>
 <div>
@@ -12,14 +9,13 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 
       <div class="collapse navbar-collapse" id="barra">
         <ul class="navbar-nav text-center ml-auto">
-          <% if(locals.userLogged[0].es_admin == 0){ %>
           <li class="nav-item">
             <a class="nav-link" href="/home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/reserva/<%= locals.userLogged[0].id_usuario %>">Mis reservas</a>
           </li>
-          <% } %>
+          
           <li class="nav-item">
             <a class="nav-link" href="/api/miperfil">Mi perfil</a>
           </li>
@@ -58,7 +54,6 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
 >
   <div class="collapse navbar-collapse" id="barra">
     <ul class="navbar-nav">
-      <% if(locals.userLogged[0].es_admin == 0){ %>
       <li class="nav-item">
         <a class="nav-link border-right" href="/home"
           ><svg
@@ -92,7 +87,8 @@ al valor de "es_admin" correspondiente al usuario logueado %> <%# NAVBAR OPCION1
           </svg>
           <h5>Mis reservas</h5>
         </a>
-      </li>
+      </li>    
+      <% if(locals.userLogged[0].es_admin == 0){ %>
       <li class="nav-item">
         <a class="nav-link border-right" href="/contact"
           ><svg width="33" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">

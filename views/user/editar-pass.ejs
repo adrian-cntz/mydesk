@@ -9,20 +9,20 @@
 
         <div class="form-group">
             <label>Actual contraseña:</label>
-            <input type="password" name="oldPassword" class="form-control margin-input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
-            <% if (locals.errors && errors.password) { %>
+            <input type="password" name="oldPassword" class="form-control margin-input" placeholder="Contraseña">
+            <% if (locals.errors && errors.oldPassword) { %>
                 <div class="text-danger">
-                <%= errors.password.msg %>
+                <%= errors.oldPassword.msg %>
                 </div>
             <% } %>
         </div>
     
         <div class="form-group">
             <label>Nueva contraseña:</label>
-            <input type="password" name="newPassword" class="form-control margin-input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Nueva Contraseña">
-            <% if (locals.errors && errors.password) { %>
+            <input type="password" name="newPassword" class="form-control margin-input" placeholder="Nueva Contraseña">
+            <% if (locals.errors && errors.oldPassword) { %>
                 <div class="text-danger">
-                <%= errors.password.msg %>
+                <%= errors.oldPassword.msg %>
                 </div>
             <% } %>
         </div>
@@ -30,6 +30,8 @@
         <button type="submit" class="btn btn-secondary">Modificar contraseña</button>
         
     </form>
+    <script src="/scripts/sweetalert2.min.js"></script>
+
 <!--<script type="text/javascript" src="/scripts/session-start.js"></script>-->
 </div>
   <%- include('../general/footer') %>
