@@ -1,0 +1,35 @@
+<%- include('../general/header') %>
+<%- include('../general/navbar') %>
+<body>
+    <main>    
+        <div class="container">
+            
+            <form action="/contacto/add" method="POST">
+                <h2 class="text-center">Contacto</h2>
+                <div class="form-group">                    
+                    <textarea rows="5" maxlength="500" class="form-control margin-input" type="text" name="mensaje" placeholder="Consulta..."></textarea>
+                    <% if (locals.errors && errors.mensaje) { %>
+                        <div class="alerta">
+                        <%= errors.mensaje.msg %>
+                        </div>
+                        <br>
+                    <% } %>
+                    <% if (locals.ok && ok.mensaje) { %>
+                        <div style="color: rgb(10, 105, 46);
+                        font-weight: bold;
+                        font-size: large;">
+                        <%= ok.mensaje.msg %>
+                        </div>
+                        <br>
+                    <% } %>
+                </div>
+            
+        
+                <button type="submit" class="btn btn-secondary">Enviar consulta</button>
+                
+            </form>
+        </div>    
+    </main>    
+    <%- include('../general/footer') %>    
+</body>
+</html>

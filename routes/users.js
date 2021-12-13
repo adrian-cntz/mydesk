@@ -19,15 +19,15 @@ const validations = require('../middleware/validateRegisterMiddleware');
 
 
 router.get('/users', getAllUsers);
-router.get('/user/:id',  getUser);
-router.get('/crear',   registro)
+router.get('/user/:id', guestMiddleware, getUser);
+router.get('/crear', guestMiddleware, registro)
 router.post('/user/crear', validations, addUser);
 router.put('/user/:id', updateUser);
 router.delete('/user/:id', deleteUser);
 router.get('/logout', logout);
-router.get('/miperfil',  miPerfil);
+router.get('/miperfil', authMiddleware, miPerfil);
 router.get('/miperfil/password/:id', editarPassword);
-router.put('/miperfil/password/cambiar/:id', checkEditarPassword);
+router.post('/miperfil/password/cambiar/:id', checkEditarPassword);
 
 
 module.exports = {

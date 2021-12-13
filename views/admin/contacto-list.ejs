@@ -1,0 +1,42 @@
+<%- include('../general/header') %>
+ <%- include ('../general/navbar') %>
+<body style="margin-bottom: 50px;">
+   
+  <main>  
+  <div class="container">
+    <h2 class="text-center">Listado de consultas</h2>
+    <br />
+      <table class="table table-hover" id="lista-turnos">
+        <thead>
+          <tr class="encabezado">
+            <th scope="col">N°</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Nombre de usuario</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Mensaje</th>
+      
+      <tr class="overflow">
+    <% for(var i=0; i<rowsC.length; i++) {%>
+    <%var id = rowsC[i].usuario_id ; const f = rowsC[i].fecha; var options = { year: 'numeric', month: 'long', day: 'numeric' };%>
+        </tr>
+        <% function buscar(usuario) {return usuario.id_usuario === id} %> 
+        <% let newRowU = rowsU.find(usuario => buscar(usuario)) %>
+        <% const nuevaf = f.toLocaleDateString("es-ES", options);%>
+          <td style="min-width: 70px;" scope="col"><%= rowsC[i].id_contacto %></td>
+          <td style="min-width: 200px;" scope="col"><%= nuevaf %></td>
+          <td style="min-width: 170px;" scope="col"><%= newRowU.nombre %></td>
+          <td style="min-width: 170px;" scope="col"><%= newRowU.mail %></td>
+          <td style="min-width: 300px;" scope="col"><%= rowsC[i].mensaje %></td>     
+          </tr>
+      <% } %>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+  </div>
+
+</main>
+<%- include('../general/footer') %>
+
+</body>    
+</html>

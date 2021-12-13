@@ -1,9 +1,9 @@
 <!--Inicia Profile-->
 <%- include ('../general/header') %>
 <%- include ('../general/navbar') %>
-<body style="background-color: white; margin-bottom: 2em; margin-top: -3em">
-  <div class="container" style="max-width: 300px; padding: 0">
-    <div class="row" style="margin-top: 8rem;">
+<body>
+  <div class="container">
+    <div class="row" style="margin-top: 2rem;">
       <div class="col-12 text-center tu-puesto">
         <h1 style="padding-top: 1rem;">Mi Perfil</h1>
       </div>
@@ -38,9 +38,15 @@
               <%=rows[0].mail%>
             </p>
           </div>
+          <div style="padding: 0; margin: 0; flex: 3">
+            <p style="font-weight: 750; padding: 0; margin: 0">Legajo:</p>
+            <p style="padding: 0; margin: 0; color: gray">
+              <%=rows[0].legajo%>
+            </p>
+          </div>
         </div>
         <!--cambiar contraseña-->
-        <a href="/api/miperfil/password/id%>"  
+        <a class="onHover" href="/api/miperfil/password/<%=rows[0].id_usuario%>"  
           style="text-decoration: none; margin: 0; color: black">
           <div style="display: flex;border-bottom: solid 1px gray;padding: 1em 0;">
             <div style="flex: 1;display: flex;justify-content: center;align-items: center;">
@@ -59,7 +65,7 @@
             </div>
           </div>
           <!--Cerrar sesión-->
-          <a href="/api/logout" style="text-decoration: none; margin: 0; color: black">
+          <a class="onHover" href="/api/logout" style="text-decoration: none; margin: 0; color: black">
             <div style="display: flex;border-bottom: solid 1px gray;padding: 1em 0;">
               <div style="flex: 1;display: flex;justify-content: center;align-items: center;">
                 <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
