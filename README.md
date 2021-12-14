@@ -15,7 +15,8 @@ MySQL
 
 heroku: https://mydesk-app.herokuapp.com/
 
-levanta servidor por npm start
+instala modulos: npm i
+levanta servidor: npm start
 
 usuario comun: legajo 38 contraseña: 123
 usuario admin: legajo 40 contraseña: 402021
