@@ -1,7 +1,6 @@
 <%- include ('../general/header') %>
 <body>
   <%- include('../general/navbar') %>
-  <!--Inicia Tipos de oficina-->
   <div class="container text-center">
     <div class="div-hola">
       <h1>Hola, <%=rows[0].nombre%></h2>
@@ -10,13 +9,13 @@
 
     <div class="row mb-2">
 
-      <article class="col-lg-4 col-md-6 card-reserva">
+      <article class="col-lg-4 col-md-6 card-reserva" id="btn-abrir-popup">
         <div class="padingprod shadow-sm">
           <div class="row g-0 rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
             <div class="col-4 nop">
               <img
                 class="img1"
-                style="width: 100%;"
+                style="width: 100%; "
                 src="/images/escritorio_indiv.jpg"
                 alt=""
               />
@@ -34,7 +33,21 @@
         </div>
       </article>
 
-      <article class="col-lg-4 col-md-6 card-reserva">
+      <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+          <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
+          <h3>Espacio ideal de trabajo individual</h3>
+          <ul>
+            <li><i class="fa-solid fa-arrow-right"></i> Conexión a Ethernet por cable o una red wifi segura con soporte de TI.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Disponibilidad de impresora, artículos de oficina y una trituradora de papel.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Conexión a red electrica con disponibilidad para 220v o USB.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Cajones con seguridad para guardar tus pertenecias.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Sillones ergonómicos.</li>
+          </ul>         
+        </div>
+      </div>
+
+      <article class="col-lg-4 col-md-6 card-reserva" id="btn-abrir-popup_2" >
         <div class="padingprod shadow-sm">
           <div class="row g-0 rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
             <div class="col-4 nop">
@@ -56,7 +69,20 @@
         </div>
       </article>
 
-      <article class="col-lg-4 col-md-6 card-reserva">
+      <div class="overlay" id="overlay_2">
+        <div class="popup" id="popup_2">
+          <a href="#" id="btn-cerrar-popup_2" class="btn-cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
+          <h3>Espacio ideal de trabajo grupal </h3>
+          <ul>
+            <li><i class="fa-solid fa-arrow-right"></i> Conexión a Ethernet por cable o una red wifi segura con soporte de TI.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Conexión a red electrica con disponibilidad para 220v o USB.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Mesa redonda con sillas ergonómicas.</li>
+          </ul>         
+        </div>
+      </div>
+
+
+      <article class="col-lg-4 col-md-6 card-reserva" id="btn-abrir-popup_3">
         <div class="padingprod shadow-sm">
           <div class="row g-0 rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
             <div class="col-4 nop">
@@ -80,8 +106,23 @@
         </div>
       </article>
 
+      <div class="overlay" id="overlay_3">
+        <div class="popup" id="popup_3">
+          <a href="#" id="btn-cerrar-popup_3" class="btn-cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
+          <h3>Sala de presentaciones</h3>
+          <ul>
+            <li><i class="fa-solid fa-arrow-right"></i> Mesa amplia con sillas ergonómicas.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Sala para reuniones de hasta 20 personas.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Conexión a Ethernet por cable o una red wifi segura con soporte de TI.</li>
+            <li><i class="fa-solid fa-arrow-right"></i> Posibilidad de conexión a TV FULLHD o proyector para presentaciones.</li>
+          </ul>         
+        </div>
+      </div>
     </div>
   </div>
+
+  <script src="/scripts/sweetalert2.min.js"></script>
+  <script src="/scripts/popup.js"></script>
   <%- include('../general/footer') %>
   <!--Termina Tipos de oficina-->
 </body>

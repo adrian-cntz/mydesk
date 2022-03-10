@@ -96,7 +96,102 @@ tr:hover td{
   font-weight: bold;
   font-size: large;
 }
+.overlay {
+  background: rgba(0,0,0, .3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 3;
+}
+.overlay.active {
+  visibility: visible;
+}
+.popup {
+  background: #f8f8f8;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+  width: 500px;
+  transition: .3s ease all;
+  transform: scale(0.7);
+  opacity: 0;
+}
+.popup .btn-cerrar-popup {
+  font-size: 16px;
+  line-height: 16px;
+  display: block;
+  text-align: right;
+  color: #BBBBBB;
+  transition: .3s ease all;
+}
+.popup .btn-cerrar-popup:hover {
+  color: #000;
+}
+.popup h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  opacity: 0;
+  color: #313967;
+}
+.popup li {
+  font-size: 16px;
+  margin-bottom: 20px;
+  opacity: 0;
+  list-style: none;
+}
+.popup .btn-submit {
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  color: #fff;
+  background: #5e7de3;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: .3s ease all;
+}
+.popup .btn-submit:hover {
+  background: rgba(94, 125, 227, .9);
+}
+.popup.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.popup.active h3 {
+  animation: entradaTitulo .8s ease .5s forwards;
+}
+.popup.active li {
+  animation: entradaItems .8s ease .5s forwards;
+}
 
+@keyframes entradaTitulo {
+  from {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes entradaItems {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 /******************Termina Clases Adrian***********/
 /******************Comianza Clases Bryan***********/
 /***************Estilos Generales***********/
@@ -109,6 +204,7 @@ tr:hover td{
 .card-reserva {
   color: #313967;
   margin-top: 2rem;
+  cursor: pointer;
 }
 .card-reserva p {
   color: black;
