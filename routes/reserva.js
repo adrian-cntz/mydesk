@@ -7,14 +7,14 @@ const { viewReserva, addReserva,
       deleteReserva,
       getReservasFecha,}= require("../controllers/reserva_controller");
 
-router.get("/ver/:tipo", viewReserva);
+router.get("/view/:tipo", viewReserva);
 router.get("", getAllReservas);
-router.get("/reservas", getAllReservas);
+router.get("/all", getAllReservas);
 router.get("/date", getReservasFecha);
 router.get("/:id", getReserva);
-router.post("/nueva", addReserva);
-router.put("/editar/:id", updateReserva);
-router.get("/borrar/:id/:rId", deleteReserva);
+router.post("/new", addReserva);
+router.put("/update/:id", updateReserva);
+router.get("/delete/:id/:rId", deleteReserva);
 
 module.exports = {
   routes: router,

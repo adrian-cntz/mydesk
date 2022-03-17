@@ -18,7 +18,7 @@ function confirmacion() {
   if (!result.value) {
         window.location.href = `/home`
   } else {
-    window.location.href = `/reserva/${id.textContent}`
+    window.location.href = `/booking/${id.textContent}`
   }
 })
 }

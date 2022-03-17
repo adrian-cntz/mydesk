@@ -95,7 +95,7 @@ const deleteReserva = async (req, res, next) => {
     poolDB.query(sql, (err, rows, fields) => {
         if (!err) {
             console.log("¡La reserva se eliminó correctamente!");
-            res.redirect(`/reserva/${id}`)
+            res.redirect(`/booking/${id}`)
         }
         else {
             console.error(err);

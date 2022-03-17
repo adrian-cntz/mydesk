@@ -12,7 +12,7 @@ function mensaje() {
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.value) {
-      window.location.href = `/reserva/borrar/${id.textContent}/${x.textContent}`;
+      window.location.href = `/booking/delete/${id.textContent}/${x.textContent}`;
       Swal.fire('Borrado confirmado',
               '',
               'success')

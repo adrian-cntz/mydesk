@@ -41,7 +41,7 @@ const login = async (req, res) => {
                     if(perfil == 0){
                         res.redirect('/home');
                     }else{
-                        res.redirect('/reserva/reservas');
+                        res.redirect('/booking/all');
                     }                    
                 }
             }

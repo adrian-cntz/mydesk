@@ -36,11 +36,11 @@ app.set('view engine', 'ejs');
 
 //Rutas
 app.use('/', indexRouter.routes);
-app.use('/api', usersRouter.routes);
-app.use('/puesto', puestoRouter.routes);
+app.use('/user', usersRouter.routes);
+app.use('/puesto', puestoRouter.routes); //no muestra nada
 app.use('/login', loginRouter.routes);
-app.use('/reserva', reservaRouter.routes);
-app.use('/contacto', contactoRouter.routes);
+app.use('/booking', reservaRouter.routes);
+app.use('/contact', contactoRouter.routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
