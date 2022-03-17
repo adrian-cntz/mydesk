@@ -1,5 +1,4 @@
 'use strict';
-//const dbModel = require('../database/models/users_model');
 const poolDB = require('../database/config/db');
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
@@ -62,7 +61,7 @@ const addUser = async (req, res, next) => {
 
     poolDB.query(sql, data, (err, rows, fields) =>{
         if(!err){
-            res.redirect('/api/users')
+            res.redirect('/user/all')
         }
         else{
             res.render('error')

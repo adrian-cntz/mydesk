@@ -3,7 +3,7 @@
     <%- include ('../general/navbar') %> 
     <div class="container">
         <h2 class="text-center">Usuario nuevo</h2>
-        <form method="POST" action="/api/user/crear" id="form-create">
+        <form method="POST" action="/user/get/new" id="form-create">
           <div class="form-group">  
             <label>Nombre y apellido:</label>
             <input type="text" class="form-control margin-input <%= locals.errors && errors.nombre? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.nombre : null %>" name="nombre">     

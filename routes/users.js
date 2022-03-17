@@ -18,16 +18,16 @@ const guestMiddleware = require('../middleware/guestMiddleware');
 const validations = require('../middleware/validateRegisterMiddleware');
 
 
-router.get('/users', getAllUsers);
-router.get('/user/:id', guestMiddleware, getUser);
-router.get('/crear', registro)
-router.post('/user/crear', validations, addUser);
-router.put('/user/:id', updateUser);
-router.delete('/user/:id', deleteUser);
+router.get('/all', getAllUsers);
+router.get('/get/:id', guestMiddleware, getUser);
+router.get('/new', registro)
+router.post('/get/new', validations, addUser);
+router.put('/update/:id', updateUser);
+router.delete('/delete/:id', deleteUser);
 router.get('/logout', logout);
-router.get('/miperfil', authMiddleware, miPerfil);
-router.get('/miperfil/password/:id', editarPassword);
-router.post('/miperfil/password/cambiar/:id', checkEditarPassword);
+router.get('/profile', authMiddleware, miPerfil);
+router.get('/profile/password/:id', editarPassword);
+router.post('/profile/password/change/:id', checkEditarPassword);
 
 
 module.exports = {
