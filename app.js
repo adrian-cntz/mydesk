@@ -37,7 +37,7 @@ app.set('view engine', 'ejs');
 //Rutas
 app.use('/', indexRouter.routes);
 app.use('/user', usersRouter.routes);
-app.use('/puesto', puestoRouter.routes); //no muestra nada
+app.use('/place', puestoRouter.routes);
 app.use('/login', loginRouter.routes);
 app.use('/booking', reservaRouter.routes);
 app.use('/contact', contactoRouter.routes);
