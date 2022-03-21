@@ -28,26 +28,7 @@ const home = async (req,res) => {
                                 else{
                                     console.error(err)
                                 }
-        /*
-                            })
-                        }
-                        else{
-                            console.error(err)
-                        }
-                    })
-                }
-                else{
-                    console.error(err)
-                }
-            })
-        }
-        else{
-            console.error(err)
-        }
-    */})
-}
-const contact = (req, res) => {
-    res.render('contact')
+        })
 }
 
 

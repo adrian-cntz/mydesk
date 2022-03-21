@@ -1,5 +1,4 @@
 'use strict';
-//const dbModel = require('../database/models/users_model');
 const poolDB = require('../database/config/db');
 
 const contact = (req, res) => {
@@ -13,7 +12,6 @@ const addContacto = async (req, res, next) => {
     const sql = 'INSERT INTO contacto SET ?';
     const f = new Date();
     const newFecha = (f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate());
-    //console.log(mensaje)
     poolDB.query(sqlUser, (err, rows, fields) =>{
         if(!err){
             const data = {

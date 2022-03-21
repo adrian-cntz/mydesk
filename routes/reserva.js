@@ -8,7 +8,6 @@ const { viewReserva, addReserva,
       getReservasFecha,}= require("../controllers/reserva_controller");
 
 router.get("/view/:tipo", viewReserva);
-router.get("", getAllReservas);
 router.get("/all", getAllReservas);
 router.get("/date", getReservasFecha);
 router.get("/:id", getReserva);
