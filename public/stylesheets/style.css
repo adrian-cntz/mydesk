@@ -233,6 +233,12 @@ tr:hover td{
 .margin-input {
   margin: 1.8em 0;
 }
+.icon {
+  height: 1.25em;
+  color: #313967;
+  font-size: 200%;
+}
+
 
 /*---------------------------INICIA NAV BAR---------------------------------*/
 .navbar {
