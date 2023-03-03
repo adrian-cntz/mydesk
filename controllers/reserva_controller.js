@@ -167,7 +167,7 @@ const addReserva = async (req, res, next) => {
                                 type: 'success',
                                 error:"",
                                 date: `Fecha: ${nuFecha}`,
-                                escritorio:`Escritorio: ${data.escritorio_id}`,
+                                escritorio:`Puesto: ${data.escritorio_id}`,
                                 id: user
                             })
                         }else{

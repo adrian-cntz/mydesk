@@ -12,7 +12,7 @@ const getAll = async (req, res, next) => {
     const sql = 'SELECT * from puestos';
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            res.send(rows)
+            res.render("./admin/place-list", {rows})
         }
         else{
             console.error(err)
