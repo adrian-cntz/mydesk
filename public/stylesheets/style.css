@@ -1,16 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap');
+
 /******************Comienza Clases Adrian***********/
-body.index{
-  background-image: url("../images/home-tablet.png")!important;
+body.index {
+  background-image: url("../images/home-tablet.png") !important;
   background-color: black;
-  /*background-size: inherit;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;*/
 }
+
 /* fondo general */
-body{
+body {
+  font-family: "Nunito Sans", sans-serif;
   background-color: black;
   background-size: inherit;
   width: 100%;
@@ -22,82 +20,92 @@ body{
   padding-left: 15px;
   padding-right: 15px;
 }
+
 /* fondo index */
-h1.indexTitle{
-  font-family: "Nunito Sans", sans-serif;
+h1.indexTitle {
   font-weight: bold;
   font-size: 40px;
-  color: white !important; 
+  color: white !important;
 }
+
 h1 {
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: bold;  
+  font-weight: bold;
   color: #313967;
 }
+
 h2 {
-  font-family: "Nunito Sans", sans-serif;
   font-weight: bolder;
-  color: #313967;  
+  color: #313967;
 }
-h3{
-  font-family: "Nunito Sans", sans-serif;
+
+h3 {
   font-weight: bold;
 }
-label{
-  font-family: "Nunito Sans", sans-serif;
+
+label {
   font-size: large;
   font-weight: 500;
 }
+
 .container {
   background-color: rgba(255, 255, 255, 0.7);
   padding-left: 25px;
   padding-right: 25px;
   margin-top: 6rem;
   border-radius: 5px;
-  padding-bottom: 3rem;  
+  padding-bottom: 3rem;
   max-width: 1200px;
 }
+
 .nav-link {
   font-weight: bold;
 }
+
 .text-center {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-tr:hover td{
-  background-color:#d6eaf8 !important;
+
+tr:hover td {
+  background-color: #d6eaf8 !important;
 }
-.onHover:hover{
-  background-color:#d6eaf8 ;
+
+.onHover:hover {
+  background-color: #d6eaf8;
 }
-#lista-turnos{
-  cursor:pointer;
+
+#lista-turnos {
+  cursor: pointer;
 }
-.bg-white{
+
+.bg-white {
   background-color: whitesmoke;
 }
-.padingprod{
+
+.padingprod {
   background-color: lightgrey;
   border-radius: 5px;
   min-height: 250px;
   max-width: 400px;
 }
-.img1{
+
+.img1 {
   max-width: 130px;
-  height: 250px !important; 
+  height: 250px !important;
   object-fit: cover !important;
   margin-top: 5px;
   margin-left: 5px;
   border-radius: 5px;
 }
-.alerta{
+
+.alerta {
   color: rgb(167, 7, 7);
-  font-family: "Nunito Sans", sans-serif;
   font-weight: bold;
   font-size: large;
 }
+
 .overlay {
-  background: rgba(0,0,0, .3);
+  background: rgba(0, 0, 0, .3);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -109,9 +117,11 @@ tr:hover td{
   visibility: hidden;
   z-index: 3;
 }
+
 .overlay.active {
   visibility: visible;
 }
+
 .popup {
   background: #f8f8f8;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
@@ -123,6 +133,7 @@ tr:hover td{
   transform: scale(0.7);
   opacity: 0;
 }
+
 .popup .btn-cerrar-popup {
   font-size: 16px;
   line-height: 16px;
@@ -131,21 +142,25 @@ tr:hover td{
   color: #BBBBBB;
   transition: .3s ease all;
 }
+
 .popup .btn-cerrar-popup:hover {
   color: #000;
 }
+
 .popup h3 {
   font-size: 26px;
   margin-bottom: 10px;
   opacity: 0;
   color: #313967;
 }
+
 .popup li {
   font-size: 16px;
   margin-bottom: 20px;
   opacity: 0;
   list-style: none;
 }
+
 .popup .btn-submit {
   padding: 0 20px;
   height: 40px;
@@ -158,16 +173,20 @@ tr:hover td{
   cursor: pointer;
   transition: .3s ease all;
 }
+
 .popup .btn-submit:hover {
   background: rgba(94, 125, 227, .9);
 }
+
 .popup.active {
   opacity: 1;
   transform: scale(1);
 }
+
 .popup.active h3 {
   animation: entradaTitulo .8s ease .5s forwards;
 }
+
 .popup.active li {
   animation: entradaItems .8s ease .5s forwards;
 }
@@ -177,44 +196,49 @@ tr:hover td{
     transform: translateY(-25px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
   }
 }
+
 @keyframes entradaItems {
   from {
     transform: translateY(25px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
   }
 }
-/******************Termina Clases Adrian***********/
-/******************Comianza Clases Bryan***********/
-/***************Estilos Generales***********/
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Barlow", sans-serif;
 }
+
 .card-reserva {
   color: #313967;
   margin-top: 2rem;
   cursor: pointer;
 }
+
 .card-reserva p {
   color: black;
 }
+
 .puesto-disponible {
   font-weight: bold;
 }
+
 .div-hola {
   color: #313967;
 }
+
 .div-hola h2 {
   font-weight: bold;
   padding-top: 1rem;
@@ -230,9 +254,11 @@ tr:hover td{
   text-align: center;
   text-decoration: none;
 }
+
 .margin-input {
   margin: 1.8em 0;
 }
+
 .icon {
   height: 1.25em;
   color: #313967;
@@ -245,46 +271,57 @@ tr:hover td{
   padding: 0;
   background: white;
 }
+
 .navbar-nav {
   width: 100%;
   background: none;
   flex-wrap: nowrap;
 }
+
 .nav-item {
   flex: 1;
   padding: 0;
 }
+
 .nav-link {
   background-color: none;
   text-align: center;
 }
+
 /* Le damos un tamaño a las img de los botones y 
 les aplicamos transparencia para poner como activa solo la vista actualmente en foco de navegación con opacidad 1. */
 img[src*=".svg"] {
   height: 1.25em;
   opacity: 0.5;
 }
+
 /* Inicialmente, ponemos como activa la img del primer botón (la sección uno) con opacidad 1. */
 nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   opacity: 1;
 }
+
 /* Con cualquier page en target (los containers que tienen aplicado el attr data-role page que corresponden a cada vista de la app), pasamos a todas las img a opacidad .5 (para desmarcar la que estuviera activa ya que no sabemos cuál era). Por eso ubicamos el nav por debajo de todo el resto para poder seleccionarlo con el operador de hermanos (~). */
-[data-role="page"]:target ~ nav .nav-item img[src*=".svg"] {
+[data-role="page"]:target~nav .nav-item img[src*=".svg"] {
   opacity: 0.65;
 }
+
 /* Y luego evaluamos qué page está en target para marcar la img del botón correspondiente como activa con opacidad 1. */
-#uno:target ~ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
+#uno:target~nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   opacity: 1;
 }
-#dos:target ~ nav .nav-item:nth-of-type(2) img[src*=".svg"] {
+
+#dos:target~nav .nav-item:nth-of-type(2) img[src*=".svg"] {
   opacity: 1;
 }
-#tres:target ~ nav .nav-item:nth-of-type(3) img[src*=".svg"] {
+
+#tres:target~nav .nav-item:nth-of-type(3) img[src*=".svg"] {
   opacity: 1;
 }
-#cuatro:target ~ nav .nav-item:nth-of-type(4) img[src*=".svg"] {
+
+#cuatro:target~nav .nav-item:nth-of-type(4) img[src*=".svg"] {
   opacity: 1;
 }
+
 /*---------------------------TERMINA NAV BAR---------------------------------*/
 
 /*---------------------------Inicia HOME--------------------------------*/
@@ -294,9 +331,11 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   margin: 0;
   padding-top: 40vh;
 }
+
 .desktop-navbar {
   display: none;
 }
+
 /*--------------------------Termina HOME--------------------------------*/
 
 /**************************media querys****************************/
@@ -305,41 +344,52 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   * {
     line-height: 20px;
   }
+
   .desktop-navbar {
     display: none;
   }
+
   .card-reserva {
     font-size: 16px;
   }
+
   .card-reserva h2 {
     font-size: 21px;
     color: #313967;
   }
+
   .puesto-disponible {
     font-size: 13px;
     color: gray;
     padding-right: 0;
   }
+
   .div-hola {
     margin-top: 2em;
   }
+
   .div-hola h2 {
     font-size: 30px;
     padding-top: 1rem;
   }
+
   .table-hover {
     min-width: 550px;
   }
+
   .container {
     overflow: auto;
     max-height: 650px;
   }
-  table th, td{
-    
+
+  table th,
+  td {
+
     padding: 0.25em 0.5em 0.25em 1em;
     text-indent: -0.5em;
     text-align: center;
   }
+
   .encabezado {
     outline: 1px solid rgba(71, 71, 71, 0.3);
     top: 0;
@@ -347,45 +397,51 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
     background-color: #508dffd8;
   }
 }
+
 /*TABLET*/
 @media screen and (min-width: 769px) {
+
   /**********Inicia home**************/
-  #home {    
+  #home {
     color: white;
     position: absolute;
     padding: 0;
     margin: 0;
     padding-top: 50%;
   }
+
   .desktop-navbar {
     display: none;
   }
+
   /*********Termina home**************/
 }
+
 /*ESCRITORIO*/
 @media screen and (min-width: 1200px) {
   * {
     line-height: 20px;
   }
+
   .logo-navbar {
     padding: 0em 40% 0em 3em;
     color: #1c309d;
   }
+
   .desktop-navbar {
     display: initial;
   }
+
   .botton-navbar {
     display: none;
   }
+
   .div-hola,
   .form-user {
     margin-top: 4em;
   }
+
   .button {
     width: auto;
   }
 }
-/******************Termina Clases Bryan***********/
-
-/* fondo index */
-

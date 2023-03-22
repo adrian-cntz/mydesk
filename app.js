@@ -1,64 +1,61 @@
-var createError = require('http-errors');
-const express = require('express');
-var path = require('path');
-const methodOverride = require('method-override');
-const cookies = require('cookie-parser');
-var logger = require('morgan');
-const session = require('express-session');
-const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
+var createError = require("http-errors");
+const express = require("express");
+var path = require("path");
+const methodOverride = require("method-override");
+const cookies = require("cookie-parser");
+var logger = require("morgan");
+const session = require("express-session");
+const userLoggedMiddleware = require("./src/middleware/userLoggedMiddleware");
 const app = express();
 
-
 //Rutas
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/auth');
-var reservaRouter = require('./routes/reserva');
-var puestoRouter = require('./routes/puestos');
-var contactoRouter = require('./routes/contacto');
+var indexRouter = require("./src/routes/index");
+var usersRouter = require("./src/routes/users");
+var loginRouter = require("./src/routes/auth");
+var reservaRouter = require("./src/routes/reserva");
+var puestoRouter = require("./src/routes/puestos");
+var contactoRouter = require("./src/routes/contacto");
 
+app.set("views", path.join(__dirname, "./src/views"));
 
-//SESSION
-app.use(session({key: 'cookie_usuario', secret: 'secret', resave: false, saveUninitialized: false}));
-app.use(cookies());
-app.use(userLoggedMiddleware);
-app.use(express.static(path.join(__dirname, './public')));
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(logger('dev'));
-app.use(methodOverride('_method'));
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.set('view engine', 'ejs');
+app.use(cookies());
+app.use(
+  session({
+    key: "cookie_usuario",
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(methodOverride("_method"));
+app.use(userLoggedMiddleware);
+app.use(express.static(path.join(__dirname, "./public")));
 
-
+app.set("view engine", "ejs");
 
 //Rutas
-app.use('/', indexRouter.routes);
-app.use('/user', usersRouter.routes);
-app.use('/place', puestoRouter.routes);
-app.use('/login', loginRouter.routes);
-app.use('/booking', reservaRouter.routes);
-app.use('/contact', contactoRouter.routes);
+app.use("/", indexRouter.routes);
+app.use("/user", usersRouter.routes);
+app.use("/place", puestoRouter.routes);
+app.use("/login", loginRouter.routes);
+app.use("/booking", reservaRouter.routes);
+app.use("/contact", contactoRouter.routes);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+app.use(function (err, req, res, next) {
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
+  res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);
-  res.render('error', {
+  res.render("error", {
     message: err.message,
-    error: err
+    error: err,
   });
 });
 
-module.exports = app
+module.exports = app;

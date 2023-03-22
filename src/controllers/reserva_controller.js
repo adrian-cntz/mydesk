@@ -7,7 +7,6 @@ const viewReserva = async (req, res, next) => {
     const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
     poolDB.query(sql, (err, rows, fields) =>{
         if(!err){
-            //res.send(rows)
             res.render("./user/seleccionar-turno", {tipo, rows});
         }
         else{

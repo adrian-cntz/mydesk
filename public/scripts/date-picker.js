@@ -21,5 +21,5 @@ document.addEventListener("DOMContentLoaded", function () {
   //setear fecha actual como valor mínimo
   date.setAttribute("min", today);
   //setear 31-diciembre-2025 como fecha maxima
-  date.setAttribute("max", "2025-12-31");
+  date.setAttribute("max", "2027-12-31");
 });
