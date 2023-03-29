@@ -7,12 +7,14 @@
       <table class="table table-hover" id="lista-usuarios">
         <thead>
           <br />
-          <tr  class="encabezado">
+          <tr class="encabezado">
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">Número de puesto</th>
             <th scope="col">Estado</th>                
           </tr>
+        </thead>
+        <tbody>
             <% for(var i=0; i<rows.length; i++) {%>
           <tr>
             <td scope="col"><%= rows[i].id_puesto %></td>
@@ -21,13 +23,10 @@
             <td scope="col"><%= rows[i].estado %></td>
             <% } %>
           </tr>
-        </thead>
-        <tbody>
         </tbody>
       </table>
 </div>
 <script src="/scripts/sweetalert2.min.js"></script>
-<script src="/scripts/mensaje.js"></script>
 
 </main> 
 <%- include('../general/footer') %>  
