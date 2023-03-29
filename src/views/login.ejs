@@ -19,7 +19,7 @@
           <label for="legajo">Nº de legajo:</label>
           <input name="legajo" type="text" class="form-control margin-input" id="legajo" aria-describedby="emailHelp" required/>
           <% if (locals.errors && errors.legajo) { %>
-            <div class="alerta">
+            <div class="alert alert-danger">
               <%= errors.legajo.msg %>
             </div>
             <br>

@@ -1,35 +1,30 @@
 <%- include('../general/header') %>
-<%- include('../general/navbar') %>
-<body>
-    <main>    
-        <div class="container">
-            
-            <form action="/contact/add" method="POST">
-                <h2 class="text-center">Contacto</h2>
-                <div class="form-group">                    
-                    <textarea rows="5" maxlength="500" class="form-control margin-input" type="text" name="mensaje" placeholder="Consulta..."></textarea>
-                    <% if (locals.errors && errors.mensaje) { %>
-                        <div class="alerta">
-                        <%= errors.mensaje.msg %>
+    <%- include('../general/navbar') %>
+
+        <body>
+            <main>
+                <div class="container">
+                    <form action="/contact/add" method="POST">
+                        <h2 class="text-center">Contacto</h2>
+                        <div class="form-group">
+                            <textarea rows="5" maxlength="500" class="form-control margin-input" type="text"
+                                name="mensaje" placeholder="Consulta..."></textarea>
+                            <% if (locals.errors && errors.mensaje) { %>
+                                <div class="alert alert-danger">
+                                    <strong>Error: </strong><%= errors.mensaje.msg %>
+                                </div>
+                                <% } %>
+                                    <% if (locals.ok && ok.mensaje) { %>
+                                        <div class="alert alert-success">
+                                            <strong>Éxito:</strong><%= ok.mensaje.msg %>
+                                        </div>
+                                        <% } %>
                         </div>
-                        <br>
-                    <% } %>
-                    <% if (locals.ok && ok.mensaje) { %>
-                        <div style="color: rgb(10, 105, 46);
-                        font-weight: bold;
-                        font-size: large;">
-                        <%= ok.mensaje.msg %>
-                        </div>
-                        <br>
-                    <% } %>
+                        <button type="submit" class="btn btn-secondary">Enviar consulta</button>
+                    </form>
                 </div>
-            
-        
-                <button type="submit" class="btn btn-secondary">Enviar consulta</button>
-                
-            </form>
-        </div>    
-    </main>    
-    <%- include('../general/footer') %>    
-</body>
-</html>
+            </main>
+            <%- include('../general/footer') %>
+        </body>
+
+        </html>

@@ -98,10 +98,47 @@ tr:hover td {
   border-radius: 5px;
 }
 
-.alerta {
-  color: rgb(167, 7, 7);
+.header {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.tu-puesto {
+  padding-top: 1rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px gray;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: white;
+}
+
+.profile-icon {
+  width: 120px;
+  height: 120px;
+  fill: #313967;
+}
+
+.profile-name {
+  margin-top: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  font-size: large;
+}
+
+.profile-details {
+  margin-top: 2rem;
+}
+
+.details-card {
+  border: solid 1px gray;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: white;
 }
 
 .overlay {
