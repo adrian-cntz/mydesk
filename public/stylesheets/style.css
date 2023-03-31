@@ -55,6 +55,7 @@ label {
   border-radius: 5px;
   padding-bottom: 3rem;
   max-width: 1200px;
+  display: inline-block;
 }
 
 .nav-link {
@@ -70,8 +71,13 @@ tr:hover td {
   background-color: #d6eaf8 !important;
 }
 
-.onHover:hover {
-  background-color: #d6eaf8;
+.onHover {
+  text-decoration: none;
+  margin: 0;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #lista-turnos {
@@ -109,18 +115,16 @@ tr:hover td {
 
 .profile {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  border: solid 1px gray;
-  border-radius: 5px;
-  padding: 1rem;
-  margin-top: 2rem;
-  background-color: white;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .profile-icon {
   width: 120px;
   height: 120px;
+  margin-right: 20px;
   fill: #313967;
 }
 
@@ -128,17 +132,71 @@ tr:hover td {
   margin-top: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .profile-details {
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .details-card {
   border: solid 1px gray;
   border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.details-card-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.details-card-label {
+  font-weight: 750;
+  margin-right: 10px;
+}
+
+.details-card-value {
+  color: gray;
+  margin: 0;
+}
+
+.details-card-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
-  background-color: white;
+}
+
+.details-card-text {
+  padding: 1em 0;
+  margin: 0;
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+
+.details-card-title {
+  font-weight: 750;
+  padding: 0;
+  margin: 0;
+}
+
+.rows {
+  min-width: 70px;
+}
+
+.fa-regular {
+  color: red; 
+  display: flex; 
+  align-items: center;
 }
 
 .overlay {
@@ -292,7 +350,7 @@ tr:hover td {
   text-decoration: none;
 }
 
-.margin-input {
+.form-control {
   margin: 1.8em 0;
 }
 
@@ -320,9 +378,12 @@ tr:hover td {
   padding: 0;
 }
 
-.nav-link {
-  background-color: none;
-  text-align: center;
+.navbar-text {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding-right: 0.5rem;
+  color: #313967;
 }
 
 /* Le damos un tamaño a las img de los botones y 
@@ -427,11 +488,19 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
     text-align: center;
   }
 
-  .encabezado {
-    outline: 1px solid rgba(71, 71, 71, 0.3);
-    top: 0;
-    position: sticky;
-    background-color: #508dffd8;
+  .details-card-row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .details-card-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .details-card-title {
+    font-size: 14px;
   }
 }
 

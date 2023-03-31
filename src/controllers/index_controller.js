@@ -1,17 +1,19 @@
 "use strict";
 const poolDB = require("../database/config/db");
 
-const home = async (req, res) => {
-  console.log(req.cookies.legajo);
+const home = (req, res) => {
   const legajo = req.cookies.legajo;
+
   const sql = `SELECT * from usuarios WHERE legajo = ${legajo}`;
 
-  try {
-    const { rows } = await poolDB.query(sql);
-    res.render("./user/workspaces-list", { rows });
-  } catch (err) {
-    console.error(err);
-  }
+  poolDB.query(sql, (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error al realizar la consulta");
+    } else {
+      res.render("./user/workspaces-list", { rows });
+    }
+  });
 };
 
 module.exports = {

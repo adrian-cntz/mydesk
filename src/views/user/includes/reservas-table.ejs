@@ -1,0 +1,31 @@
+<% for(var i=0; i<rows.length; i++) {%>
+    <% var tipo=rows[i].escritorio_id, tpuesto="" ;const f=rows[i].fecha; var options={ year: 'numeric' ,
+      month: 'long' , day: 'numeric' } %>
+      <%switch(rows[i].tipo) {case 1:tpuesto="Escritorio individual" ;break;case 2:tpuesto="Mesa grupal"
+        ;break;case 3:tpuesto="Sala de reuniones" ;break;} %>
+        <% const nuevaf=f.toLocaleDateString("es-ES", options);%>
+          <tr>
+            <td class="rows" scope="col">
+              <%= rows[i].id_turno %>
+            </td>
+            <td class="rows" scope="col">
+              <%= nuevaf %>
+            </td>
+            <td class="rows" scope="col">
+              <%= rows[i].escritorio_id %>
+            </td>
+            <td class="rows" scope="col">
+              <%= rows[i].piso %>
+            </td>
+            <td class="rows" scope="col">
+              <%= tpuesto %>
+            </td>
+            <td class="rows" scope="col">
+              <div>
+                <a class="nav-link border-right" onclick="mensaje()">
+                  <i class="fa-regular fa-trash-can"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <% } %>

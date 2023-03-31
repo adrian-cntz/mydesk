@@ -1,4 +1,4 @@
-var x = document.getElementById("turno");
+var x = document.getElementById("lista-turnos");
 var id = document.getElementById("usuario");
 
 x.addEventListener("click", (e) => mensaje);

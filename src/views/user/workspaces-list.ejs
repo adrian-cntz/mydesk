@@ -4,122 +4,19 @@
     <%- include('../general/navbar') %>
       <div class="container text-center">
         <div class="div-hola">
-          <% if(rows && rows.length > 0) { %>
-          <h1>Hola, <%=rows[0].nombre%></h1>
-          <% } %>
+          <% if(rows && rows.length> 0) { %>
+            <h1>Hola, <%=rows[0].nombre%>
+            </h1>
+            <% } %>
               <h3>Puestos disponibles</h3>
         </div>
-
         <div class="row mb-2">
-
-          <article class="col-lg-4 col-md-6 card-reserva" id="btn-abrir-popup">
-            <div class="padingprod shadow-sm">
-              <div class="row g-0 rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
-                <div class="col-4 nop">
-                  <img class="img1" style="width: 100%; " src="/images/escritorio_indiv.jpg" alt="" />
-                </div>
-                <div class="col p-4 d-flex flex-column position-static">
-                  <h2 class="mb-0 titulo1">Escritorio individual</h2>
-                  <p class="card-text mb-auto">
-                    Reserva individual de 8 hs con multiples beneficios
-                  </p>
-                </div>
-              </div>
-              <div class="text-center">
-                <a class="btn btn-primary" href="/booking/view/1">Reservar</a>
-              </div>
-            </div>
-          </article>
-
-          <div class="overlay" id="overlay">
-            <div class="popup" id="popup">
-              <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
-              <h3>Espacio ideal de trabajo individual</h3>
-              <ul>
-                <li><i class="fa-solid fa-arrow-right"></i> Conexión a Ethernet por cable o una red wifi segura con
-                  soporte de TI.</li>
-                <li><i class="fa-solid fa-arrow-right"></i> Disponibilidad de impresora, artículos de oficina y una
-                  trituradora de papel.</li>
-                <li><i class="fa-solid fa-arrow-right"></i> Conexión a red electrica con disponibilidad para 220v o USB.
-                </li>
-                <li><i class="fa-solid fa-arrow-right"></i> Cajones con seguridad para guardar tus pertenecias.</li>
-                <li><i class="fa-solid fa-arrow-right"></i> Sillones ergonómicos.</li>
-              </ul>
-            </div>
-          </div>
-
-          <article class="col-lg-4 col-md-6 card-reserva" id="btn-abrir-popup_2">
-            <div class="padingprod shadow-sm">
-              <div class="row g-0 rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
-                <div class="col-4 nop">
-                  <img class="img1" style="width: auto; height: auto" src="/images/oficina-privada.png" alt="" />
-                </div>
-                <div class="col p-5 d-flex flex-column position-static">
-                  <h2 class="mb-0 titulo1">Mesa para 4 personas</h2>
-                  <p class="card-text mb-auto"> Ideal para trabajar en equipo </p>
-                </div>
-              </div>
-              <div class="text-center">
-                <a class="btn btn-primary" href="/booking/view/2">Reservar</a>
-              </div>
-            </div>
-          </article>
-
-          <div class="overlay" id="overlay_2">
-            <div class="popup" id="popup_2">
-              <a href="#" id="btn-cerrar-popup_2" class="btn-cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
-              <h3>Espacio ideal de trabajo grupal </h3>
-              <ul>
-                <li><i class="fa-solid fa-arrow-right"></i> Conexión a Ethernet por cable o una red wifi segura con
-                  soporte de TI.</li>
-                <li><i class="fa-solid fa-arrow-right"></i> Conexión a red electrica con disponibilidad para 220v o USB.
-                </li>
-                <li><i class="fa-solid fa-arrow-right"></i> Mesa redonda con sillas ergonómicas.</li>
-              </ul>
-            </div>
-          </div>
-
-
-          <article class="col-lg-4 col-md-6 card-reserva" id="btn-abrir-popup_3">
-            <div class="padingprod shadow-sm">
-              <div class="row g-0 rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
-                <div class="col-4 nop">
-                  <img class="img1" style="width: 110%; height: auto;" src="/images/sala-reuniones.jpg" alt="" />
-                </div>
-                <div class="col p-4 d-flex flex-column position-static">
-                  <h2 class="mb-0 titulo1">Sala de reuniones</h2>
-                  <p class="card-text mb-auto">
-                    Espacio amplio para presentaciones
-                  </p>
-                </div>
-              </div>
-              <div class="text-center" style="margin: 10px;">
-                <a class="btn btn-primary" href="/booking/view/3">Reservar</a>
-              </div>
-            </div>
-          </article>
-
-          <div class="overlay" id="overlay_3">
-            <div class="popup" id="popup_3">
-              <a href="#" id="btn-cerrar-popup_3" class="btn-cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
-              <h3>Sala de presentaciones</h3>
-              <ul>
-                <li><i class="fa-solid fa-arrow-right"></i> Mesa amplia con sillas ergonómicas.</li>
-                <li><i class="fa-solid fa-arrow-right"></i> Sala para reuniones de hasta 20 personas.</li>
-                <li><i class="fa-solid fa-arrow-right"></i> Conexión a Ethernet por cable o una red wifi segura con
-                  soporte de TI.</li>
-                <li><i class="fa-solid fa-arrow-right"></i> Posibilidad de conexión a TV FULLHD o proyector para
-                  presentaciones.</li>
-              </ul>
-            </div>
-          </div>
+          <%- include('./includes/puestos')%>
         </div>
       </div>
-
       <script src="/scripts/sweetalert2.min.js"></script>
       <script src="/scripts/popup.js"></script>
       <%- include('../general/footer') %>
-        <!--Termina Tipos de oficina-->
   </body>
 
   </html>
