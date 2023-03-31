@@ -40,6 +40,7 @@ h2 {
 
 h3 {
   font-weight: bold;
+  font-size: 12px;
 }
 
 label {
@@ -102,11 +103,6 @@ tr:hover td {
   margin-top: 5px;
   margin-left: 5px;
   border-radius: 5px;
-}
-
-.header {
-  margin-top: 2rem;
-  text-align: center;
 }
 
 .tu-puesto {
@@ -360,6 +356,24 @@ tr:hover td {
   font-size: 200%;
 }
 
+.mydesk-copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.15rem;
+  padding: 10px 0;
+}
+
+.mydesk-copyright__title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.mydesk-copyright__title i {
+  margin-left: 5px;
+}
 
 /*---------------------------INICIA NAV BAR---------------------------------*/
 .navbar {
@@ -532,6 +546,7 @@ nav .nav-item:nth-of-type(1) img[src*=".svg"] {
   .logo-navbar {
     padding: 0em 40% 0em 3em;
     color: #1c309d;
+    text-decoration: none;
   }
 
   .desktop-navbar {

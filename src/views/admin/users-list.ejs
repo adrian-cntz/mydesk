@@ -1,34 +1,26 @@
-<%# muestra una lista de todos los usuarios - accesible desde Usuarios %> 
 <%- include('../general/header') %>
- <%- include ('../general/navbar') %>
-<body>
-    <% include ('../general/navbar'); %> 
-    <div class="container">
-      <br>
-        <h2>Listado de usuarios</h2>        
-        <table class="table table-hover" id="lista-usuarios">
+  <%- include ('../general/navbar') %>
+
+    <body>
+      <main>
+        <div class="container">
+          <h2 class="text-center">Listado de usuarios</h2>
+          <table class="table table-hover" id="lista-usuarios">
             <thead>
-              <br />
-              <tr  class="encabezado">
+              <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Legajo</th>
-                <th scope="col">Email</th>                
-            <!--<th scope="col">Editar</th>-->
-              </tr>
-              
-                <% for(var i=0; i<rows.length; i++) {%>
-              <tr>
-                <td scope="col"><%= rows[i].id_usuario %></td>
-                <td scope="col"><%= rows[i].nombre %></td>
-                <td scope="col"><%= rows[i].legajo %></td>
-                <td scope="col"><%= rows[i].mail %></td>
-                <% } %>
+                <th scope="col">Email</th>
               </tr>
             </thead>
             <tbody>
+              <%- include('../user/includes/user-list') %>
             </tbody>
           </table>
-    </div>
-  <%- include('../general/footer') %>
-</body>    
+        </div>
+      </main>
+      <%- include('../general/footer') %>
+    </body>
+
+    </html>

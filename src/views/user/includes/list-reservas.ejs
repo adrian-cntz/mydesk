@@ -1,0 +1,34 @@
+<% rows.forEach((row)=> {%>
+    <% const tipo=row.escritorio_id %>
+      <% const id=row.usuario_id %>
+        <% let tpuesto="" %>
+          <% const f=row.fecha %>
+            <% const options={ year: 'numeric' , month: 'long' , day: 'numeric' } %>
+              <% switch(row.tipo) { case 1: tpuesto="Escritorio individual" ; break; case 2:
+                tpuesto="Mesa grupal" ; break; case 3: tpuesto="Sala de reuniones" ; break; } %>
+                <% const newRowU=rowsU.find(usuario=> usuario.id_usuario === id) %>
+                  <% const nuevaf=f.toLocaleDateString("es-ES", options);%>
+                    <tr>
+                      <td class="rows" scope="col">
+                        <%= row.id_turno %>
+                      </td>
+                      <td class="rows" scope="col">
+                        <%= nuevaf %>
+                      </td>
+                      <td class="rows" scope="col">
+                        <%= tpuesto %>
+                      </td>
+                      <td class="rows" scope="col">
+                        <%= newRowU ? newRowU.nombre : "" %>
+                      </td>
+                      <td class="rows" scope="col">
+                        <%= newRowU ? newRowU.legajo : "" %>
+                      </td>
+                      <td class="rows" scope="col">
+                        <%= tipo %>
+                      </td>
+                      <td class="rows" scope="col">
+                        <%= row.piso %>
+                      </td>
+                    </tr>
+                    <% }) %>

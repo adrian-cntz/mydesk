@@ -1,0 +1,24 @@
+<% for(var i=0; i < rowsC.length; i++) {%>
+    <%var id=rowsC[i].usuario_id ; const f=rowsC[i].fecha; var options={ year: 'numeric' , month: 'long' ,
+      day: 'numeric' };%>
+      <tr>
+        <% function buscar(usuario) {return usuario.id_usuario===id} %>
+          <% let newRowU=rowsU.find(usuario=> buscar(usuario)) %>
+            <% const nuevaf=f.toLocaleDateString("es-ES", options);%>
+              <td class="rows" scope="col">
+                <%= rowsC[i].id_contacto %>
+              </td>
+              <td class="rows" scope="col">
+                <%= nuevaf %>
+              </td>
+              <td class="rows" scope="col">
+                <%= newRowU.nombre %>
+              </td>
+              <td class="rows" scope="col">
+                <%= newRowU.mail %>
+              </td>
+              <td class="rows" scope="col">
+                <%= rowsC[i].mensaje %>
+              </td>
+      </tr>
+      <% } %>

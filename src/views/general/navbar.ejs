@@ -1,124 +1,104 @@
-<!--Inicia Nav Desktop-->
 <header>
-<div>
-  <div class="row desktop-navbar">
+  <div class="desktop-navbar">
     <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
-      <div class="logo-navbar">
+      <a class="logo-navbar" href="/home">
         <h1>MyDesk</h1>
-      </div>
-      <div class="collapse navbar-collapse" id="barra">
-        <ul class="navbar-nav text-center ml-auto">
-          <% if(locals.userLogged[0].es_admin == 0){ %>
-          <li class="nav-item">
-            <a class="nav-link" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/booking/<%= locals.userLogged[0].id_usuario %>">Mis reservas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact/new">Contacto</a>
-          </li>
-          <% } %>
-         <% if(locals.userLogged[0].es_admin == 1){ %>
-          <li class="nav-item">
-            <a class="nav-link" href="/booking/all">Reservas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/place/all">Puestos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/new">Crear usuario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/all">Usuarios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact/list">Contacto</a>
-          </li>
-          <% } %>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/profile">Mi perfil</a>
-          </li>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <% if(locals.userLogged[0].es_admin==0){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/booking/<%= locals.userLogged[0].id_usuario %>">Mis reservas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact/new">Contacto</a>
+            </li>
+            <% } %>
+              <% if(locals.userLogged[0].es_admin==1){ %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/booking/all">Reservas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/place/all">Puestos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/new">Crear usuario</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/all">Usuarios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact/list">Consultas</a>
+                </li>
+                <% } %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/profile">Mi perfil</a>
+                  </li>
         </ul>
       </div>
     </nav>
   </div>
-</div>
-<!--Termina Nav Desktop-->
-<!--Inicia Nav Mobile-->
-<nav 
-  class="
-    col
-    navbar navbar-expand navbar-light
-    fixed-bottom
-    mb-0
-    border-top
-    botton-navbar
-  "
->
-  <div class="collapse navbar-collapse" id="barra">
-    <ul class="navbar-nav">
-      <% if(locals.userLogged[0].es_admin == 0){ %>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/home"
-          ><i class="icon fa-solid fa-house"></i>
-          <h5>Inicio</h5>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/booking/<%= locals.userLogged[0].id_usuario %>"
-          ><i class="icon fa-solid fa-clipboard"></i>
-          <h5>Mis reservas</h5>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/contact/new"
-          ><i class="icon fa-solid fa-address-card"></i>
-          <h5>Contacto</h5>
-        </a>
-      </li>
-      <% } %>
-      
-      <% if(locals.userLogged[0].es_admin == 1){ %>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/booking/all"
-          ><i class="icon fa-solid fa-clipboard"></i>
-          <h5>Reservas</h5>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/place/all"
-        ><i class="icon fa-solid fa-location-pin"></i>
-          <h5>Puestos</h5>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/user/new"
-          ><i class="icon fa-solid fa-user-plus"></i>
-          <h5>Crear usuario</h5>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/user/all"
-          ><i class="icon fa-solid fa-users"></i>
-          <h5>Usuarios</h5>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/contact/list"
-          ><i class="icon fa-solid fa-address-card"></i>
-          <h5>Contacto</h5>
-        </a>
-      </li>
-      <% } %>
-      <li class="nav-item">
-        <a class="nav-link border-right" href="/user/profile"
-          ><i class="icon fa-solid fa-user"></i>
-          <h5>Mi perfil</h5>
-        </a>
-      </li>
-
-    </ul>
-  </div>
-</nav>
+  <!--Inicia Nav Mobile-->
+  <nav class="col navbar navbar-expand navbar-light fixed-bottom mb-0 border-top botton-navbar">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if(locals.userLogged[0].es_admin==0){ %>
+          <li class="nav-item">
+            <a class="nav-link border-right" href="/home"><i class="icon fa-solid fa-house"></i>
+              <h5>Inicio</h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-right" href="/booking/<%= locals.userLogged[0].id_usuario %>"><i
+                class="icon fa-solid fa-clipboard"></i>
+              <h5>Mis reservas</h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-right" href="/contact/new"><i class="icon fa-solid fa-address-card"></i>
+              <h5>Contacto</h5>
+            </a>
+          </li>
+          <% } %>
+            <% if(locals.userLogged[0].es_admin==1){ %>
+              <li class="nav-item">
+                <a class="nav-link border-right" href="/booking/all"><i class="icon fa-solid fa-clipboard"></i>
+                  <h5>Reservas</h5>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link border-right" href="/place/all"><i class="icon fa-solid fa-location-pin"></i>
+                  <h5>Puestos</h5>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link border-right" href="/user/new"><i class="icon fa-solid fa-user-plus"></i>
+                  <h5>Crear usuario</h5>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link border-right" href="/user/all"><i class="icon fa-solid fa-users"></i>
+                  <h5>Usuarios</h5>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link border-right" href="/contact/list"><i class="icon fa-solid fa-address-card"></i>
+                  <h5>Consultas</h5>
+                </a>
+              </li>
+              <% } %>
+                <li class="nav-item">
+                  <a class="nav-link border-right" href="/user/profile"><i class="icon fa-solid fa-user"></i>
+                    <h5>Mi perfil</h5>
+                  </a>
+                </li>
+      </ul>
+    </div>
+  </nav>
 </header>

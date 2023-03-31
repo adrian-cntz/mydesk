@@ -21,7 +21,7 @@ const validations = require('../middleware/validateRegisterMiddleware');
 router.get('/all', getAllUsers);
 router.get('/get/:id', guestMiddleware, getUser);
 router.get('/new', registro)
-router.post('/get/new', validations, addUser);
+router.post('/new', validations, addUser);
 router.put('/update/:id', updateUser);
 router.delete('/delete/:id', deleteUser);
 router.get('/logout', logout);

@@ -2,55 +2,55 @@
   <%- include ('../general/navbar') %>
 
     <body>
-      <div class="container">
-        <header class="header">
-          <h1 class="tu-puesto">Mi Perfil</h1>
-        </header>
-        <section class="profile">
-          <object type="image/svg+xml" data="/images/profile-icon.svg" class="profile-icon"></object>
-          <p class="profile-name">
-            <%=rows[0].nombre%>
-          </p>
-        </section>
-        <section class="profile-details">
-          <div class="details-card">
-            <div class="details-card-row">
-              <span class="details-card-label">Email:</span>
-              <p class="details-card-value">
-                <%=rows[0].mail%>
-              </p>
-            </div>
-            <div class="details-card-row">
-              <span class="details-card-label">Legajo:</span>
-              <p class="details-card-value">
-                <%=rows[0].legajo%>
-              </p>
-            </div>
-          </div>
-          <a class="onHover" href="/user/profile/password/<%=rows[0].id_usuario%>">
-            <div class="details-card-row">
-              <div class="details-card-icon">
-                <object type="image/svg+xml" data="/images/change-pass.svg"></object>
+      <main>
+        <div class="container">
+          <h2 class="text-center">Mi Perfil</h2>
+          <section class="profile">
+            <object type="image/svg+xml" data="/images/profile-icon.svg" class="profile-icon"></object>
+            <p class="profile-name">
+              <%=rows[0].nombre%>
+            </p>
+          </section>
+          <section class="profile-details">
+            <div class="details-card">
+              <div class="details-card-row">
+                <span class="details-card-label">Email:</span>
+                <p class="details-card-value">
+                  <%=rows[0].mail%>
+                </p>
               </div>
-              <div class="details-card-text">
-                <p class="details-card-title">Cambiar contraseña</p>
+              <div class="details-card-row">
+                <span class="details-card-label">Legajo:</span>
+                <p class="details-card-value">
+                  <%=rows[0].legajo%>
+                </p>
               </div>
             </div>
-            <a class="onHover" href="/user/logout">
+            <a class="onHover" href="/user/profile/password/<%=rows[0].id_usuario%>">
               <div class="details-card-row">
                 <div class="details-card-icon">
-                  <object type="image/svg+xml" data="/images/close-session.svg"></object>
+                  <object type="image/svg+xml" data="/images/change-pass.svg"></object>
                 </div>
                 <div class="details-card-text">
-                  <p class="details-card-title">
-                    Cerrar sesión
-                  </p>
+                  <p class="details-card-title">Cambiar contraseña</p>
                 </div>
               </div>
-            </a>
-        </section>
-      </div>
-      <%- include('../general/footer') %>
+              <a class="onHover" href="/user/logout">
+                <div class="details-card-row">
+                  <div class="details-card-icon">
+                    <object type="image/svg+xml" data="/images/close-session.svg"></object>
+                  </div>
+                  <div class="details-card-text">
+                    <p class="details-card-title">
+                      Cerrar sesión
+                    </p>
+                  </div>
+                </div>
+              </a>
+          </section>
+        </div>
+        <%- include('../general/footer') %>
     </body>
+    </main>
 
     </html>
