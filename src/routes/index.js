@@ -1,14 +1,13 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const {home} = require('../controllers/index_controller');
+const { home } = require("../controllers/index_controller");
+const authMiddleware = require("../middleware/authMiddleware");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
+router.get("/", function (req, res, next) {
+  res.render("index");
 });
-router.get('/home', home);
-
+router.get("/home", authMiddleware, home);
 
 module.exports = {
-  routes: router
-}
+  routes: router,
+};

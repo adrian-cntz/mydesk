@@ -1,12 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {contact,addContacto,viewContacto} = require('../controllers/contacto_controller')
+const {
+  contact,
+  addContacto,
+  viewContacto,
+} = require("../controllers/contacto_controller");
 
-router.get('/new', contact);
-router.post('/add', addContacto);
-router.get('/list', viewContacto);
+router.get("/new", contact);
+router.post("/add", addContacto);
+router.get("/list", viewContacto);
 
 module.exports = {
-    routes: router,
-  };
-  
+  routes: router,
+};
