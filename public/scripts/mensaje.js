@@ -1,9 +1,14 @@
-var x = document.getElementById("lista-turnos");
-var id = document.getElementById("usuario");
+const eliminarLinks = document.querySelectorAll(".eliminar");
+eliminarLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const idTurno = link.dataset.id;
+    const idUsuario = link.dataset.usuario;
+    mensaje(idTurno, idUsuario);
+  });
+});
 
-x.addEventListener("click", (e) => mensaje);
-
-function mensaje() {
+function mensaje(idTurno, idUsuario) {
   Swal.fire({
     title: "¿Estás seguro que queres borrar la reserva?",
     showCancelButton: true,
@@ -11,8 +16,21 @@ function mensaje() {
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.value) {
-      window.location.href = `/booking/delete/${id.textContent}/${x.textContent}`;
-      Swal.fire("Borrado confirmado", "", "success");
+      var fila = document.getElementById("fila_" + idTurno);
+      fila.parentNode.removeChild(fila);
+      fetch(`/booking/delete/${idUsuario}/${idTurno}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Error al eliminar la reserva");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          Swal.fire("Borrado confirmado", data.message, "success");
+        })
+        .catch((error) => {
+          Swal.fire("Error al eliminar la reserva", error.message, "error");
+        });
     }
   });
 }

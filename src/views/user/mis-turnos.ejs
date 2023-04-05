@@ -4,8 +4,7 @@
     <body>
       <main>
         <div class="container">
-          <h2 class="text-center" >Mis reservas</h2>
-          <div id="usuario" style="visibility: hidden"><%= id %></div><!-- se podria sacar despues de arreglar el eliminar -->
+          <h2 class="text-center">Mis reservas</h2>
           <table class="table table-hover" id="lista-turnos">
             <caption>Reservas del usuario</caption>
             <thead>
@@ -19,7 +18,7 @@
               </tr>
             </thead>
             <tbody>
-             <%- include('./includes/reservas-table') %>
+              <%- include('./includes/reservas-table', {idUsuario: idUsuario}) %>
             </tbody>
           </table>
         </div>
@@ -28,4 +27,5 @@
       </main>
       <%- include('../general/footer') %>
     </body>
+
     </html>

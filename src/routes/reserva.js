@@ -14,10 +14,10 @@ const authMiddleware = require("../middleware/authMiddleware");
 router.get("/view/:tipo", viewReserva);
 router.get("/all", getAllReservas);
 router.get("/date", getReservasFecha);
-router.get("/:id", getReserva);
+router.get("/:id", authMiddleware, getReserva);
 router.post("/new", authMiddleware, addReserva);
 router.put("/update/:id", authMiddleware, updateReserva);
-router.get("/delete/:id/:rId", deleteReserva);
+router.get("/delete/:id/:rId", authMiddleware, deleteReserva);
 
 module.exports = {
   routes: router,
