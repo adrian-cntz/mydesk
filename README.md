@@ -13,7 +13,7 @@ Bootstrap
 Node.js
 MySQL
 
-heroku: https://mydesk-app.herokuapp.com/
+fly.io : https://mydesk.fly.dev/
 
 instala modulos: npm i
 levanta servidor: npm start
