@@ -30,6 +30,7 @@
     "path": "^0.12.7",
     "req-flash": "0.0.3",
     "sequelize": "^6.12.0-alpha.1",
+    "side-channel": "^1.0.4",
     "sweetalert2": "^11.3.0",
     "uid-safe": "^2.1.5"
   },
