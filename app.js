@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const cookies = require("cookie-parser");
 var logger = require("morgan");
 const session = require("express-session");
+const cache = require("memory-cache");
 const userLoggedMiddleware = require("./src/middleware/userLoggedMiddleware");
 const app = express();
 
@@ -17,6 +18,46 @@ var puestoRouter = require("./src/routes/puestos");
 var contactoRouter = require("./src/routes/contacto");
 
 app.set("views", path.join(__dirname, "./src/views"));
+
+const imageCache = (req, res, next) => {
+  const key = "__image__" + req.originalUrl || req.url;
+  const cachedImage = cache.get(key);
+
+  if (cachedImage) {
+    res.set("Content-Type", "image/jpeg");
+    res.send(cachedImage);
+    return;
+  }
+
+  res.sendResponse = res.send;
+  res.send = (body) => {
+    if (res.statusCode === 200) {
+      cache.put(key, body, 300000);
+    }
+    res.sendResponse(body);
+  };
+  next();
+};
+
+app.get("/images/sala-reuniones.jpg", imageCache, (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/images/sala-reuniones.jpg"));
+});
+
+app.get("/images/home-tablet.png", imageCache, (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/images/home-tablet.png"))
+})
+
+app.get("/images/oficina-privada.png", imageCache, (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/images/oficina-privada.png"));
+});
+
+app.get("/images/body-bg.jpg", imageCache, (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/images/body-bg.jpg"))
+})
+
+app.get("/images/escritorio_indiv.jpg", imageCache, (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/images/escritorio_indiv.jpg"))
+})
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
