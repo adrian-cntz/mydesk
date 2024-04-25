@@ -1,9 +1,9 @@
 module.exports = {
         database: {
-            host: 'mysql-c1g1.alwaysdata.net',
-            user: 'c1g1',
-            password: 'Grupo01',
-            database: 'c1g1_empresa'
+            host: 'sql.freedb.tech',
+            user: 'freedb_c1g1_user',
+            password: '*zW6Vah!t?qMvR#',
+            database: 'freedb_c1g1_empresa'
         }/*
         database: {
             host: '127.0.0.1',
